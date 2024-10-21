@@ -374,8 +374,6 @@ offset = Vector2(0, -11)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("13_ju3n8")
-damage = null
-knockback_force = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/SwordSprite/Hitbox" index="0"]
 position = Vector2(-0.593947, -14.7222)

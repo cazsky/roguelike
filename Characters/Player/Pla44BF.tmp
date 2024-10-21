@@ -337,9 +337,9 @@ _data = {
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("2_t1paw")
-acceleration = 40
-max_speed = 300
-hp = 2
+acceleration = null
+max_speed = null
+hp = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 texture_filter = 1
@@ -374,8 +374,6 @@ offset = Vector2(0, -11)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("13_ju3n8")
-damage = null
-knockback_force = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/SwordSprite/Hitbox" index="0"]
 position = Vector2(-0.593947, -14.7222)

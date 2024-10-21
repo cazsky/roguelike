@@ -2,8 +2,9 @@ extends Character
 
 @onready var sword: Node2D = get_node("Sword")
 @onready var sword_animation_player: AnimationPlayer = sword.get_node("SwordAnimationPlayer")
+@onready var sword_hitbox: Area2D = get_tree().get_scene().get_node("Sword/Node2D/SwordSprite/Hitbox")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	
 	# Character Facing Mouse
@@ -14,6 +15,7 @@ func _process(delta: float) -> void:
 		
 	# Sword Rotation
 	sword.rotation = mouse_direction.angle()
+	sword_hitbox.knockback_direction = mouse_direction
 	if sword.scale.y == 1 and mouse_direction.x < 0:
 		sword.scale.y = -1
 	elif sword.scale.y == -1 and mouse_direction.x > 0:

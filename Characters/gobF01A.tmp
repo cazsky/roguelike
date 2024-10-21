@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dq4l6tx0afug3"]
+[gd_scene load_steps=12 format=3 uid="uid://dq4l6tx0afug3"]
 
 [ext_resource type="PackedScene" uid="uid://cbdihxuow1oun" path="res://Characters/enemy.tscn" id="1_155td"]
 [ext_resource type="Texture2D" uid="uid://bsbuy7uye8rou" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/goblin_run_anim_f0.png" id="2_80eg1"]
@@ -44,18 +44,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.219608)]
-}
 
 [sub_resource type="Animation" id="Animation_cp1ju"]
 resource_name = "run"
@@ -74,46 +62,15 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_p8l0a"]
-resource_name = "hurt"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [3, 3, 3, 3, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.219608), Color(1, 1, 1, 1), Color(1, 1, 1, 0.219608), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5tg7w"]
 _data = {
 "RESET": SubResource("Animation_ur16m"),
-"hurt": SubResource("Animation_p8l0a"),
 "run": SubResource("Animation_cp1ju")
 }
 
 [node name="Goblin" instance=ExtResource("1_155td")]
-hp = 2
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-modulate = Color(1, 1, 1, 0.219608)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_s5l8p")
 
