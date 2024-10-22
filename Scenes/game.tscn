@@ -369,7 +369,6 @@ collision_layer = 1
 collision_mask = 1
 acceleration = 115
 max_speed = 170
-hp = 2
 
 [node name="NavigationAgent2D" type="NavigationRegion2D" parent="." groups=["navigation"]]
 navigation_polygon = SubResource("NavigationPolygon_7fovq")
@@ -391,4 +390,3 @@ collision_enabled = false
 position = Vector2(200, 227)
 acceleration = 15
 max_speed = 70
-hp = 2

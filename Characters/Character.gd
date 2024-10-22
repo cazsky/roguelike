@@ -11,7 +11,7 @@ const WEIGHT = 10
 @export var hp: int = 2
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
-@onready var state_machine: Node = get_node("FiniteState")
+@onready var state_machine: Node = get_node("FiniteStateMachine")
 
 var move_direction: Vector2 = Vector2.ZERO
 

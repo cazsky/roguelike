@@ -60,6 +60,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_p8l0a"]
 resource_name = "hurt"
 length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -88,6 +89,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_cp1ju"]
 resource_name = "run"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,18 +102,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5tg7w"]
 _data = {
@@ -121,7 +111,9 @@ _data = {
 }
 
 [node name="Goblin" instance=ExtResource("1_155td")]
-texture_filter = 1
+acceleration = null
+max_speed = null
+hp = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 modulate = Color(1, 1, 1, 0.219608)

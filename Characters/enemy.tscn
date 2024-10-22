@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbdihxuow1oun"]
+[gd_scene load_steps=4 format=3 uid="uid://cbdihxuow1oun"]
 
 [ext_resource type="PackedScene" uid="uid://bosqwcnikfucm" path="res://Characters/Character.tscn" id="1_streg"]
 [ext_resource type="Script" path="res://Characters/enemy.gd" id="2_i4loo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atnrm"]
 
 [node name="Enemy" instance=ExtResource("1_streg")]
 collision_layer = 4
@@ -9,6 +11,10 @@ collision_mask = 4
 script = ExtResource("2_i4loo")
 acceleration = 40
 max_speed = 300
+hp = 2
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_atnrm")
 
 [node name="PathTimer" type="Timer" parent="." index="4"]
 wait_time = 0.5

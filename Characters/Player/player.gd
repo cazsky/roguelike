@@ -2,7 +2,7 @@ extends Character
 
 @onready var sword: Node2D = get_node("Sword")
 @onready var sword_animation_player: AnimationPlayer = sword.get_node("SwordAnimationPlayer")
-@onready var sword_hitbox: Area2D = get_tree().get_scene().get_node("Sword/Node2D/SwordSprite/Hitbox")
+@onready var sword_hitbox: Area2D = get_node("Sword/Node2D/SwordSprite/Hitbox")
 
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
