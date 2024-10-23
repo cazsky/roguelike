@@ -34,6 +34,7 @@ func _on_body_exited(body: Node2D) -> void:
 	
 func _collide(body: Node2D) -> void:
 	if body == null or not body.has_method("take_damage"):
-		queue_free()
+		#queue_free()
+		pass
 	else:
 		body.take_damage(damage,knockback_direction,knockback_force)
