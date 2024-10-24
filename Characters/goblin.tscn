@@ -1,15 +1,31 @@
-[gd_scene load_steps=14 format=3 uid="uid://dq4l6tx0afug3"]
+[gd_scene load_steps=18 format=3 uid="uid://dq4l6tx0afug3"]
 
 [ext_resource type="PackedScene" uid="uid://cbdihxuow1oun" path="res://Characters/enemy.tscn" id="1_155td"]
 [ext_resource type="Texture2D" uid="uid://bsbuy7uye8rou" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/goblin_run_anim_f0.png" id="2_80eg1"]
+[ext_resource type="Texture2D" uid="uid://csx4uin6efq62" path="res://Art/Explosions/Green/Resized_Green/exposion_green_46.png" id="2_x8yy7"]
 [ext_resource type="Texture2D" uid="uid://btcwnxjxwc0yv" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/goblin_run_anim_f1.png" id="3_behl2"]
+[ext_resource type="Texture2D" uid="uid://bn31coxe2h7kf" path="res://Art/Explosions/Green/Resized_Green/exposion_green_53.png" id="3_rdels"]
+[ext_resource type="Texture2D" uid="uid://g4u4rlpauhva" path="res://Art/Explosions/Green/Resized_Green/exposion_green_65.png" id="4_wspc4"]
 [ext_resource type="Texture2D" uid="uid://deei871qcydl7" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/goblin_run_anim_f2.png" id="4_ybcr8"]
 [ext_resource type="Texture2D" uid="uid://ck05th0legel7" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/goblin_run_anim_f3.png" id="5_ea02t"]
+[ext_resource type="Texture2D" uid="uid://doc7n8b7oxcfv" path="res://Art/Explosions/Green/Resized_Green/exposion_green_75.png" id="5_pslts"]
 [ext_resource type="Script" path="res://Characters/GoblinFSM.gd" id="6_lfwpt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s5l8p"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x8yy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rdels")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wspc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pslts")
+}],
 "loop": true,
 "name": &"dead",
 "speed": 5.0
@@ -61,6 +77,97 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"dead"]
+}
+
+[sub_resource type="Animation" id="Animation_qhwt1"]
+resource_name = "dead"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 3, 3, 3, 0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.219608), Color(1, 1, 1, 1), Color(1, 1, 1, 0.219608)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"default", &"dead"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_p8l0a"]
 resource_name = "hurt"
@@ -89,10 +196,23 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.219608), Color(1, 1, 1, 1), Color(1, 1, 1, 0.219608), Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
 
 [sub_resource type="Animation" id="Animation_cp1ju"]
 resource_name = "run"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -117,33 +237,17 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_qhwt1"]
-resource_name = "dead"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3, 3, 3, 3, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.219608), Color(1, 1, 1, 1), Color(1, 1, 1, 0.219608), Color(1, 1, 1, 1)]
+"values": [&"default"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5tg7w"]
@@ -158,8 +262,10 @@ _data = {
 texture_filter = 1
 
 [node name="AnimatedSprite2D" parent="." index="0"]
+visible = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_s5l8p")
+animation = &"dead"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, 2)
