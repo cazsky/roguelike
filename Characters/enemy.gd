@@ -25,8 +25,6 @@ func chase() -> void:
 
 
 func _on_path_timer_timeout() -> void:
-	#navigation.set_target_position(player.global_position)
-	#path.append(navigation.get_target_position())
 	if is_instance_valid(player):
 		_get_path_to_player()
 	else:
