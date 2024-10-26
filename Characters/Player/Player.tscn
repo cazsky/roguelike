@@ -36,7 +36,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"dead",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -56,7 +56,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -70,11 +70,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"move",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_piwrc"]
-radius = 6.0
+radius = 8.0
 
 [sub_resource type="Animation" id="Animation_0pdb1"]
 length = 0.001
@@ -553,7 +553,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_t1paw")
 acceleration = 40
-max_speed = 300
+max_speed = 315
 hp = 2
 
 [node name="AnimatedSprite2D" parent="." index="0"]
@@ -562,8 +562,9 @@ sprite_frames = SubResource("SpriteFrames_x3m5l")
 animation = &"idle"
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 6)
+position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_piwrc")
+debug_color = Color(0.774997, 0.143268, 1, 0.42)
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
@@ -586,6 +587,7 @@ texture = ExtResource("12_cu75i")
 offset = Vector2(0, -11)
 
 [node name="Hitbox" type="Area2D" parent="Sword/Node2D/SwordSprite" index="0"]
+position = Vector2(-0.594001, 0.277771)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("13_ju3n8")

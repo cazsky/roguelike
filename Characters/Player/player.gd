@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 	elif sword.scale.y == -1 and mouse_direction.x > 0:
 		sword.scale.y = 1
 		
+		
 
 func get_input() -> void:
 	# Movement
@@ -37,6 +38,10 @@ func get_input() -> void:
 	#Sword Animation
 	if Input.is_action_just_pressed("ui_attack") and not sword_animation_player.is_playing():
 		sword_animation_player.play("attack")
+		
+func _ready() -> void:
+	set_collision_layer_value(2, 1)
+	set_collision_mask_value(2, 1)
 	
 
 	

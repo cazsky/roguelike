@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=324
-window/size/viewport_height=576
+window/size/viewport_width=376
+window/size/viewport_height=592
 window/stretch/mode="viewport"
-window/stretch/scale=1.5
+window/stretch/scale=1.49
 mouse_cursor/custom_image="res://Art/Crosshairs/Outline/crosshair039.png"
 mouse_cursor/custom_image_hotspot=Vector2(16, 16)
 
@@ -74,3 +74,7 @@ ui_attack={
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+
+[rendering]
+
+2d/sdf/scale=0

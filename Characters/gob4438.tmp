@@ -51,7 +51,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgflw"]
-radius = 5.09902
+radius = 5.0
 
 [sub_resource type="Animation" id="Animation_ur16m"]
 length = 0.001
@@ -111,7 +111,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1.1487),
+"transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
@@ -309,12 +309,12 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6iv4d"]
+radius = 6.08276
 
 [node name="Goblin" instance=ExtResource("1_155td")]
 texture_filter = 1
 collision_mask = 5
 script = ExtResource("2_rey21")
-acceleration = 30
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 texture_filter = 1
