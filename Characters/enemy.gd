@@ -30,6 +30,7 @@ func _on_path_timer_timeout() -> void:
 	else:
 		path_timer.stop()
 		move_direction = Vector2.ZERO
+		
 	
 func _get_path_to_player() -> void:
 	navigation.target_position = player.position

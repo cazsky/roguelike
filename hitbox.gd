@@ -22,8 +22,6 @@ func _ready() -> void:
 	#add_child(timer)
 	
 func _on_body_entered(body: Node2D) -> void:
-	print_debug(self.get_parent())
-	print_debug("Body ", body)
 	body.take_damage(damage,knockback_direction,knockback_force)
 	
 	##body_inside = true
