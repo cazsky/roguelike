@@ -253,10 +253,10 @@ tracks/2/path = NodePath("AnimatedSprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.266667), Color(1, 1, 1, 1), Color(1, 1, 1, 0.266667)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.266667), Color(1, 1, 1, 1), Color(1, 1, 1, 0.266667), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -363,8 +363,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xehjt"]
-radius = 3.906
-height = 24.0
+radius = 5.094
+height = 29.4444
 
 [sub_resource type="Animation" id="Animation_xqpjj"]
 length = 0.001
@@ -593,7 +593,7 @@ collision_mask = 4
 script = ExtResource("13_ju3n8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/SwordSprite/Hitbox" index="0"]
-position = Vector2(-0.593947, -14.7222)
+position = Vector2(5.42998e-05, -15)
 shape = SubResource("CapsuleShape2D_xehjt")
 disabled = true
 

@@ -309,6 +309,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6iv4d"]
+radius = 6.0
 
 [node name="Goblin" instance=ExtResource("1_155td")]
 texture_filter = 1
@@ -338,6 +339,7 @@ wait_time = 0.295
 [node name="NavigationAgent2D" parent="." index="5"]
 path_desired_distance = 6.0
 target_desired_distance = 5.0
+path_max_distance = 20.0
 simplify_path = true
 radius = 3.15
 neighbor_distance = 10.0
