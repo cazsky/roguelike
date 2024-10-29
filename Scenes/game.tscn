@@ -230,7 +230,6 @@ sources/0 = SubResource("TileSetAtlasSource_2rb5x")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u40lj"]
 texture = ExtResource("5_s4pmw")
-0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -247,7 +246,6 @@ texture = ExtResource("5_s4pmw")
 14:0/0 = 0
 15:0/0 = 0
 16:0/0 = 0
-0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
@@ -279,6 +277,7 @@ texture = ExtResource("5_s4pmw")
 17:2/0 = 0
 18:2/0 = 0
 0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.07692, -8, 3.07692, -8, 3.07692, 8, -3.07692, 8)
 1:3/0 = 0
 2:3/0 = 0
 3:3/0 = 0
@@ -376,10 +375,14 @@ texture = ExtResource("5_s4pmw")
 21:7/0 = 0
 22:7/0 = 0
 23:7/0 = 0
+0:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.07692, -8, 3.07692, -8, 3.07692, 8, -3.07692, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2yo2"]
 texture = ExtResource("4_sqspd")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.07692, -8, 3.07692, -8, 3.07692, 8, -3.07692, 8)
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -392,6 +395,8 @@ texture = ExtResource("4_sqspd")
 10:0/0 = 0
 11:0/0 = 0
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.07692, -8, 3.07692, -8, 3.07692, 8, -3.07692, 8)
+0:1/0/physics_layer_0/polygon_0/one_way_margin = 0.0
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
@@ -403,6 +408,7 @@ texture = ExtResource("4_sqspd")
 9:1/0 = 0
 11:1/0 = 0
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.07692, -8, 3.07692, -8, 3.07692, 8, -3.07692, 8)
 1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
@@ -428,6 +434,8 @@ texture = ExtResource("4_sqspd")
 11:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_aa14e"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_u40lj")
 sources/1 = SubResource("TileSetAtlasSource_v2yo2")
 
@@ -442,8 +450,7 @@ max_speed = 70
 
 [node name="Player" parent="." instance=ExtResource("2_0tcf0")]
 position = Vector2(32, 136)
-collision_layer = 1
-collision_mask = 1
+collision_mask = 3
 acceleration = 115
 max_speed = 170
 hp = 4
