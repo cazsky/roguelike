@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://orqm8acrxlan" path="res://Art/Wall_TileSet.tres" id="3_f37p1"]
 
 [node name="Room" type="Node2D"]
+visible = false
 
 [node name="MapLayer" type="Node2D" parent="."]
 
