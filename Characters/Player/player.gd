@@ -40,8 +40,8 @@ func get_input() -> void:
 		sword_animation_player.play("attack")
 		
 func _ready() -> void:
-	set_collision_layer_value(2, 1)
-	set_collision_mask_value(2, 1)
+	set_collision_layer_value(2, true)
+	set_collision_mask_value(2, true)
 	
 
 	
