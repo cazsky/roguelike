@@ -65,7 +65,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rb5x"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xoks"]
 texture = ExtResource("1_cebac")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -226,9 +226,9 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 navigation_layer_0/layers = 1
-sources/0 = SubResource("TileSetAtlasSource_2rb5x")
+sources/0 = SubResource("TileSetAtlasSource_6xoks")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u40lj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e1281"]
 texture = ExtResource("5_s4pmw")
 1:0/0 = 0
 2:0/0 = 0
@@ -379,7 +379,7 @@ texture = ExtResource("5_s4pmw")
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.07692, -8, 3.07692, -8, 3.07692, 8, -3.07692, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2yo2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqji7"]
 texture = ExtResource("4_sqspd")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.07692, -8, 3.07692, -8, 3.07692, 8, -3.07692, 8)
@@ -436,8 +436,8 @@ texture = ExtResource("4_sqspd")
 [sub_resource type="TileSet" id="TileSet_aa14e"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_u40lj")
-sources/1 = SubResource("TileSetAtlasSource_v2yo2")
+sources/0 = SubResource("TileSetAtlasSource_e1281")
+sources/1 = SubResource("TileSetAtlasSource_xqji7")
 
 [node name="Game" type="Node2D"]
 position = Vector2(-8, -8)
