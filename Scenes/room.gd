@@ -28,7 +28,6 @@ func _open_doors() -> void:
 		
 func _close_entrance() -> void:
 	for entry_position in entrance.get_children():
-		#tilemap.set_cell(tilemap.local_to_map(entry_position.position), 1, Vector2i.ZERO)
 		tilemap.set_cell(tilemap.local_to_map(entry_position.position) +Vector2i.DOWN, 0, Vector2i(5,6))
 		
 func _spawn_enemies() -> void:
@@ -37,9 +36,9 @@ func _spawn_enemies() -> void:
 		var __ = enemy.connect("tree_exited", Callable(self, "_on_enemy_killed"))
 		
 		var spawn_explosion: AnimatedSprite2D = SPAWN_EXPLOSION_SCENE.instantiate()
-		enemy.position = enemy_position.global_position
+		enemy.position = enemy_position.position
 		call_deferred("add_child", enemy)
-		spawn_explosion.global_position = enemy_position.global_position
+		spawn_explosion.position = enemy_position.position
 		call_deferred("add_child", spawn_explosion)
 		
 func _on_player_detector_body_entered(_body: Node2D) -> void:
