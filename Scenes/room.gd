@@ -37,11 +37,12 @@ func _spawn_enemies() -> void:
 		var __ = enemy.connect("tree_exited", Callable(self, "_on_enemy_killed"))
 		
 		var spawn_explosion: AnimatedSprite2D = SPAWN_EXPLOSION_SCENE.instantiate()
+		enemy.position = enemy_position.global_position
+		call_deferred("add_child", enemy)
 		spawn_explosion.global_position = enemy_position.global_position
 		call_deferred("add_child", spawn_explosion)
 		
 func _on_player_detector_body_entered(_body: Node2D) -> void:
-	print_debug("Room Entered")
 	player_detector.queue_free()
 	_close_entrance()
 	_spawn_enemies()
