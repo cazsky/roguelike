@@ -42,6 +42,7 @@ func _spawn_enemies() -> void:
 		call_deferred("add_child", spawn_explosion)
 		
 func _on_player_detector_body_entered(_body: Node2D) -> void:
+	print_debug("Entered")
 	player_detector.queue_free()
 	_close_entrance()
 	_spawn_enemies()

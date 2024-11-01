@@ -1,6 +1,6 @@
 extends TileMapLayer
 
-@onready var walls: TileMapLayer = $"../WallLayer"
+@onready var walls: TileMapLayer = $"../ObstacleLayer"
 @onready var collision_layers: Array = []
 
 
