@@ -45,13 +45,10 @@ position = Vector2(133.506, 169.554)
 position = Vector2(150.433, 168.663)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyPositions" index="0"]
-position = Vector2(101.879, 86.7)
+position = Vector2(176.666, 106.737)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyPositions" index="1"]
-position = Vector2(34.6158, 120.109)
-
-[node name="Marker2D3" type="Marker2D" parent="EnemyPositions" index="2"]
-position = Vector2(190.969, 61.7548)
+position = Vector2(86.5812, 148.944)
 
 [node name="PlayerDetector" parent="." index="4"]
 collision_layer = 0
