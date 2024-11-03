@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bo03c51jl6fy4"]
+[gd_scene load_steps=9 format=4 uid="uid://bo03c51jl6fy4"]
 
 [ext_resource type="PackedScene" uid="uid://bn1onrhtkgd3r" path="res://Scenes/room.tscn" id="1_3p3br"]
 [ext_resource type="TileSet" uid="uid://d0iyej5erkq0i" path="res://Art/Floor_TileSet.tres" id="2_1to6x"]
@@ -155,7 +155,9 @@ texture = ExtResource("4_wgrgo")
 3:6/0 = 0
 4:6/0 = 0
 5:6/0 = 0
+5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 3, 8, 3, 8, 8, -8, 8)
 6:6/0 = 0
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:6/0 = 0
 8:6/0 = 0
 9:6/0 = 0
@@ -181,7 +183,9 @@ texture = ExtResource("4_wgrgo")
 3:7/0 = 0
 4:7/0 = 0
 5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:7/0 = 0
+6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:7/0 = 0
 8:7/0 = 0
 9:7/0 = 0
@@ -325,7 +329,12 @@ texture = ExtResource("4_wgrgo")
 15:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_8mkvt"]
+physics_layer_0/collision_layer = 0
+physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_kv8br")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sntox"]
+size = Vector2(63, 48)
 
 [node name="SpawnRoom0" instance=ExtResource("1_3p3br")]
 
@@ -344,10 +353,12 @@ tile_map_data = PackedByteArray("AAAIAAEAAAAQAAYAAAALAAEAAAATAAYAAAA=")
 tile_set = ExtResource("2_ykrq4")
 
 [node name="WallTextureLayer" type="TileMapLayer" parent="MapLayer" index="4"]
-tile_map_data = PackedByteArray("AAAEAAgAAAAAAAEAAAASAAgAAAAAAAEAAAALAAEABAAUABYAAAALAAIABAAUABcAAAAIAAEABAASABYAAAAIAAIABAASABcAAAAJAAAAAAARAAUAAAAKAAAAAAASAAUAAAA=")
+z_index = 1
+tile_map_data = PackedByteArray("AAAEAAgAAAAAAAEAAAASAAgAAAAAAAEAAAALAAEABAAUABYAAAALAAIABAAUABcAAAAIAAEABAASABYAAAAIAAIABAASABcAAAAJAAAAAAARAAUAAAAKAAAAAAASAAUAAAAQAAIABAAbABcAAAA=")
 tile_set = ExtResource("2_ykrq4")
 
 [node name="DecorLayer" type="TileMapLayer" parent="MapLayer" index="5"]
+tile_map_data = PackedByteArray("AAARAAIAAAAGAAYAAAARAAMAAAAGAAcAAAAQAAIAAAAFAAYAAAAQAAMAAAAFAAcAAAA=")
 tile_set = SubResource("TileSet_8mkvt")
 
 [node name="BottomWall" type="TileMapLayer" parent="MapLayer" index="6"]
@@ -356,3 +367,10 @@ tile_set = ExtResource("2_ykrq4")
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource("4_57vil")]
 position = Vector2(160, 33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
+position = Vector2(160.5, 71)
+shape = SubResource("RectangleShape2D_sntox")
+
+[node name="PlayerSpawnPos" type="Marker2D" parent="." index="5"]
+position = Vector2(144.163, 159.221)
