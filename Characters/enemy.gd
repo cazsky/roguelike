@@ -12,7 +12,7 @@ var path: PackedVector2Array
 func chase() -> void:
 	if not navigation.is_target_reached():
 		var vector_to_next_point: Vector2 = navigation.get_next_path_position() - global_position
-		var distance_to_next_point: float = vector_to_next_point.length()
+		# var distance_to_next_point: float = vector_to_next_point.length()
 		move_direction = vector_to_next_point
 
 		
