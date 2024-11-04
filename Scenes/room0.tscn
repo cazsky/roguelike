@@ -49,7 +49,7 @@ position = Vector2(218, 170)
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource("3_3iodm")]
 texture_filter = 1
-position = Vector2(96, 17)
+position = Vector2(95, 16)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyPositions" index="0"]
 position = Vector2(252, 69)
