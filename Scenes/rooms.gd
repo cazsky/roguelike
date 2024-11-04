@@ -6,9 +6,9 @@ const INTERMEDIATE_ROOMS: Array = [preload("res://Scenes/room0.tscn"),preload("r
 const END_ROOMS: Array = [preload("res://Scenes/end_room0.tscn")]
 
 const TILE_SIZE: int = 16
-const FLOOR_TILE_INDEX: int = 0
-const RIGHT_WALL_TILE_INDEX: int = 1
-const LEFT_WALL_TILE_INDEX: int = 1
+const FLOOR_TILE_INDEX: Vector2i = Vector2i(0,0)
+const WALL_TILE_INDEX: Vector2i = Vector2i(0,1)
+
 
 @export var num_levels : int = 5
 
@@ -32,20 +32,23 @@ func _spawn_rooms() -> void:
 			else:
 				room = INTERMEDIATE_ROOMS.pick_random().instantiate()
 				
-			var previous_room_tilemap: TileMapLayer = previous_room.get_node("FloorLayer")
+			var previous_room_floor_tilemap: TileMapLayer = previous_room.get_node("FloorLayer")
+			var previous_room_wall_tilemap: TileMapLayer = previous_room.get_node("WallLayer")
 			var previous_room_door: StaticBody2D = previous_room.get_node("Doors/Door")
-			var exit_tile_pos: Vector2 = previous_room_tilemap.to_local(previous_room_door.position) + Vector2.UP * 2
+			var exit_tile_pos: Vector2 = previous_room_floor_tilemap.to_local(previous_room_door.position) + Vector2.UP * 2
 			
 			# Generate Corridor
 			var corridor_height: int = randi_range(2,6)
 			for y in corridor_height:
-				# ???
-				# Fix set_cell later
-				previous_room_tilemap.set_cell(exit_tile_pos + Vector2(-2, -y), LEFT_WALL_TILE_INDEX)
-				previous_room_tilemap.set_cell(exit_tile_pos + Vector2(-1, -y), FLOOR_TILE_INDEX)
-				previous_room_tilemap.set_cell(exit_tile_pos + Vector2(0, -y), FLOOR_TILE_INDEX)
-				previous_room_tilemap.set_cell(exit_tile_pos + Vector2(1, -y), RIGHT_WALL_TILE_INDEX)
+				# void set_cell(coords: Vector2i, source_id: int = -1, atlas_coords: Vector2i = Vector2i(-1, -1), alternative_tile: int = 0)
+				previous_room_wall_tilemap.set_cell(exit_tile_pos + Vector2(-2, -y), 0, WALL_TILE_INDEX)
+				previous_room_floor_tilemap.set_cell(exit_tile_pos + Vector2(-1, -y), 0, FLOOR_TILE_INDEX)
+				previous_room_floor_tilemap.set_cell(exit_tile_pos + Vector2(0, -y), 0, FLOOR_TILE_INDEX)
+				previous_room_wall_tilemap.set_cell(exit_tile_pos + Vector2(1, -y), 0, WALL_TILE_INDEX)
 				
+			# Move room to the door of the previous room to connect the rooms
+			var room_tilemap: TileMapLayer = room.get_node("WallLayer")
+			room.position = previous_room_door.global_position + Vector2.UP * room_tilemap.get_used_rect().size.y * TILE_SIZE + Vector2.UP * (1 + corridor_height) * TILE_SIZE + Vector2.LEFT * room_tilemap.local_to_map(room.get_node("Entrance/Position2D").position).x * TILE_SIZE
 			
 		add_child(room)
 		previous_room = room
