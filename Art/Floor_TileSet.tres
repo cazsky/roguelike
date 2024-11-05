@@ -135,43 +135,25 @@ texture = ExtResource("1_on2ko")
 0:0/0/probability = 4.0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0fo2o")
 0:0/0/metadata/_better_terrain = {
-0: [0],
-3: [0],
-4: [0],
-7: [0],
-8: [0],
-11: [0],
-12: [0],
-15: [0],
-"type": 0
+0: [1, 0],
+8: [1, 0],
+"type": 1
 }
 1:0/0 = 0
 1:0/0/probability = 4.0
 1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_rmyjp")
 1:0/0/metadata/_better_terrain = {
-0: [0],
-3: [0],
-4: [0],
-7: [0],
-8: [0],
-11: [0],
-12: [0],
-15: [0],
-"type": 0
+0: [1, 0],
+8: [1, 0],
+"type": 1
 }
 2:0/0 = 0
 2:0/0/probability = 4.0
 2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_mq0hm")
 2:0/0/metadata/_better_terrain = {
-0: [0],
-3: [0],
-4: [0],
-7: [0],
-8: [0],
-11: [0],
-12: [0],
-15: [0],
-"type": 0
+0: [1, 0],
+8: [1, 0],
+"type": 1
 }
 3:0/0 = 0
 4:0/0 = 0
@@ -181,37 +163,25 @@ texture = ExtResource("1_on2ko")
 0:1/0/probability = 2.0
 0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_hiulh")
 0:1/0/metadata/_better_terrain = {
-0: [0],
-3: [0],
-4: [0],
-7: [0],
-8: [0],
-11: [0],
-12: [0],
-15: [0],
-"type": 0
+0: [1],
+12: [1],
+"type": 1
 }
 1:1/0 = 0
 1:1/0/probability = 2.0
 1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lqilk")
 1:1/0/metadata/_better_terrain = {
-0: [0],
-3: [0],
-4: [0],
-7: [0],
-8: [0],
-11: [0],
-12: [0],
-15: [0],
-"type": 0
+0: [1, 0],
+8: [1, 0],
+"type": 1
 }
 2:1/0 = 0
 2:1/0/probability = 2.0
 2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_kpxck")
 2:1/0/metadata/_better_terrain = {
-8: [0],
-12: [0],
-"type": 0
+8: [1],
+12: [1],
+"type": 1
 }
 3:1/0 = 0
 3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_sbmow")
@@ -224,16 +194,16 @@ texture = ExtResource("1_on2ko")
 0:2/0 = 0
 0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_30tkt")
 0:2/0/metadata/_better_terrain = {
-4: [0],
-8: [0],
-"type": 0
+4: [1],
+8: [1],
+"type": 1
 }
 1:2/0 = 0
 1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_sedbv")
 1:2/0/metadata/_better_terrain = {
-0: [0],
-4: [0],
-"type": 0
+0: [1],
+4: [1],
+"type": 1
 }
 2:2/0 = 0
 2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qqe6f")
@@ -1080,7 +1050,10 @@ metadata/_better_terrain = {
 "decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
 "path": "res://addons/better-terrain/icons/Decoration.svg"
 }],
-"terrains": [["Floor", Color(0.992463, 0.602727, 0.882093, 1), 0, [], {
+"terrains": [["Floors", Color(0.735198, 0.982109, 0.677762, 1), 2, [], {
+"coord": Vector2i(3, 2),
+"source_id": 0
+}], ["Floor", Color(0.992463, 0.602727, 0.882093, 1), 0, [0], {
 "path": "res://Art/0x72_DungeonTilesetII_v1.7/frames/environment/floor_1.png"
 }]],
 "version": "0.2"
