@@ -12,7 +12,7 @@ const LEFT_FLOOR_TILE_INDEX: Vector2i = Vector2i(4,5)
 const WALL_TILE_INDEX: Vector2i = Vector2i(0,1)
 
 
-@export var num_levels : int = 5
+@export var num_levels : int = 10
 
 @onready var player: CharacterBody2D = get_parent().get_node("Player")
 
