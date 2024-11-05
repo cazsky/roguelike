@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://bij3gatuimavn"]
+
+[ext_resource type="Script" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="1_fcvpp"]
+[ext_resource type="Script" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="2_vuyvi"]
+[ext_resource type="Script" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="3_k7l2r"]
+[ext_resource type="Script" path="res://addons/gaea/tile_info/tilemap_tile_info.gd" id="4_dxngs"]
+[ext_resource type="TileSet" uid="uid://d0iyej5erkq0i" path="res://Art/Floor_TileSet.tres" id="5_p3534"]
+[ext_resource type="Script" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="6_8fnql"]
+
+[sub_resource type="Resource" id="Resource_c1ord"]
+resource_name = "0"
+script = ExtResource("4_dxngs")
+type = 1
+tilemap_layer = 0
+terrain_set = 0
+terrain = 0
+id = "0"
+layer = 0
+
+[sub_resource type="Resource" id="Resource_r8xjl"]
+resource_name = "Settings"
+script = ExtResource("3_k7l2r")
+tile = SubResource("Resource_c1ord")
+fullness_check = 0
+max_tiles = 300
+constrain_world_size = true
+world_size = Vector2i(55, 55)
+max_walkers = 85
+new_dir_chance = 5.03
+new_walker_chance = 4.83
+destroy_walker_chance = 9.01
+room_chances = {
+Vector2i(2, 2): 0.5,
+Vector2i(3, 3): 0.1
+}
+modifiers = Array[ExtResource("2_vuyvi")]([])
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WalkerGenerator" type="Node" parent="."]
+script = ExtResource("1_fcvpp")
+settings = SubResource("Resource_r8xjl")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("5_p3534")
+
+[node name="TilemapGaeaRenderer" type="Node" parent="." node_paths=PackedStringArray("tile_map_layers", "generator")]
+script = ExtResource("6_8fnql")
+tile_map_layers = [NodePath("../TileMapLayer")]
+generator = NodePath("../WalkerGenerator")
