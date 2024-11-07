@@ -9,6 +9,10 @@ var path: PackedVector2Array
 @onready var path_timer := $PathTimer as Timer
 
 
+
+func _ready() -> void:
+	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
+
 func chase() -> void:
 	if not navigation.is_target_reached():
 		var vector_to_next_point: Vector2 = navigation.get_next_path_position() - global_position
@@ -30,6 +34,7 @@ func _on_path_timer_timeout() -> void:
 	else:
 		path_timer.stop()
 		move_direction = Vector2.ZERO
+		print_debug("Player died")
 		
 	
 func _get_path_to_player() -> void:

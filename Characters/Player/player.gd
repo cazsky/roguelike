@@ -43,5 +43,12 @@ func _ready() -> void:
 	set_collision_layer_value(2, true)
 	set_collision_mask_value(2, true)
 	
+func switch_camera() -> void:
+	var main_scene_camera: Camera2D = $"../Camera2D"
+	main_scene_camera.position = position
+	main_scene_camera.make_current()
+	
+	
+
 
 	

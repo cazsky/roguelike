@@ -37,4 +37,6 @@ acceleration = 645
 max_speed = 1050
 hp = 4
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="hp_changed" from="Player" to="UI" method="_on_player_hp_changed"]
