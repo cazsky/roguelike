@@ -35,13 +35,13 @@ func _spawn_rooms() -> void:
 				room = INTERMEDIATE_ROOMS.pick_random().instantiate()
 				
 			var previous_room_floor_tilemap: TileMapLayer = previous_room.get_node("MapLayer/FloorTextureLayer")
-			var previous_room_wall_tilemap: TileMapLayer = previous_room.get_node("MapLayer/WallTextureLayer")
+			var previous_room_wall_tilemap: TileMapLayer = previous_room.get_node("MapLayer/ObstacleLayer")
 			var previous_room_door: StaticBody2D = previous_room.get_node("Doors/Door")
 			var exit_tile_pos: Vector2i = previous_room_floor_tilemap.local_to_map(previous_room_door.position) + Vector2i.UP * 2
 			
 			# Generate Corridor
 			var corridor_height: int = randi_range(3,10)
-			for y in corridor_height:
+			for y in range(-1, corridor_height + 1):
 				# void set_cell(coords: Vector2i, source_id: int = -1, atlas_coords: Vector2i = Vector2i(-1, -1), alternative_tile: int = 0)
 				previous_room_wall_tilemap.set_cell(exit_tile_pos + Vector2i(-2, -y), 0, WALL_TILE_INDEX)
 				previous_room_floor_tilemap.set_cell(exit_tile_pos + Vector2i(-2, -y), 0, LEFT_FLOOR_TILE_INDEX)
