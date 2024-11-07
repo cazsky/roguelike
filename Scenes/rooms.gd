@@ -52,7 +52,7 @@ func _spawn_rooms() -> void:
 				
 			# Move room to the door of the previous room to connect the rooms
 			var room_tilemap: TileMapLayer = room.get_node("MapLayer/WallLayer")
-			room.position = previous_room_door.global_position + Vector2.UP * room_tilemap.get_used_rect().size.y * TILE_SIZE + Vector2.UP * (1 + corridor_height) * TILE_SIZE + Vector2.LEFT * room_tilemap.local_to_map(room.get_node("Entrance/Marker2D2").position).x * TILE_SIZE
+			room.global_position = previous_room_door.global_position + Vector2.UP * room_tilemap.get_used_rect().size.y * TILE_SIZE + Vector2.UP * (1 + corridor_height) * TILE_SIZE + Vector2.LEFT * room_tilemap.local_to_map(room.get_node("Entrance/Marker2D2").position).x * TILE_SIZE
 
 			
 		add_child(room)

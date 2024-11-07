@@ -368,9 +368,13 @@ tile_set = ExtResource("2_ykrq4")
 [node name="Door" parent="Doors" index="0" instance=ExtResource("4_57vil")]
 position = Vector2(112, 0)
 
+[node name="PlayerDetector" parent="." index="4"]
+collision_layer = 0
+collision_mask = 2
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
-position = Vector2(112, 32)
+position = Vector2(113, 33)
 shape = SubResource("RectangleShape2D_sntox")
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="5"]
-position = Vector2(141, -34)
+position = Vector2(178, -34)

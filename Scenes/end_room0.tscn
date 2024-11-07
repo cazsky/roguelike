@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://bcgymwhhp8pt1"]
 
-[ext_resource type="PackedScene" uid="uid://bn1onrhtkgd3r" path="res://Scenes/room.tscn" id="1_my3sw"]
+[ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/room.tscn" id="1_my3sw"]
 [ext_resource type="TileSet" uid="uid://d0iyej5erkq0i" path="res://Art/Floor_TileSet.tres" id="2_vwe77"]
 [ext_resource type="TileSet" uid="uid://orqm8acrxlan" path="res://Art/Wall_TileSet.tres" id="3_5ljaq"]
 
@@ -39,10 +39,10 @@ tile_map_data = PackedByteArray("AAACAAcAAAAPAAUAAAACAAgAAAAPAAYAAAACAAkAAAAPAAc
 tile_set = ExtResource("3_5ljaq")
 
 [node name="Marker2D" type="Marker2D" parent="Entrance" index="0"]
-position = Vector2(133.506, 169.554)
+position = Vector2(135.74, 168.041)
 
 [node name="Marker2D2" type="Marker2D" parent="Entrance" index="1"]
-position = Vector2(150.433, 168.663)
+position = Vector2(152.034, 167.76)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyPositions" index="0"]
 position = Vector2(176.666, 106.737)
@@ -55,5 +55,5 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
-position = Vector2(144, 171)
+position = Vector2(144, 168)
 shape = SubResource("RectangleShape2D_ynpxq")
