@@ -8,7 +8,7 @@ const ENEMY_SCENES: Dictionary = {
 
 var num_enemies: int
 
-@onready var tilemap: TileMapLayer = $MapLayer/WallLayer
+@onready var tilemap: TileMapLayer = $MapLayer/BottomWall
 @onready var entrance: Node2D = $Entrance
 @onready var doors: Node2D = $Doors
 @onready var enemy_positions: Node2D = $EnemyPositions
@@ -28,7 +28,8 @@ func _open_doors() -> void:
 		
 func _close_entrance() -> void:
 	for entry_position in entrance.get_children():
-		tilemap.set_cell(tilemap.local_to_map(entry_position.position) +Vector2i.DOWN, 0, Vector2i(5,6))
+		tilemap.set_cell(tilemap.local_to_map(entry_position.position) + Vector2i.DOWN, 0, Vector2i(2,6))
+		tilemap.set_cell(tilemap.local_to_map(entry_position.position) + Vector2i.DOWN * 2, 0, Vector2i(2,7))
 		
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions.get_children():

@@ -44,6 +44,9 @@ position = Vector2(167.564, 121.275)
 [node name="Marker2D" type="Marker2D" parent="Entrance" index="1"]
 position = Vector2(151.832, 120.526)
 
+[node name="Marker2D3" type="Marker2D" parent="Entrance" index="2"]
+position = Vector2(184.42, 119.964)
+
 [node name="Door" parent="Doors" index="0" instance=ExtResource("2_jbgy8")]
 position = Vector2(81, 2)
 

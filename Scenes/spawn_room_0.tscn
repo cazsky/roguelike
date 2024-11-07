@@ -377,4 +377,4 @@ position = Vector2(113, 33)
 shape = SubResource("RectangleShape2D_sntox")
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="5"]
-position = Vector2(178, -34)
+position = Vector2(119, 88)

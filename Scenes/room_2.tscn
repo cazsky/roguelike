@@ -39,6 +39,9 @@ position = Vector2(92.9045, 247.09)
 [node name="Marker2D2" type="Marker2D" parent="Entrance" index="1"]
 position = Vector2(104.257, 246.039)
 
+[node name="Marker2D3" type="Marker2D" parent="Entrance" index="2"]
+position = Vector2(120.444, 246.88)
+
 [node name="Door" parent="Doors" index="0" instance=ExtResource("4_r6spx")]
 position = Vector2(304, 0)
 
