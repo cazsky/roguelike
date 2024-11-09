@@ -34,7 +34,6 @@ func _on_path_timer_timeout() -> void:
 	else:
 		path_timer.stop()
 		move_direction = Vector2.ZERO
-		print_debug("Player died")
 		
 	
 func _get_path_to_player() -> void:
