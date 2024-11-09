@@ -345,7 +345,6 @@ radius = 3.15
 neighbor_distance = 10.0
 debug_enabled = false
 debug_use_custom = true
-debug_path_custom_line_width = -1.0
 
 [node name="Hitbox" type="Area2D" parent="." index="6"]
 collision_layer = 0
