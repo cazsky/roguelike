@@ -9,8 +9,8 @@
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_i4loo")
-acceleration = 40
-max_speed = 300
+acceleration = 30
+max_speed = 105
 hp = 2
 
 [node name="AnimatedSprite2D" parent="." index="0"]
@@ -24,7 +24,6 @@ autostart = true
 navigation_layers = 5
 path_postprocessing = 1
 debug_enabled = true
-debug_path_custom_color = Color(1, 0.00392157, 0.00392157, 1)
-debug_path_custom_line_width = 24.5
+debug_path_custom_color = Color(1, 0, 0, 1)
 
 [connection signal="timeout" from="PathTimer" to="." method="_on_path_timer_timeout"]
