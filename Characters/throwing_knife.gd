@@ -20,8 +20,8 @@ func _physics_process(delta: float) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if not enemy_exited:
 		enemy_exited = true
-		set_collision_mask_value(0, true)
-		set_collision_mask_value(1, true)
+		#set_collision_mask_value(1, true)
+		set_collision_mask_value(2, true)
 		
 func _collide(body: CharacterBody2D) -> void:
 	if enemy_exited:
