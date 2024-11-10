@@ -2,6 +2,7 @@ extends Hitbox
 
 var direction: Vector2 = Vector2.ZERO
 var knife_speed: int = 0
+var enemy_exited: bool = false
 
 func launch(initial_position: Vector2, dir: Vector2, speed: int) -> void:
 	position = initial_position
@@ -14,3 +15,17 @@ func launch(initial_position: Vector2, dir: Vector2, speed: int) -> void:
 	
 func _physics_process(delta: float) -> void:
 	position += direction * knife_speed * delta
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if not enemy_exited:
+		enemy_exited = true
+		set_collision_mask_value(0, true)
+		set_collision_mask_value(1, true)
+		
+func _collide(body: CharacterBody2D) -> void:
+	if enemy_exited:
+		if body != null:
+			body.take_damage(damage,knockback_direction,knockback_force)
+		queue_free()
+		

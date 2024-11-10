@@ -9,6 +9,8 @@ height = 12.0
 
 [node name="ThrowingKnife" type="Area2D"]
 texture_filter = 3
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_qliu2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -17,3 +19,5 @@ shape = SubResource("CapsuleShape2D_hk1l4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_6mgnk")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

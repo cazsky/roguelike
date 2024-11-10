@@ -20,7 +20,7 @@ func _ready() -> void:
 	_spawn_rooms()
 
 func _spawn_rooms() -> void:
-	var previous_room: Node2D
+	var previous_room: Node2D = null
 	
 	for i in num_levels:
 		var room: Node2D
