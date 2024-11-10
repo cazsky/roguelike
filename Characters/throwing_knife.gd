@@ -20,12 +20,12 @@ func _physics_process(delta: float) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if not enemy_exited:
 		enemy_exited = true
-		#set_collision_mask_value(1, true)
+		set_collision_mask_value(1, true)
 		set_collision_mask_value(2, true)
 		
-func _collide(body: CharacterBody2D) -> void:
+func _collide(body: Node2D) -> void:
 	if enemy_exited:
-		if body != null:
+		if body != null and body.has_method("take_damage") :
 			body.take_damage(damage,knockback_direction,knockback_force)
 		queue_free()
 		

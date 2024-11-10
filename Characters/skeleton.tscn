@@ -691,6 +691,7 @@ _data = {
 
 [node name="Skeleton" instance=ExtResource("1_wxen3")]
 texture_filter = 3
+collision_mask = 5
 script = ExtResource("2_b6yd0")
 projectile_speed = 150
 max_speed = 90

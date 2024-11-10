@@ -23,7 +23,7 @@ func _on_body_entered(body: Node2D) -> void:
 	_collide(body)
 	
 
-func _collide(body: CharacterBody2D) -> void:
+func _collide(body: Node2D) -> void:
 	if body == null or not body.has_method("take_damage"):
 		queue_free()
 	else:
