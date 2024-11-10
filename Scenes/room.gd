@@ -34,7 +34,11 @@ func _close_entrance() -> void:
 		
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions.get_children():
-		var enemy: CharacterBody2D = ENEMY_SCENES.SKELETON.instantiate()
+		var enemy: CharacterBody2D
+		if randi() % 2 == 0:
+			enemy = ENEMY_SCENES.GOBLIN.instantiate()
+		else:
+			enemy = ENEMY_SCENES.SKELETON.instantiate()
 		var __ = enemy.connect("tree_exited", Callable(self, "_on_enemy_killed"))
 		
 		var spawn_explosion: AnimatedSprite2D = SPAWN_EXPLOSION_SCENE.instantiate()

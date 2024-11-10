@@ -717,6 +717,14 @@ script = ExtResource("67_o7vfw")
 [node name="PathTimer" parent="." index="4"]
 wait_time = 0.2
 
+[node name="NavigationAgent2D" parent="." index="5"]
+simplify_path = true
+simplify_epsilon = 1.235
+avoidance_enabled = true
+time_horizon_obstacles = 0.12
+avoidance_layers = 4
+avoidance_mask = 4
+
 [node name="AttackTimer" type="Timer" parent="." index="6"]
 wait_time = 1.5
 one_shot = true
