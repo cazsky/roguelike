@@ -12,6 +12,7 @@ script = ExtResource("2_i4loo")
 acceleration = 30
 max_speed = 105
 hp = 2
+flying = false
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_atnrm")
