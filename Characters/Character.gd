@@ -11,6 +11,8 @@ const WEIGHT = 10
 @export var hp: int = 2: set = set_hp
 signal hp_changed(new_hp)
 
+@export var flying: bool = false
+
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var state_machine: Node = get_node("FiniteStateMachine")
 
