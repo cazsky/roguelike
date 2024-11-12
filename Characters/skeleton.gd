@@ -12,6 +12,7 @@ var distance_to_player: float
 
 @onready var attack_timer: Timer = $AttackTimer
 @onready var aim_raycast: RayCast2D = $AimRayCast
+@onready var WallLayer: TileMapLayer = $MapLayer/WallLayer
 
 
 
@@ -23,6 +24,7 @@ func _on_path_timer_timeout() -> void:
 		elif distance_to_player < MIN_DISTANCE_TO_PLAYER:
 			_get_path_to_move_away_from_player()
 		else:
+			#aim_raycast.target_position = player.position - global_position
 			aim_raycast.target_position = player.position - global_position
 			if can_attack and state_machine.state == state_machine.states.idle and not aim_raycast.is_colliding():
 				can_attack = false
@@ -41,6 +43,8 @@ func _throw_knife() -> void:
 	var projectile: Area2D = THROWING_KNIFE.instantiate()
 	projectile.launch(global_position, (player.position - global_position).normalized(), projectile_speed)
 	get_tree().current_scene.add_child(projectile)
+	disconnect("body_exited",Callable(self,"body_exited"))
+
 
 func _on_attack_timer_timeout() -> void:
 	can_attack = true

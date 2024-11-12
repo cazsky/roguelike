@@ -5,16 +5,15 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hk1l4"]
 radius = 2.0
-height = 14.0
+height = 10.0
 
 [node name="ThrowingKnife" type="Area2D"]
 texture_filter = 3
 collision_layer = 0
-collision_mask = 4
+collision_mask = 6
 script = ExtResource("1_qliu2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_hk1l4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
