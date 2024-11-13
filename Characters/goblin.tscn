@@ -317,7 +317,6 @@ collision_mask = 5
 script = ExtResource("2_rey21")
 acceleration = 15
 max_speed = 110
-flying = false
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 texture_filter = 1

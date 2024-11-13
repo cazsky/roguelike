@@ -43,7 +43,6 @@ func _throw_knife() -> void:
 	var projectile: Area2D = THROWING_KNIFE.instantiate()
 	projectile.launch(global_position, (player.position - global_position).normalized(), projectile_speed)
 	get_tree().current_scene.add_child(projectile)
-	disconnect("body_exited",Callable(self,"body_exited"))
 
 
 func _on_attack_timer_timeout() -> void:
