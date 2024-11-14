@@ -81,7 +81,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ts68t"]
-size = Vector2(32, 32)
+size = Vector2(32, 16)
 
 [node name="Door" type="StaticBody2D"]
 collision_mask = 0
@@ -97,4 +97,5 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_ts68t")
