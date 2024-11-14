@@ -12,7 +12,7 @@ var distance_to_player: float
 
 @onready var attack_timer: Timer = $AttackTimer
 @onready var aim_raycast: RayCast2D = $AimRayCast
-@onready var WallLayer: TileMapLayer = $MapLayer/WallLayer
+#@onready var WallLayer: TileMapLayer = $MapLayer/WallLayer
 
 
 
