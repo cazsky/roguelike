@@ -15,7 +15,6 @@ var distance_to_player: float
 #@onready var WallLayer: TileMapLayer = $MapLayer/WallLayer
 
 
-
 func _on_path_timer_timeout() -> void:
 	if is_instance_valid(player):
 		distance_to_player = (player.position - global_position).length()
@@ -24,8 +23,7 @@ func _on_path_timer_timeout() -> void:
 		elif distance_to_player < MIN_DISTANCE_TO_PLAYER:
 			_get_path_to_move_away_from_player()
 		else:
-			#aim_raycast.target_position = player.position - global_position
-			aim_raycast.target_position = player.position - global_position
+			aim_raycast.target_position = (player.position - global_position) * 0.9
 			if can_attack and state_machine.state == state_machine.states.idle and not aim_raycast.is_colliding():
 				can_attack = false
 				_throw_knife()
