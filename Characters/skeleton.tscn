@@ -341,7 +341,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.16, 0.16)]
+"values": [Vector2(1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -697,7 +697,6 @@ projectile_speed = 150
 max_speed = 90
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_7o2ll")
 animation = &"run"
 speed_scale = 3.0
@@ -705,19 +704,23 @@ speed_scale = 3.0
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_qqsj4")
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_qqsj4")
+debug_color = Color(0.954505, 1.34766e-06, 0.548077, 0.42)
+
+[node name="AnimationPlayer" parent="." index="3"]
 libraries = {
 "": SubResource("AnimationLibrary_bchne")
 }
 speed_scale = 3.0
 
-[node name="FiniteStateMachine" parent="." index="3"]
+[node name="FiniteStateMachine" parent="." index="4"]
 script = ExtResource("67_o7vfw")
 
-[node name="PathTimer" parent="." index="4"]
+[node name="PathTimer" parent="." index="5"]
 wait_time = 0.2
 
-[node name="NavigationAgent2D" parent="." index="5"]
+[node name="NavigationAgent2D" parent="." index="6"]
 simplify_path = true
 simplify_epsilon = 1.235
 avoidance_enabled = true
@@ -726,10 +729,10 @@ avoidance_layers = 4
 avoidance_mask = 4
 debug_enabled = false
 
-[node name="AttackTimer" type="Timer" parent="." index="6"]
+[node name="AttackTimer" type="Timer" parent="." index="7"]
 wait_time = 1.5
 one_shot = true
 
-[node name="AimRayCast" type="RayCast2D" parent="." index="7"]
+[node name="AimRayCast" type="RayCast2D" parent="." index="8"]
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
