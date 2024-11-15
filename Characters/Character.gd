@@ -3,7 +3,7 @@ class_name Character
 
 const SPEED = 30.0
 const JUMP_VELOCITY = -400.0
-const FRICTION = 0.15
+const FRICTION = 0.2
 const WEIGHT = 10
 
 @export var acceleration:int = 40

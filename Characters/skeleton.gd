@@ -23,6 +23,7 @@ func _on_path_timer_timeout() -> void:
 		elif distance_to_player < MIN_DISTANCE_TO_PLAYER:
 			_get_path_to_move_away_from_player()
 		else:
+			# 0.9 to fix Skeletons not attacking while player in corner for whatever reason
 			aim_raycast.target_position = (player.position - global_position) * 0.9
 			if can_attack and state_machine.state == state_machine.states.idle and not aim_raycast.is_colliding():
 				can_attack = false
@@ -41,6 +42,8 @@ func _throw_knife() -> void:
 	var projectile: Area2D = THROWING_KNIFE.instantiate()
 	projectile.launch(global_position, (player.position - global_position).normalized(), projectile_speed)
 	get_tree().current_scene.add_child(projectile)
+	
+	
 
 
 func _on_attack_timer_timeout() -> void:

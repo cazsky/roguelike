@@ -1,5 +1,6 @@
 extends Character
 
+
 @onready var sword: Node2D = get_node("Sword")
 @onready var sword_animation_player: AnimationPlayer = sword.get_node("SwordAnimationPlayer")
 @onready var sword_hitbox: Area2D = get_node("Sword/Node2D/SwordSprite/Hitbox")
