@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/room.tscn" id="1_3p3br"]
 [ext_resource type="TileSet" uid="uid://d0iyej5erkq0i" path="res://Art/Floor_TileSet.tres" id="2_1to6x"]
 [ext_resource type="TileSet" uid="uid://orqm8acrxlan" path="res://Art/Wall_TileSet.tres" id="2_ykrq4"]
-[ext_resource type="PackedScene" path="res://Scenes/door.tscn" id="4_57vil"]
+[ext_resource type="PackedScene" uid="uid://d4auq8n5q6ey2" path="res://Scenes/door.tscn" id="4_57vil"]
 [ext_resource type="Texture2D" uid="uid://bkeapfs4ciajo" path="res://Art/0x72_DungeonTilesetII_v1.7/0x72_16x16DungeonTileset.v5/0x72_16x16DungeonTileset.v5.png" id="4_wgrgo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kv8br"]
@@ -362,6 +362,7 @@ tile_map_data = PackedByteArray("AAANAAAAAAAFAAYAAAANAAEAAAAFAAcAAAAOAAAAAAAGAAY
 tile_set = SubResource("TileSet_8mkvt")
 
 [node name="BottomWall" type="TileMapLayer" parent="MapLayer" index="6"]
+z_index = 2
 tile_map_data = PackedByteArray("AAACAAkAAAABAAQAAAADAAkAAAACAAYAAAAEAAkAAAACAAYAAAAFAAkAAAACAAYAAAAGAAkAAAACAAYAAAAHAAkAAAACAAYAAAAIAAkAAAACAAYAAAAJAAkAAAACAAYAAAAKAAkAAAADAAQAAAA=")
 tile_set = ExtResource("2_ykrq4")
 
