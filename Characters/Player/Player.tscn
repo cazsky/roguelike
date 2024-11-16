@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cu6itddoa4dy7"]
+[gd_scene load_steps=32 format=3 uid="uid://cu6itddoa4dy7"]
 
 [ext_resource type="PackedScene" uid="uid://bosqwcnikfucm" path="res://Characters/Character.tscn" id="1_6ncj0"]
 [ext_resource type="Texture2D" uid="uid://bhbheghybbr8k" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/characters/knight/knight_f_idle_anim_f0.png" id="2_pohg5"]
@@ -575,6 +575,15 @@ _data = {
 "attack": SubResource("Animation_0dpdt")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bmxfv"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 14.7
+initial_velocity_max = 15.3
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 79.8
+tangential_accel_max = 80.2
+
 [node name="Player" instance=ExtResource("1_6ncj0")]
 texture_filter = 1
 collision_layer = 2
@@ -638,6 +647,13 @@ position = Vector2(7, 5)
 scale = Vector2(0.055, 0.055)
 texture = ExtResource("13_ys051")
 hframes = 6
+
+[node name="ChargeParticles" type="GPUParticles2D" parent="Sword" index="3"]
+self_modulate = Color(0, 1, 1, 1)
+position = Vector2(-9.89898, -6.16466)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_bmxfv")
+lifetime = 0.6
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 position_smoothing_enabled = true
