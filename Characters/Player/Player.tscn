@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cu6itddoa4dy7"]
+[gd_scene load_steps=34 format=3 uid="uid://cu6itddoa4dy7"]
 
 [ext_resource type="PackedScene" uid="uid://bosqwcnikfucm" path="res://Characters/Character.tscn" id="1_6ncj0"]
 [ext_resource type="Texture2D" uid="uid://bhbheghybbr8k" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/characters/knight/knight_f_idle_anim_f0.png" id="2_pohg5"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cl0auimysdb0e" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_anime_sword.png" id="12_cu75i"]
 [ext_resource type="Script" path="res://hitbox.gd" id="13_ju3n8"]
 [ext_resource type="Texture2D" uid="uid://dbb3mi0cj48cr" path="res://Art/Sword Slashes/White Slash Thin/spritesheet.png" id="13_ys051"]
+[ext_resource type="Shader" path="res://Characters/Player/HitFlash.gdshader" id="16_cyrec"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3m5l"]
 animations = [{
@@ -389,6 +390,10 @@ _data = {
 "move": SubResource("Animation_63iy1")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mdlle"]
+shader = ExtResource("16_cyrec")
+shader_parameter/active = false
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xehjt"]
 radius = 5.094
 height = 29.4444
@@ -479,6 +484,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ChargeParticles:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_0dpdt"]
 resource_name = "attack"
@@ -568,6 +585,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ChargeParticles:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_465sp"]
 _data = {
@@ -619,6 +648,7 @@ script = ExtResource("11_bidhq")
 position = Vector2(0, 5.975)
 
 [node name="SwordSprite" type="Sprite2D" parent="Sword/Node2D" index="0"]
+material = SubResource("ShaderMaterial_mdlle")
 position = Vector2(-0.185182, -12.371)
 rotation = -1.5708
 scale = Vector2(0.666667, 0.666667)
@@ -649,6 +679,7 @@ texture = ExtResource("13_ys051")
 hframes = 6
 
 [node name="ChargeParticles" type="GPUParticles2D" parent="Sword" index="3"]
+visible = false
 self_modulate = Color(0, 1, 1, 1)
 position = Vector2(-9.89898, -6.16466)
 amount = 15
