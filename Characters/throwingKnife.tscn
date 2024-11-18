@@ -9,7 +9,7 @@ height = 10.0
 
 [node name="ThrowingKnife" type="Area2D"]
 texture_filter = 3
-collision_layer = 0
+collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_qliu2")
 

@@ -16,9 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://bw8tci321hl52" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/characters/knight/knight_f_run_anim_f3.png" id="9_0st32"]
 [ext_resource type="Script" path="res://Characters/Player/PlayerFSM.gd" id="11_bidhq"]
 [ext_resource type="Texture2D" uid="uid://cl0auimysdb0e" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_anime_sword.png" id="12_cu75i"]
-[ext_resource type="Script" path="res://hitbox.gd" id="13_ju3n8"]
 [ext_resource type="Texture2D" uid="uid://dbb3mi0cj48cr" path="res://Art/Sword Slashes/White Slash Thin/spritesheet.png" id="13_ys051"]
 [ext_resource type="Shader" path="res://Characters/Player/HitFlash.gdshader" id="16_cyrec"]
+[ext_resource type="Script" path="res://Characters/Player/SwordHitbox.gd" id="18_t6j5n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3m5l"]
 animations = [{
@@ -880,8 +880,8 @@ offset = Vector2(0, -11)
 [node name="Hitbox" type="Area2D" parent="Sword/Node2D/SwordSprite" index="0"]
 position = Vector2(-0.594001, 0.277771)
 collision_layer = 0
-collision_mask = 4
-script = ExtResource("13_ju3n8")
+collision_mask = 12
+script = ExtResource("18_t6j5n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/SwordSprite/Hitbox" index="0"]
 position = Vector2(5.42998e-05, -15)
@@ -910,3 +910,5 @@ lifetime = 0.6
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 position_smoothing_enabled = true
+
+[connection signal="area_entered" from="Sword/Node2D/SwordSprite/Hitbox" to="Sword/Node2D/SwordSprite/Hitbox" method="_on_area_entered"]
