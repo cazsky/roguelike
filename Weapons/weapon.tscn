@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://c4o8f742ognpe"]
+
+[ext_resource type="Shader" path="res://Characters/Player/HitFlash.gdshader" id="1_gwpgc"]
+[ext_resource type="Script" path="res://Weapons/weapon.gd" id="1_tphxg"]
+[ext_resource type="Texture2D" uid="uid://cl0auimysdb0e" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_anime_sword.png" id="2_fooea"]
+[ext_resource type="Script" path="res://Weapons/WeaponHitbox.gd" id="3_tukpj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04tqg"]
+shader = ExtResource("1_gwpgc")
+shader_parameter/active = false
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wo4m8"]
+radius = 5.094
+height = 29.4444
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j2eus"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 14.7
+initial_velocity_max = 15.3
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 79.8
+tangential_accel_max = 80.2
+
+[sub_resource type="Animation" id="Animation_aihbw"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_n6fos"]
+resource_name = "cancel_attack"
+
+[sub_resource type="Animation" id="Animation_o17qt"]
+resource_name = "strong_attack"
+
+[sub_resource type="Animation" id="Animation_wibg6"]
+resource_name = "charge"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v6jdw"]
+_data = {
+"attack": SubResource("Animation_aihbw"),
+"cancel_attack": SubResource("Animation_n6fos"),
+"charge": SubResource("Animation_wibg6"),
+"strong_attack": SubResource("Animation_o17qt")
+}
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_tphxg")
+
+[node name="Sword" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Sword"]
+position = Vector2(0, 5.975)
+
+[node name="SwordSprite" type="Sprite2D" parent="Sword/Node2D"]
+material = SubResource("ShaderMaterial_04tqg")
+position = Vector2(-0.185182, -12.371)
+rotation = -1.5708
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("2_fooea")
+offset = Vector2(0, -11)
+
+[node name="Hitbox" type="Area2D" parent="Sword/Node2D/SwordSprite"]
+position = Vector2(-0.594001, 0.277771)
+collision_layer = 0
+collision_mask = 12
+script = ExtResource("3_tukpj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/SwordSprite/Hitbox"]
+position = Vector2(5.42998e-05, -15)
+shape = SubResource("CapsuleShape2D_wo4m8")
+disabled = true
+
+[node name="ChargeParticles" type="GPUParticles2D" parent="Sword"]
+self_modulate = Color(0, 1, 1, 1)
+position = Vector2(-9, -7)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_j2eus")
+lifetime = 0.6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v6jdw")
+}
+
+[connection signal="area_entered" from="Sword/Node2D/SwordSprite/Hitbox" to="Sword/Node2D/SwordSprite/Hitbox" method="_on_area_entered"]
