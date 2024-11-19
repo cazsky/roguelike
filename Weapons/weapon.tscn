@@ -28,11 +28,11 @@ resource_name = "attack"
 [sub_resource type="Animation" id="Animation_n6fos"]
 resource_name = "cancel_attack"
 
-[sub_resource type="Animation" id="Animation_o17qt"]
-resource_name = "strong_attack"
-
 [sub_resource type="Animation" id="Animation_wibg6"]
 resource_name = "charge"
+
+[sub_resource type="Animation" id="Animation_o17qt"]
+resource_name = "strong_attack"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v6jdw"]
 _data = {
@@ -45,12 +45,10 @@ _data = {
 [node name="Weapon" type="Node2D"]
 script = ExtResource("1_tphxg")
 
-[node name="Sword" type="Node2D" parent="."]
-
-[node name="Node2D" type="Node2D" parent="Sword"]
+[node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, 5.975)
 
-[node name="SwordSprite" type="Sprite2D" parent="Sword/Node2D"]
+[node name="SwordSprite" type="Sprite2D" parent="Node2D"]
 material = SubResource("ShaderMaterial_04tqg")
 position = Vector2(-0.185182, -12.371)
 rotation = -1.5708
@@ -58,20 +56,20 @@ scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("2_fooea")
 offset = Vector2(0, -11)
 
-[node name="Hitbox" type="Area2D" parent="Sword/Node2D/SwordSprite"]
+[node name="Hitbox" type="Area2D" parent="Node2D/SwordSprite"]
 position = Vector2(-0.594001, 0.277771)
 collision_layer = 0
 collision_mask = 12
 script = ExtResource("3_tukpj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/SwordSprite/Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/SwordSprite/Hitbox"]
 position = Vector2(5.42998e-05, -15)
 shape = SubResource("CapsuleShape2D_wo4m8")
 disabled = true
 
-[node name="ChargeParticles" type="GPUParticles2D" parent="Sword"]
+[node name="ChargeParticles" type="GPUParticles2D" parent="Node2D"]
 self_modulate = Color(0, 1, 1, 1)
-position = Vector2(-9, -7)
+position = Vector2(-9, -12.975)
 emitting = false
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_j2eus")
@@ -82,4 +80,4 @@ libraries = {
 "": SubResource("AnimationLibrary_v6jdw")
 }
 
-[connection signal="area_entered" from="Sword/Node2D/SwordSprite/Hitbox" to="Sword/Node2D/SwordSprite/Hitbox" method="_on_area_entered"]
+[connection signal="area_entered" from="Node2D/SwordSprite/Hitbox" to="Node2D/SwordSprite/Hitbox" method="_on_area_entered"]
