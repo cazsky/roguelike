@@ -2,8 +2,8 @@ extends Node2D
 class_name Weapon
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var charge_particles: GPUParticles2D = $Sword/ChargeParticles
-@onready var hitbox: Hitbox = $Sword/Node2D/SwordSprite/Hitbox
+@onready var charge_particles: GPUParticles2D = $Node2D/ChargeParticles
+@onready var hitbox: Hitbox = $Node2D/WeaponSprite/Hitbox
 
 
 func get_input() -> void:
@@ -14,7 +14,7 @@ func get_input() -> void:
 		if animation_player.is_playing() and animation_player.current_animation == "charge":
 			animation_player.play("attack")
 		elif charge_particles.emitting:
-			animation_player.play("circular_attack")
+			animation_player.play("strong_attack")
 			
 func move(mouse_direction: Vector2) -> void:
 	if not animation_player.is_playing() or animation_player.current_animation == "charge":
