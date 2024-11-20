@@ -1,5 +1,131 @@
-[gd_scene load_steps=2 format=3 uid="uid://cytf7y4rc5wif"]
+[gd_scene load_steps=10 format=3 uid="uid://cytf7y4rc5wif"]
 
 [ext_resource type="PackedScene" uid="uid://c4o8f742ognpe" path="res://Weapons/weapon.tscn" id="1_mwp10"]
+[ext_resource type="Texture2D" uid="uid://cl0auimysdb0e" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_anime_sword.png" id="2_sqt57"]
+[ext_resource type="Texture2D" uid="uid://dbb3mi0cj48cr" path="res://Art/Sword Slashes/White Slash Thin/spritesheet.png" id="3_weye6"]
+
+[sub_resource type="Animation" id="Animation_ydjm1"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_n00qy"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.35),
+"transitions": PackedFloat32Array(1, 0.239876, 0.239876, 0.00448711),
+"update": 0,
+"values": [0.0, 3.66345, 3.66345, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.35),
+"transitions": PackedFloat32Array(1, 0.194844, 0.194844, 0.0441941),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2.305), Vector2(0, 2.305), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/SwordSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.35),
+"transitions": PackedFloat32Array(1, 0.353555, 0.353555, 0.15932),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-0.185182, -12.371), Vector2(-0.185182, -12.371), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D/SwordSprite:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D/SwordSprite/Hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node2D/SwordSprite:material:shader_parameter/active")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ChargeParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3c258"]
+resource_name = "cancel_attack"
+
+[sub_resource type="Animation" id="Animation_uvvoi"]
+resource_name = "charge"
+
+[sub_resource type="Animation" id="Animation_grsr3"]
+resource_name = "strong_attack"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vnbyr"]
+_data = {
+"RESET": SubResource("Animation_ydjm1"),
+"attack": SubResource("Animation_n00qy"),
+"cancel_attack": SubResource("Animation_3c258"),
+"charge": SubResource("Animation_uvvoi"),
+"strong_attack": SubResource("Animation_grsr3")
+}
 
 [node name="Sword" instance=ExtResource("1_mwp10")]
+
+[node name="WeaponSprite" parent="Node2D" index="0"]
+texture_filter = 3
+texture = ExtResource("2_sqt57")
+
+[node name="SlashSprite" type="Sprite2D" parent="." index="1"]
+visible = false
+position = Vector2(7, 5)
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("3_weye6")
+hframes = 6
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_vnbyr")
+}
