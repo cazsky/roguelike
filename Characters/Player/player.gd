@@ -35,6 +35,12 @@ func get_input() -> void:
 	if Input.is_action_pressed("ui_right"):
 		move_direction += Vector2.RIGHT
 	
+	if not current_weapon.is_busy():
+		if Input.is_action_just_released("ui_previous_weapon"):
+			_switch_weapon(UP)
+		elif Input.is_action_just_released("ui_next_weapon"):
+			_switch_weapon(DOWN)
+	
 	current_weapon.get_input()
 		
 	
