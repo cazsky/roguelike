@@ -1,6 +1,6 @@
 extends Character
 
-#var current_weapon: Node2D
+enum {UP,DOWN}
 
 @onready var weapons: Node2D = $Weapons
 @onready var current_weapon: Node2D = weapons.get_child(0)
@@ -46,6 +46,18 @@ func switch_camera() -> void:
 func cancel_attack() -> void:
 	current_weapon.cancel_attack()
 	
-
-
+func _switch_weapon(direction: int) -> void:
+	var index: int = current_weapon.get_index()
+	if direction == UP:
+		index -= 1
+		if index < 0:
+			index = weapons.get_child_count() - 1
+	else:
+		index += 1
+		if index > weapons.get_child_count() - 1:
+			index = 0
+			
+	current_weapon.hide()
+	current_weapon = weapons.get_child(index)
+	current_weapon.show()
 	
