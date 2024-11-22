@@ -420,9 +420,9 @@ script = ExtResource("11_bidhq")
 [node name="Weapons" type="Node2D" parent="." index="4"]
 
 [node name="Sword" parent="Weapons" index="0" instance=ExtResource("16_bs54o")]
+visible = false
 
 [node name="Weapon" parent="Weapons" index="1" instance=ExtResource("17_ahetj")]
-visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 position_smoothing_enabled = true
