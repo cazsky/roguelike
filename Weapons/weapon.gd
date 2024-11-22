@@ -1,9 +1,17 @@
 extends Node2D
 class_name Weapon
 
+@export var on_floor: bool = true
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var charge_particles: GPUParticles2D = $Node2D/ChargeParticles
 @onready var hitbox: Hitbox = $Node2D/WeaponSprite/Hitbox
+@onready var player_detector: Area2D = $PlayerDetector
+
+func _ready() -> void:
+	if not on_floor:
+		player_detector.set_collision_mask_value(1, false)
+		player_detector.set_collision_mask_value(2, false)
 
 
 func get_input() -> void:
@@ -33,3 +41,11 @@ func is_busy() -> bool:
 	if animation_player.is_playing() or charge_particles.emitting:
 		return true
 	return false
+
+
+func _on_player_detector_body_entered(body: Node2D) -> void:
+	if body != null:
+		player_detector.set_collision_mask_value(1, true)
+		player_detector.set_collision_mask_value(2, true)
+		body.pick_up_weapon(self)
+		position = Vector2.ZERO
