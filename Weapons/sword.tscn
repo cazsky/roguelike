@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cytf7y4rc5wif"]
+[gd_scene load_steps=12 format=3 uid="uid://cytf7y4rc5wif"]
 
 [ext_resource type="PackedScene" uid="uid://c4o8f742ognpe" path="res://Weapons/weapon.tscn" id="1_mwp10"]
 [ext_resource type="Texture2D" uid="uid://cl0auimysdb0e" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_anime_sword.png" id="2_626tw"]
@@ -303,6 +303,10 @@ _data = {
 "strong_attack": SubResource("Animation_esq7s")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7jkb"]
+radius = 4.0
+height = 20.0
+
 [node name="Sword" instance=ExtResource("1_mwp10")]
 
 [node name="WeaponSprite" parent="Node2D" index="0"]
@@ -327,3 +331,9 @@ hframes = 6
 libraries = {
 "": SubResource("AnimationLibrary_vnbyr")
 }
+
+[node name="CollisionShape2D" parent="PlayerDetector" index="0"]
+position = Vector2(-8, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n7jkb")
+debug_color = Color(0.978122, 0, 0.398711, 0.42)
