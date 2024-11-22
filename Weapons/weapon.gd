@@ -10,8 +10,12 @@ class_name Weapon
 
 func _ready() -> void:
 	if not on_floor:
+		print_debug("Not on Floor")
 		player_detector.set_collision_mask_value(1, false)
 		player_detector.set_collision_mask_value(2, false)
+		# Hide to not see collision shape
+		player_detector.hide()
+
 
 
 func get_input() -> void:
@@ -45,7 +49,9 @@ func is_busy() -> bool:
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body != null:
-		player_detector.set_collision_mask_value(1, true)
-		player_detector.set_collision_mask_value(2, true)
+		player_detector.set_collision_mask_value(1, false)
+		player_detector.set_collision_mask_value(2, false)
+		# Hide to not see collision shape
+		player_detector.hide()
 		body.pick_up_weapon(self)
 		position = Vector2.ZERO

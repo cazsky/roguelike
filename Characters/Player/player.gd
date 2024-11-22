@@ -68,7 +68,7 @@ func _switch_weapon(direction: int) -> void:
 	current_weapon.show()
 	
 func pick_up_weapon(weapon: Node2D) -> void:
-	weapon.get_parent().call_deferred("remove_children", weapon)
+	weapon.get_parent().call_deferred("remove_child", weapon)
 	weapons.call_deferred("add_child", weapon)
 	weapon.set_deferred("owner", weapons)
 	current_weapon.hide()
