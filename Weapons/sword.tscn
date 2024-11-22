@@ -308,6 +308,7 @@ radius = 4.0
 height = 20.0
 
 [node name="Sword" instance=ExtResource("1_mwp10")]
+on_floor = true
 
 [node name="WeaponSprite" parent="Node2D" index="0"]
 texture_filter = 3

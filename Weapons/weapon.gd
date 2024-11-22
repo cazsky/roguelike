@@ -8,6 +8,9 @@ class_name Weapon
 @onready var hitbox: Hitbox = $Node2D/WeaponSprite/Hitbox
 @onready var player_detector: Area2D = $PlayerDetector
 
+var tween: Tween = null
+
+
 func _ready() -> void:
 	if not on_floor:
 		print_debug("Not on Floor")
@@ -55,3 +58,18 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 		player_detector.hide()
 		body.pick_up_weapon(self)
 		position = Vector2.ZERO
+	else:
+		if tween:
+			tween.kill()
+		player_detector.set_collision_mask_value(2, true)
+		
+		
+func interpolate_pos(initial_pos: Vector2, final_pos: Vector2) -> void:
+	position = initial_pos
+	tween = create_tween()
+	tween.tween_property(self,"position",final_pos,0.8).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	tween.connect("finished", _on_Tween_tween_completed)
+	player_detector.set_collision_mask_value(1,true)
+	
+func _on_Tween_tween_completed() -> void:
+	player_detector.set_collision_mask_value(2,true)	
