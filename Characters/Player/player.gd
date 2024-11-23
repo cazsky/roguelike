@@ -86,6 +86,7 @@ func _drop_weapon() -> void:
 	weapon_to_drop.set_owner(get_parent())
 	await weapon_to_drop.tree_entered
 	weapon_to_drop.show()
+	weapon_to_drop.player_detector.show()
 	
 	var throw_dir: Vector2 = (get_global_mouse_position() - position).normalized()
 	weapon_to_drop.interpolate_pos(position, position + throw_dir * 50)

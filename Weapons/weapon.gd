@@ -50,8 +50,8 @@ func is_busy() -> bool:
 	return false
 
 
-func _on_player_detector_body_entered(body: CharacterBody2D) -> void:
-	if body != null:
+func _on_player_detector_body_entered(body: Node2D) -> void:
+	if body != null and body is CharacterBody2D:
 		player_detector.set_collision_mask_value(1, false)
 		player_detector.set_collision_mask_value(2, false)
 		# Hide to not see collision shape
@@ -68,8 +68,8 @@ func interpolate_pos(initial_pos: Vector2, final_pos: Vector2) -> void:
 	position = initial_pos
 	tween = create_tween()
 	tween.tween_property(self,"position",final_pos,0.8).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-	tween.connect("finished", _on_Tween_tween_completed)
 	player_detector.set_collision_mask_value(1,true)
+	tween.connect("finished", _on_Tween_tween_completed)
 	
 func _on_Tween_tween_completed() -> void:
 	player_detector.set_collision_mask_value(2,true)	

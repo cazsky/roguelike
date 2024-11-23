@@ -109,6 +109,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_coo32"]
 resource_name = "cancel_attack"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
