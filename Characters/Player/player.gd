@@ -40,6 +40,8 @@ func get_input() -> void:
 			_switch_weapon(UP)
 		elif Input.is_action_just_released("ui_next_weapon"):
 			_switch_weapon(DOWN)
+		elif Input.is_action_just_pressed("ui_throw") and weapons.get_child_count() > 1:
+			_drop_weapon()
 	
 	current_weapon.get_input()
 		
