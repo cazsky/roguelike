@@ -76,4 +76,16 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	current_weapon = weapon
 	current_weapon.show()
 	
+func _drop_weapon() -> void:
+	var weapon_to_drop: Node2D = current_weapon
+	_switch_weapon(UP)
+	weapons.call_deferred("remove_child", weapon_to_drop)
+	get_parent().call_deferred("add_child", weapon_to_drop)
+	weapon_to_drop.set_owner(get_parent())
+	await weapon_to_drop.tree_entered
+	weapon_to_drop.show()
+	
+	var throw_dir: Vector2 = (get_global_mouse_position() - position).normalized()
+	weapon_to_drop.interpolate_pos(position, position + throw_dir * 50)
+	
 	
