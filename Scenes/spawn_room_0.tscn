@@ -381,5 +381,7 @@ shape = SubResource("RectangleShape2D_sntox")
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="5"]
 position = Vector2(119, 88)
 
-[node name="Weapon" parent="." index="6" instance=ExtResource("6_x4jms")]
-position = Vector2(67, 52)
+[node name="Weapons" type="Node2D" parent="." index="6"]
+position = Vector2(59, 28)
+
+[node name="Axe" parent="Weapons" index="0" instance=ExtResource("6_x4jms")]

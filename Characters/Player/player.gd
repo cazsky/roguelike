@@ -8,9 +8,13 @@ const DUST_SCENE: PackedScene = preload("res://Scenes/dust.tscn")
 @onready var dust_position: Marker2D = $DustPosition
 @onready var parent: Node2D = get_parent()
 
-func ready() -> void:
+func _ready() -> void:
+	# Setting collision because it gets removed from inspector for wtv reason
 	set_collision_layer_value(2, true)
 	set_collision_mask_value(2, true)
+	current_weapon.on_floor = false
+	print_debug(current_weapon, current_weapon.on_floor)
+
 
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -76,6 +80,7 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	weapon.get_parent().call_deferred("remove_child", weapon)
 	weapons.call_deferred("add_child", weapon)
 	weapon.set_deferred("owner", weapons)
+	weapon.on_floor = false
 	current_weapon.hide()
 	current_weapon.cancel_attack()
 	current_weapon = weapon
@@ -87,6 +92,7 @@ func _drop_weapon() -> void:
 	weapons.call_deferred("remove_child", weapon_to_drop)
 	get_parent().call_deferred("add_child", weapon_to_drop)
 	weapon_to_drop.set_owner(get_parent())
+	weapon_to_drop.on_floor = true
 	await weapon_to_drop.tree_entered
 	weapon_to_drop.show()
 	weapon_to_drop.player_detector.show()

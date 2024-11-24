@@ -12,28 +12,29 @@ var tween: Tween = null
 
 
 func _ready() -> void:
+	print_debug(self, on_floor)
 	if not on_floor:
-		print_debug("Not on Floor")
 		player_detector.set_collision_mask_value(1, false)
 		player_detector.set_collision_mask_value(2, false)
 		# Hide to not see collision shape
 		player_detector.hide()
-
+	
 
 
 func get_input() -> void:
-		#Sword Animation
-	if Input.is_action_just_pressed("ui_attack") and not animation_player.is_playing():
-		animation_player.play("charge")
-	elif Input.is_action_just_released("ui_attack"):
-		if animation_player.is_playing() and animation_player.current_animation == "charge":
-			animation_player.play("attack")
-		elif charge_particles.emitting:
-			animation_player.play("strong_attack")
+	# Weapon Animation
+	if not on_floor:
+		if Input.is_action_just_pressed("ui_attack") and not animation_player.is_playing():
+			animation_player.play("charge")
+		elif Input.is_action_just_released("ui_attack"):
+			if animation_player.is_playing() and animation_player.current_animation == "charge":
+				animation_player.play("attack")
+			elif charge_particles.emitting:
+				animation_player.play("strong_attack")
 			
 func move(mouse_direction: Vector2) -> void:
 	if not animation_player.is_playing() or animation_player.current_animation == "charge":
-		# Sword Rotation
+		# Weapon Rotation
 		rotation = mouse_direction.angle()
 		hitbox.knockback_direction = mouse_direction
 		if scale.y == 1 and mouse_direction.x < 0:
@@ -51,6 +52,7 @@ func is_busy() -> bool:
 
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
+	# CharacterBody2D to make sure its Player body
 	if body != null and body is CharacterBody2D:
 		player_detector.set_collision_mask_value(1, false)
 		player_detector.set_collision_mask_value(2, false)

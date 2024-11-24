@@ -433,7 +433,6 @@ script = ExtResource("11_bidhq")
 [node name="Weapons" type="Node2D" parent="." index="4"]
 
 [node name="Sword" parent="Weapons" index="0" instance=ExtResource("16_bs54o")]
-on_floor = false
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 position_smoothing_enabled = true
