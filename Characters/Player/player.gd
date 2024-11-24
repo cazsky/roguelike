@@ -1,9 +1,11 @@
 extends Character
 
 enum {UP,DOWN}
+const DUST_SCENE: PackedScene = preload("res://Scenes/dust.tscn")
 
 @onready var weapons: Node2D = $Weapons
 @onready var current_weapon: Node2D = weapons.get_child(0)
+@onready var dust_position: Marker2D = $DustPosition
 
 func ready() -> void:
 	set_collision_layer_value(2, true)
@@ -91,4 +93,9 @@ func _drop_weapon() -> void:
 	var throw_dir: Vector2 = (get_global_mouse_position() - position).normalized()
 	weapon_to_drop.interpolate_pos(position, position + throw_dir * 50)
 	
+	
+func spawn_dust() -> void:
+	var dust: Sprite2D = DUST_SCENE.instantiate()
+	dust.position = dust_position.global_position
+	get_parent().add_child(dust)
 	

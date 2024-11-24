@@ -311,6 +311,8 @@ height = 20.0
 
 [node name="WeaponSprite" parent="Node2D" index="0"]
 texture_filter = 3
+position = Vector2(-2.395, 0.725)
+rotation = 23.5585
 texture = ExtResource("2_626tw")
 
 [node name="CollisionShape2D" parent="Node2D/WeaponSprite/Hitbox" index="0"]
@@ -318,6 +320,7 @@ position = Vector2(0.0375537, -15)
 shape = SubResource("CapsuleShape2D_icskl")
 
 [node name="ChargeParticles" parent="Node2D" index="1"]
+position = Vector2(-12, 1)
 emitting = false
 
 [node name="SlashSprite" type="Sprite2D" parent="." index="1"]

@@ -377,6 +377,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_dust"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oy2h6"]
 _data = {
@@ -423,3 +437,6 @@ on_floor = false
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 position_smoothing_enabled = true
+
+[node name="DustPosition" type="Marker2D" parent="." index="6"]
+position = Vector2(-1, 13)
