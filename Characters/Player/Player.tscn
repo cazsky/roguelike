@@ -439,4 +439,4 @@ on_floor = false
 position_smoothing_enabled = true
 
 [node name="DustPosition" type="Marker2D" parent="." index="6"]
-position = Vector2(-1, 13)
+position = Vector2(1.76138, 13.2687)
