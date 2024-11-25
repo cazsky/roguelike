@@ -7,6 +7,7 @@ const DUST_SCENE: PackedScene = preload("res://Scenes/dust.tscn")
 @onready var current_weapon: Node2D = weapons.get_child(0)
 @onready var dust_position: Marker2D = $DustPosition
 @onready var parent: Node2D = get_parent()
+@onready var animation_player = $AnimationPlayer
 
 func _ready() -> void:
 	# Setting collision because it gets removed from inspector for wtv reason

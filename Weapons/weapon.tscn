@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://Weapons/WeaponHitbox.gd" id="3_tukpj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_04tqg"]
+resource_local_to_scene = true
 shader = ExtResource("1_gwpgc")
 shader_parameter/active = false
 

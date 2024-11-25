@@ -18,7 +18,6 @@ func _ready() -> void:
 		player_detector.set_collision_mask_value(2, false)
 		# Hide to not see collision shape
 		player_detector.hide()
-	
 
 
 func get_input() -> void:
