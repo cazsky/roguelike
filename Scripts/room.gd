@@ -14,12 +14,9 @@ var num_enemies: int
 @onready var doors: Node2D = $Doors
 @onready var enemy_positions: Node2D = $EnemyPositions
 @onready var player_detector: Node2D = $PlayerDetector
-@onready var weapon: Node2D = $Weapon
 
 func _ready() -> void:
 	num_enemies = enemy_positions.get_child_count()
-	if weapon:
-		print_debug("room", weapon, weapon.on_floor)
 	
 func _on_enemy_killed() -> void:
 	num_enemies -= 1

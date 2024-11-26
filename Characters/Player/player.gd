@@ -13,8 +13,8 @@ func _ready() -> void:
 	# Setting collision because it gets removed from inspector for wtv reason
 	set_collision_layer_value(2, true)
 	set_collision_mask_value(2, true)
-	current_weapon.on_floor = false
-	print_debug(current_weapon, current_weapon.on_floor)
+	# Game crashes sometimes setting on_floor to false before instance spawns
+	call_thread_safe("set_spawn_weapon_not_on_floor")
 
 
 func _process(_delta: float) -> void:
@@ -107,3 +107,5 @@ func spawn_dust() -> void:
 	dust.position = dust_position.global_position
 	parent.get_child(get_index() - 1).add_sibling(dust)
 	
+func set_spawn_weapon_not_on_floor():
+	current_weapon.on_floor = false
