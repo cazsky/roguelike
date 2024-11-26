@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5ulbewcxw6ua"]
 
-[ext_resource type="Script" path="res://Scenes/game.gd" id="1_gyku8"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_gyku8"]
 [ext_resource type="PackedScene" uid="uid://cu6itddoa4dy7" path="res://Characters/Player/Player.tscn" id="2_0tcf0"]
-[ext_resource type="Script" path="res://Scenes/rooms.gd" id="2_qy0ft"]
-[ext_resource type="Script" path="res://Scenes/ui.gd" id="7_rohuu"]
+[ext_resource type="Script" path="res://Scripts/rooms.gd" id="2_qy0ft"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="7_rohuu"]
 [ext_resource type="Texture2D" uid="uid://dcaj74sow28cs" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/environment/ui_heart/health_ui.png" id="8_cdee1"]
 [ext_resource type="Texture2D" uid="uid://i3acdihjco3j" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/environment/ui_heart/progress bar.png" id="9_u11hn"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://k2of7hs6k7xt"]
 
 [ext_resource type="Texture2D" uid="uid://nidte3jchkfk" path="res://Art/Smoke FX/SmokeFX Lite SpriteSheet 3A-2.png" id="1_3y4cb"]
-[ext_resource type="Script" path="res://Scenes/play_animation.gd" id="2_vv0fj"]
+[ext_resource type="Script" path="res://Scripts/play_animation.gd" id="2_vv0fj"]
 
 [sub_resource type="Animation" id="Animation_1jo7t"]
 length = 0.001

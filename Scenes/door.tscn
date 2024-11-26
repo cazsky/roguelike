@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d4auq8n5q6ey2"]
 
 [ext_resource type="Texture2D" uid="uid://dpxuwq5j0t1dx" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/environment/doors_leaf_closed.png" id="1_3ml2f"]
-[ext_resource type="Script" path="res://Scenes/door.gd" id="1_a2xhi"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_a2xhi"]
 [ext_resource type="Texture2D" uid="uid://dt64lj1byw0hp" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/environment/doors_leaf_open.png" id="2_65swj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dt42n"]

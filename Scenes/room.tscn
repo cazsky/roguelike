@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bia86wv1f67fs"]
 
-[ext_resource type="Script" path="res://Scenes/room.gd" id="1_j16i7"]
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_j16i7"]
 [ext_resource type="TileSet" uid="uid://d0iyej5erkq0i" path="res://Art/Floor_TileSet.tres" id="1_x0u0s"]
 [ext_resource type="Script" path="res://Scripts/floor_layer.gd" id="2_abq66"]
 [ext_resource type="TileSet" uid="uid://orqm8acrxlan" path="res://Art/Wall_TileSet.tres" id="3_f37p1"]

@@ -56,7 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://cigfa5mblmwir" path="res://Art/Explosions/Yellow/explosion_yellow_82.png" id="54_j810n"]
 [ext_resource type="Texture2D" uid="uid://8fvsepa3bpty" path="res://Art/Explosions/Yellow/explosion_yellow_83.png" id="55_oadq7"]
 [ext_resource type="Texture2D" uid="uid://7sk8v0pcyny2" path="res://Art/Explosions/Yellow/explosion_yellow_84.png" id="56_h43xo"]
-[ext_resource type="Script" path="res://Scenes/spawn_explosion.gd" id="57_1kx2j"]
+[ext_resource type="Script" path="res://Scripts/spawn_explosion.gd" id="57_1kx2j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wybnc"]
 animations = [{

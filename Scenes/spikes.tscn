@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://vwvoexp8xn1w"]
 
-[ext_resource type="Script" path="res://Scenes/spikes.gd" id="1_2sgvl"]
+[ext_resource type="Script" path="res://Scripts/spikes.gd" id="1_2sgvl"]
 [ext_resource type="Texture2D" uid="uid://6knqsb6y7rps" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/environment/floor_spikes_spritesheet.png" id="2_4qbde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lstkg"]

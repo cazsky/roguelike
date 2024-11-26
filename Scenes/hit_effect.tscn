@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://q8juyso2aptu"]
+
+[ext_resource type="Texture2D" uid="uid://4vagmrd84ajm" path="res://Art/hit_effect_anim_spritesheet.png" id="1_xusnc"]
+[ext_resource type="Script" path="res://Scripts/play_animation.gd" id="2_wowa3"]
+
+[sub_resource type="Animation" id="Animation_ltim2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dsvul"]
+resource_name = "animation"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eylnu"]
+_data = {
+"RESET": SubResource("Animation_ltim2"),
+"animation": SubResource("Animation_dsvul")
+}
+
+[node name="HitEffect" type="Sprite2D"]
+texture_filter = 3
+texture = ExtResource("1_xusnc")
+hframes = 3
+script = ExtResource("2_wowa3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eylnu")
+}
