@@ -1,3 +1,5 @@
+@icon("res://Art/0x72_DungeonTilesetII_v1.7/frames/monsters/skeleton_dude/skelet_idle_anim_f0.png")
+
 extends Enemy
 
 const MAX_DISTANCE_TO_PLAYER:int = 80

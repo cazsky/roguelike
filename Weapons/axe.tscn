@@ -1,7 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://p33aw0lqk6vg"]
+[gd_scene load_steps=12 format=3 uid="uid://p33aw0lqk6vg"]
 
 [ext_resource type="PackedScene" uid="uid://c4o8f742ognpe" path="res://Weapons/weapon.tscn" id="1_lonkp"]
 [ext_resource type="Texture2D" uid="uid://isvdwqf1impc" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_axe.png" id="2_f16lm"]
+[ext_resource type="Shader" path="res://Characters/Player/HitFlash.gdshader" id="2_najff"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpspw"]
+resource_local_to_scene = true
+shader = ExtResource("2_najff")
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_mvky5"]
 length = 0.001
@@ -293,6 +299,7 @@ height = 24.0
 [node name="Axe" instance=ExtResource("1_lonkp")]
 
 [node name="WeaponSprite" parent="Node2D" index="0"]
+material = SubResource("ShaderMaterial_tpspw")
 scale = Vector2(1, 1)
 texture = ExtResource("2_f16lm")
 

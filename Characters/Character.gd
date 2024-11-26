@@ -1,3 +1,5 @@
+@icon("res://Art/0x72_DungeonTilesetII_v1.7/frames/characters/knight/knight_f_idle_anim_f0.png")
+
 extends CharacterBody2D
 class_name Character
 
@@ -5,6 +7,9 @@ const SPEED = 30.0
 const JUMP_VELOCITY = -400.0
 const FRICTION = 0.2
 const WEIGHT = 10
+
+const HIT_EFFECT: PackedScene = preload("res://Scenes/hit_effect.tscn")
+
 
 @export var acceleration:int = 40
 @export var max_speed:int = 300

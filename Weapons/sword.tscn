@@ -1,8 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cytf7y4rc5wif"]
+[gd_scene load_steps=14 format=3 uid="uid://cytf7y4rc5wif"]
 
 [ext_resource type="PackedScene" uid="uid://c4o8f742ognpe" path="res://Weapons/weapon.tscn" id="1_mwp10"]
+[ext_resource type="Shader" path="res://Characters/Player/HitFlash.gdshader" id="2_3ksr3"]
 [ext_resource type="Texture2D" uid="uid://cl0auimysdb0e" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_anime_sword.png" id="2_626tw"]
 [ext_resource type="Texture2D" uid="uid://dbb3mi0cj48cr" path="res://Art/Sword Slashes/White Slash Thin/spritesheet.png" id="3_weye6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2a7f7"]
+resource_local_to_scene = true
+shader = ExtResource("2_3ksr3")
+shader_parameter/active = false
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_icskl"]
 radius = 4.5375
@@ -335,6 +341,7 @@ height = 20.0
 
 [node name="WeaponSprite" parent="Node2D" index="0"]
 texture_filter = 3
+material = SubResource("ShaderMaterial_2a7f7")
 texture = ExtResource("2_626tw")
 
 [node name="CollisionShape2D" parent="Node2D/WeaponSprite/Hitbox" index="0"]

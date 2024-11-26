@@ -1,3 +1,5 @@
+@icon("res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_anime_sword.png")
+
 extends Node2D
 class_name Weapon
 
