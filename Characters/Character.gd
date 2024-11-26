@@ -8,8 +8,7 @@ const JUMP_VELOCITY = -400.0
 const FRICTION = 0.2
 const WEIGHT = 10
 
-const HIT_EFFECT: PackedScene = preload("res://Scenes/hit_effect.tscn")
-
+const HIT_EFFECT_SCENE: PackedScene = preload("res://Scenes/hit_effect.tscn")
 
 @export var acceleration:int = 40
 @export var max_speed:int = 300
@@ -36,6 +35,7 @@ func move() -> void:
 
 func take_damage(dam: int, dir: Vector2, force: int) -> void:
 	if state_machine.state != state_machine.states.hurt and state_machine.state != state_machine.states.dead:
+		_spawn_hit_effect()
 		self.hp -= dam
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)
@@ -47,3 +47,7 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 func set_hp(new_hp:int) -> void:
 	hp = new_hp
 	emit_signal("hp_changed", new_hp)
+	
+func _spawn_hit_effect() -> void:
+	var hit_effect: Sprite2D = HIT_EFFECT_SCENE.instantiate()
+	add_child(hit_effect)
