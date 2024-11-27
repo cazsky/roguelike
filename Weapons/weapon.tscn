@@ -23,15 +23,19 @@ tangential_accel_min = 79.8
 tangential_accel_max = 80.2
 
 [sub_resource type="Animation" id="Animation_73y2n"]
+resource_local_to_scene = true
 resource_name = "attack"
 
 [sub_resource type="Animation" id="Animation_li3ej"]
+resource_local_to_scene = true
 resource_name = "cancel_attack"
 
 [sub_resource type="Animation" id="Animation_6vdhl"]
+resource_local_to_scene = true
 resource_name = "charge"
 
 [sub_resource type="Animation" id="Animation_1ukq3"]
+resource_local_to_scene = true
 resource_name = "strong_attack"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v6jdw"]
