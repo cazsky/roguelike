@@ -15,6 +15,7 @@ func _ready() -> void:
 	set_collision_mask_value(2, true)
 	# Game crashes sometimes setting on_floor to false before instance spawns
 	call_thread_safe("set_spawn_weapon_not_on_floor")
+	_restore_previous_state()
 
 
 func _process(_delta: float) -> void:
@@ -76,8 +77,11 @@ func _switch_weapon(direction: int) -> void:
 	current_weapon.hide()
 	current_weapon = weapons.get_child(index)
 	current_weapon.show()
+	SavedData.equipped_weapon_index = index
 	
 func pick_up_weapon(weapon: Node2D) -> void:
+	SavedData.weapons.append(weapon.duplicate())
+	SavedData.equipped_weapon_index = weapons.get_child_count()
 	weapon.get_parent().call_deferred("remove_child", weapon)
 	weapons.call_deferred("add_child", weapon)
 	weapon.set_deferred("owner", weapons)
@@ -88,6 +92,7 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	current_weapon.show()
 	
 func _drop_weapon() -> void:
+	SavedData.weapons.remove_at(current_weapon.get_index() - 1)
 	var weapon_to_drop: Node2D = current_weapon
 	_switch_weapon(UP)
 	weapons.call_deferred("remove_child", weapon_to_drop)
@@ -109,3 +114,13 @@ func spawn_dust() -> void:
 	
 func set_spawn_weapon_not_on_floor():
 	current_weapon.on_floor = false
+	
+func _restore_previous_state() -> void:
+	self.hp = SavedData.hp
+	for weapon in SavedData.weapons:
+		weapon = weapon.duplicate()
+		weapon.hide()
+		weapon.position = Vector2.ZERO
+		weapons.add_child(weapon)
+	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
+	current_weapon.show()
