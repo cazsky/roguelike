@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://bcgymwhhp8pt1"]
+[gd_scene load_steps=6 format=4 uid="uid://bcgymwhhp8pt1"]
 
 [ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/room.tscn" id="1_my3sw"]
 [ext_resource type="TileSet" uid="uid://d0iyej5erkq0i" path="res://Art/Floor_TileSet.tres" id="2_vwe77"]
 [ext_resource type="TileSet" uid="uid://orqm8acrxlan" path="res://Art/Wall_TileSet.tres" id="3_5ljaq"]
+[ext_resource type="PackedScene" uid="uid://ca3onlgdvvhjq" path="res://Scenes/stairs.tscn" id="4_07j33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynpxq"]
 size = Vector2(47.5, 16)
@@ -50,7 +51,7 @@ position = Vector2(151.75, 136)
 position = Vector2(176.666, 106.737)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyPositions" index="1"]
-position = Vector2(86.5812, 148.944)
+position = Vector2(78.0714, 94.9054)
 
 [node name="PlayerDetector" parent="." index="4"]
 collision_layer = 0
@@ -59,3 +60,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
 position = Vector2(136, 135)
 shape = SubResource("RectangleShape2D_ynpxq")
+
+[node name="Stairs" parent="." index="5" instance=ExtResource("4_07j33")]
+position = Vector2(152, 24)
