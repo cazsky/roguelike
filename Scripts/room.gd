@@ -1,4 +1,5 @@
 extends Node2D
+class_name Room
 
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Scenes/spawn_explosion.tscn")
 
