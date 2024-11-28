@@ -29,13 +29,13 @@ value = 50.0
 texture_over = ExtResource("8_cdee1")
 texture_progress = ExtResource("9_u11hn")
 tint_progress = Color(0.909263, 0.175352, 0.344033, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_0tcf0")]
 position = Vector2(72, 56)
 collision_mask = 3
 acceleration = 45
 max_speed = 240
-hp = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

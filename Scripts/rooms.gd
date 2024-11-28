@@ -4,6 +4,7 @@ extends Node2D
 const SPAWN_ROOMS: Array = [preload("res://Scenes/spawn_room_0.tscn")]
 const INTERMEDIATE_ROOMS: Array = [preload("res://Scenes/room0.tscn"),preload("res://Scenes/room_1.tscn"),preload("res://Scenes/room_2.tscn")]
 const END_ROOMS: Array = [preload("res://Scenes/end_room0.tscn")]
+const LOL: Array = [preload("res://Scenes/room_with_weapon_0.tscn")]
 
 const TILE_SIZE: int = 16
 const FLOOR_TILE_INDEX: Vector2i = Vector2i(0,0)
@@ -30,9 +31,9 @@ func _spawn_rooms() -> void:
 			player.position = room.get_node("PlayerSpawnPos").position
 		else: 
 			if i == num_levels - 1:
-				room = END_ROOMS.pick_random().instantiate()
+				room = LOL.pick_random().instantiate()
 			else:
-				room = INTERMEDIATE_ROOMS.pick_random().instantiate()
+				room = LOL.pick_random().instantiate()
 				
 			var previous_room_floor_tilemap: TileMapLayer = previous_room.get_node("MapLayer/FloorTextureLayer")
 			var previous_room_wall_tilemap: TileMapLayer = previous_room.get_node("MapLayer/ObstacleLayer")
