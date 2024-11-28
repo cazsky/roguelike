@@ -54,4 +54,5 @@ func _on_player_detector_body_entered(_body: Node2D) -> void:
 		_close_entrance()
 		_spawn_enemies()
 	else:
+		_close_entrance()
 		_open_doors()
