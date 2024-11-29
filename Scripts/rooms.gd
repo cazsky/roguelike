@@ -13,7 +13,7 @@ const LEFT_FLOOR_TILE_INDEX: Vector2i = Vector2i(4,5)
 const WALL_TILE_INDEX: Vector2i = Vector2i(0,1)
 
 
-@export var num_levels : int = 2
+@export var num_levels : int = 5
 
 @onready var player: CharacterBody2D = get_parent().get_node("Player")
 
@@ -22,6 +22,7 @@ func _ready() -> void:
 
 func _spawn_rooms() -> void:
 	var previous_room: Node2D = null
+	var special_room_spawned: bool = false
 	
 	for i in num_levels:
 		var room: Node2D
@@ -30,10 +31,16 @@ func _spawn_rooms() -> void:
 			room = SPAWN_ROOMS.pick_random().instantiate()
 			player.position = room.get_node("PlayerSpawnPos").position
 		else: 
+			# If its the last level pick an end room
 			if i == num_levels - 1:
-				room = INTERMEDIATE_ROOMS.pick_random().instantiate()
-			else:
 				room = END_ROOMS.pick_random().instantiate()
+			# If not first or last just choose a normal room
+			else:
+				if (randi_range(0, 3) == 0 or i == num_levels - 2) and not special_room_spawned:
+					room = SPECIAL_ROOMS.pick_random().instantiate()
+					special_room_spawned = true
+				else:
+					room = INTERMEDIATE_ROOMS.pick_random().instantiate()
 				
 			var previous_room_floor_tilemap: TileMapLayer = previous_room.get_node("MapLayer/FloorTextureLayer")
 			var previous_room_wall_tilemap: TileMapLayer = previous_room.get_node("MapLayer/ObstacleLayer")
