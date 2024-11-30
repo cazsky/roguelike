@@ -40,7 +40,7 @@ func _spawn_rooms() -> void:
 					room = SPECIAL_ROOMS.pick_random().instantiate()
 					special_room_spawned = true
 				else:
-					room = INTERMEDIATE_ROOMS.pick_random().instantiate()
+					room = SPECIAL_ROOMS.pick_random().instantiate()
 				
 			var previous_room_floor_tilemap: TileMapLayer = previous_room.get_node("MapLayer/FloorTextureLayer")
 			var previous_room_wall_tilemap: TileMapLayer = previous_room.get_node("MapLayer/ObstacleLayer")
