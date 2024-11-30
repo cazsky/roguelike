@@ -53,10 +53,6 @@ position = Vector2(176.666, 106.737)
 [node name="Marker2D2" type="Marker2D" parent="EnemyPositions" index="1"]
 position = Vector2(78.0714, 94.9054)
 
-[node name="PlayerDetector" parent="." index="4"]
-collision_layer = 0
-collision_mask = 2
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
 position = Vector2(136, 135)
 shape = SubResource("RectangleShape2D_ynpxq")
