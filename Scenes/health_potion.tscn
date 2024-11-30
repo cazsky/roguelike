@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://byw461hmubbra"]
+
+[ext_resource type="Texture2D" uid="uid://c4jvqr3urf5nk" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/environment/flasks/flask_red.png" id="1_fsn1u"]
+[ext_resource type="Script" path="res://Scripts/health_potion.gd" id="1_h0g4m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2kesn"]
+radius = 4.0
+height = 12.0
+
+[node name="HealthPotion" type="Area2D"]
+texture_filter = 3
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_h0g4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fsn1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2kesn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

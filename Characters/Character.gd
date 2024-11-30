@@ -13,6 +13,7 @@ const HIT_EFFECT_SCENE: PackedScene = preload("res://Scenes/hit_effect.tscn")
 @export var acceleration:int = 40
 @export var max_speed:int = 300
 @export var hp: int = 2: set = set_hp
+@export var max_hp: int = 2
 signal hp_changed(new_hp)
 
 @export var flying: bool = false
@@ -47,8 +48,8 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 			velocity += dir * force * 2
 
 func set_hp(new_hp:int) -> void:
-	hp = new_hp
-	emit_signal("hp_changed", new_hp)
+	hp = clamp(new_hp, 0, max_hp)
+	emit_signal("hp_changed", hp)
 	
 func _spawn_hit_effect() -> void:
 	var hit_effect: Sprite2D = HIT_EFFECT_SCENE.instantiate()

@@ -9,7 +9,7 @@ var max_hp: int = 4
 #@onready var health_bar_tween: Tween = get_tree().create_tween()
 
 func _ready() -> void:
-	max_hp = player.hp
+	max_hp = player.max_hp
 	_update_health_bar(100)
 	
 func _update_health_bar(new_value: int) -> void:
