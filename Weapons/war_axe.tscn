@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3boifvkmhesj"]
+[gd_scene load_steps=14 format=3 uid="uid://b3boifvkmhesj"]
 
 [ext_resource type="PackedScene" uid="uid://c4o8f742ognpe" path="res://Weapons/weapon.tscn" id="1_8sx40"]
 [ext_resource type="Shader" path="res://Characters/Player/HitFlash.gdshader" id="2_6p6le"]
@@ -9,6 +9,26 @@
 resource_local_to_scene = true
 shader = ExtResource("2_6p6le")
 shader_parameter/active = false
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36ifp"]
+resource_local_to_scene = true
+radius = 6.0
+height = 21.0
+
+[sub_resource type="Animation" id="Animation_qpcsj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlashSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_x1cyu"]
 resource_local_to_scene = true
@@ -65,7 +85,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/SlashSprite:frame")
+tracks/4/path = NodePath("SlashSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -77,7 +97,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Node2D/SlashSprite:visible")
+tracks/5/path = NodePath("SlashSprite:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -111,21 +131,6 @@ resource_name = "charge"
 resource_local_to_scene = true
 resource_name = "strong_attack"
 
-[sub_resource type="Animation" id="Animation_qpcsj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/SlashSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_suhab"]
 _data = {
 "RESET": SubResource("Animation_qpcsj"),
@@ -147,13 +152,15 @@ rotation = 0.0
 texture = ExtResource("3_awcvv")
 
 [node name="CollisionShape2D" parent="Node2D/WeaponSprite/Hitbox" index="0"]
-position = Vector2(0.594061, -16.7778)
+position = Vector2(0.594001, -16.7778)
 rotation = 1.5708
+shape = SubResource("CapsuleShape2D_36ifp")
+disabled = false
 
 [node name="ChargeParticles" parent="Node2D" index="1"]
 emitting = false
 
-[node name="SlashSprite" type="Sprite2D" parent="Node2D" index="2"]
+[node name="SlashSprite" type="Sprite2D" parent="." index="1"]
 visible = false
 position = Vector2(6, 0)
 scale = Vector2(0.02, 0.02)
@@ -161,7 +168,7 @@ texture = ExtResource("4_l6ltk")
 hframes = 6
 frame = 1
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" parent="." index="2"]
 libraries = {
 "": SubResource("AnimationLibrary_suhab")
 }

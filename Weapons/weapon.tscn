@@ -10,8 +10,9 @@ shader = ExtResource("1_gwpgc")
 shader_parameter/active = false
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0muk7"]
-radius = 4.5
-height = 21.0
+resource_local_to_scene = true
+radius = 5.094
+height = 24.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j2eus"]
 particle_flag_disable_z = true

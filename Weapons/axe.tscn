@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://p33aw0lqk6vg"]
+[gd_scene load_steps=13 format=3 uid="uid://p33aw0lqk6vg"]
 
 [ext_resource type="PackedScene" uid="uid://c4o8f742ognpe" path="res://Weapons/weapon.tscn" id="1_lonkp"]
 [ext_resource type="Texture2D" uid="uid://isvdwqf1impc" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_axe.png" id="2_f16lm"]
@@ -8,6 +8,11 @@
 resource_local_to_scene = true
 shader = ExtResource("2_najff")
 shader_parameter/active = false
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grtqr"]
+resource_local_to_scene = true
+radius = 5.0
+height = 12.0
 
 [sub_resource type="Animation" id="Animation_mvky5"]
 length = 0.001
@@ -304,7 +309,8 @@ scale = Vector2(1, 1)
 texture = ExtResource("2_f16lm")
 
 [node name="CollisionShape2D" parent="Node2D/WeaponSprite/Hitbox" index="0"]
-position = Vector2(0.59405, -13.7778)
+position = Vector2(0.594059, -16.2778)
+shape = SubResource("CapsuleShape2D_grtqr")
 
 [node name="ChargeParticles" parent="Node2D" index="1"]
 position = Vector2(-9, 0)
