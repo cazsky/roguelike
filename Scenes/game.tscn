@@ -38,6 +38,7 @@ collision_mask = 3
 acceleration = 45
 max_speed = 240
 hp = 994
+max_hp = 757
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
