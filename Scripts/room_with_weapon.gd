@@ -1,6 +1,7 @@
 extends Room
 
-const WEAPONS: Array = [preload("res://Weapons/axe.tscn"),preload("res://Weapons/sword.tscn")]
+const WEAPONS: Array = [preload("res://Weapons/axe.tscn"),preload("res://Weapons/sword.tscn"), preload("res://Weapons/war_axe.tscn")]
+
 
 @onready var weapon_pos: Marker2D = $WeaponPos
 

@@ -14,7 +14,6 @@ var tween: Tween = null
 
 
 func _ready() -> void:
-	print_debug(self, on_floor)
 	if not on_floor:
 		player_detector.set_collision_mask_value(1, false)
 		player_detector.set_collision_mask_value(2, false)
