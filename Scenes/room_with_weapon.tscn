@@ -1,26 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://caole3vektvqg"]
+[gd_scene load_steps=3 format=3 uid="uid://caole3vektvqg"]
 
 [ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/room.tscn" id="1_k3jf5"]
 [ext_resource type="Script" path="res://Scripts/room_with_weapon.gd" id="2_ljmj2"]
-[ext_resource type="TileSet" uid="uid://d0iyej5erkq0i" path="res://Art/Floor_TileSet.tres" id="3_soe6a"]
-[ext_resource type="TileSet" uid="uid://orqm8acrxlan" path="res://Art/Wall_TileSet.tres" id="4_vbo4u"]
 
 [node name="RoomWithWeapon" instance=ExtResource("1_k3jf5")]
 script = ExtResource("2_ljmj2")
-
-[node name="FloorTextureLayer" type="TileMapLayer" parent="MapLayer" index="1"]
-texture_filter = 1
-tile_set = ExtResource("3_soe6a")
-navigation_enabled = false
-
-[node name="WallTextureLayer" type="TileMapLayer" parent="MapLayer" index="3"]
-tile_set = ExtResource("4_vbo4u")
-
-[node name="BottomWall" type="TileMapLayer" parent="MapLayer" index="4"]
-z_index = 2
-tile_set = ExtResource("4_vbo4u")
-
-[node name="ObstacleLayer" type="TileMapLayer" parent="MapLayer" index="5"]
-tile_set = ExtResource("4_vbo4u")
 
 [node name="WeaponPos" type="Marker2D" parent="." index="5"]
