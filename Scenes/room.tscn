@@ -16,8 +16,23 @@ texture_filter = 1
 tile_set = ExtResource("1_x0u0s")
 script = ExtResource("2_abq66")
 
+[node name="FloorTextureLayer" type="TileMapLayer" parent="MapLayer"]
+texture_filter = 1
+tile_set = ExtResource("1_x0u0s")
+navigation_enabled = false
+
 [node name="WallLayer" type="TileMapLayer" parent="MapLayer"]
 texture_filter = 1
+tile_set = ExtResource("3_f37p1")
+
+[node name="WallTextureLayer" type="TileMapLayer" parent="MapLayer"]
+tile_set = ExtResource("3_f37p1")
+
+[node name="BottomWall" type="TileMapLayer" parent="MapLayer"]
+z_index = 2
+tile_set = ExtResource("3_f37p1")
+
+[node name="ObstacleLayer" type="TileMapLayer" parent="MapLayer"]
 tile_set = ExtResource("3_f37p1")
 
 [node name="Entrance" type="Node2D" parent="."]
