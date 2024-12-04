@@ -6,12 +6,14 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_atnrm"]
 
 [node name="Enemy" instance=ExtResource("1_streg")]
+texture_filter = 3
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_i4loo")
 acceleration = 30
 max_speed = 105
 hp = 2
+max_hp = 2
 flying = false
 
 [node name="AnimatedSprite2D" parent="." index="0"]
