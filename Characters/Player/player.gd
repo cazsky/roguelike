@@ -1,7 +1,7 @@
 extends Character
 
 enum {UP,DOWN}
-const DUST_SCENE: PackedScene = preload("res://Scenes/dust.tscn")
+const DUST_SCENE: PackedScene = preload("res://Scenes/Effects/dust.tscn")
 
 @onready var weapons: Node2D = $Weapons
 @onready var current_weapon: Node2D = weapons.get_child(0)

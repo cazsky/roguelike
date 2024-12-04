@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 const FRICTION = 0.2
 const WEIGHT = 10
 
-const HIT_EFFECT_SCENE: PackedScene = preload("res://Scenes/hit_effect.tscn")
+const HIT_EFFECT_SCENE: PackedScene = preload("res://Scenes/Effects/hit_effect.tscn")
 
 @export var acceleration:int = 40
 @export var max_speed:int = 300
