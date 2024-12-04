@@ -1,7 +1,7 @@
 extends Node2D
 
 
-const SPAWN_ROOMS: Array = [preload("res://Scenes/spawn_room_0.tscn")]
+const SPAWN_ROOMS: Array = [preload("res://Scenes/spawn_room_0.tscn"), preload("res://Scenes/spawn_room_1.tscn")]
 const INTERMEDIATE_ROOMS: Array = [preload("res://Scenes/room0.tscn"),preload("res://Scenes/room_1.tscn"),preload("res://Scenes/room_2.tscn")]
 const END_ROOMS: Array = [preload("res://Scenes/end_room0.tscn")]
 const SPECIAL_ROOMS: Array = [preload("res://Scenes/special_room_0.tscn")]
