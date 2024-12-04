@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=4 uid="uid://4f0wjdqkpc70"]
 
-[ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/room.tscn" id="1_jvv3p"]
+[ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/Rooms/room.tscn" id="1_jvv3p"]
 [ext_resource type="TileSet" uid="uid://d0iyej5erkq0i" path="res://Art/Floor_TileSet.tres" id="2_4ouoq"]
 [ext_resource type="TileSet" uid="uid://orqm8acrxlan" path="res://Art/Wall_TileSet.tres" id="2_j6amt"]
-[ext_resource type="PackedScene" uid="uid://d4auq8n5q6ey2" path="res://Scenes/door.tscn" id="3_3iodm"]
+[ext_resource type="PackedScene" uid="uid://d4auq8n5q6ey2" path="res://Scenes/Rooms/Furniture/door.tscn" id="3_3iodm"]
 [ext_resource type="Script" path="res://Scripts/floor_layer.gd" id="3_puoor"]
-[ext_resource type="PackedScene" uid="uid://vwvoexp8xn1w" path="res://Scenes/spikes.tscn" id="6_rb4nj"]
+[ext_resource type="PackedScene" uid="uid://vwvoexp8xn1w" path="res://Scenes/Rooms/Furniture/spikes.tscn" id="6_rb4nj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n77oe"]
 size = Vector2(49, 20)

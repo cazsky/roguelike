@@ -1,10 +1,13 @@
 extends Node2D
 
 
-const SPAWN_ROOMS: Array = [preload("res://Scenes/spawn_room_0.tscn"), preload("res://Scenes/spawn_room_1.tscn")]
-const INTERMEDIATE_ROOMS: Array = [preload("res://Scenes/room0.tscn"),preload("res://Scenes/room_1.tscn"),preload("res://Scenes/room_2.tscn")]
-const END_ROOMS: Array = [preload("res://Scenes/end_room0.tscn")]
-const SPECIAL_ROOMS: Array = [preload("res://Scenes/special_room_0.tscn")]
+const SPAWN_ROOMS: Array = [preload("res://Scenes/Rooms/Child Rooms/spawn_room_0.tscn"),
+preload("res://Scenes/Rooms/Child Rooms/spawn_room_1.tscn")]
+const INTERMEDIATE_ROOMS: Array = [preload("res://Scenes/Rooms/Child Rooms/room0.tscn"),
+preload("res://Scenes/Rooms/Child Rooms/room_1.tscn"),
+preload("res://Scenes/Rooms/Child Rooms/room_2.tscn")]
+const END_ROOMS: Array = [preload("res://Scenes/Rooms/Child Rooms/end_room0.tscn")]
+const SPECIAL_ROOMS: Array = [preload("res://Scenes/Rooms/Child Rooms/special_room_0.tscn")]
 
 const TILE_SIZE: int = 16
 const FLOOR_TILE_INDEX: Vector2i = Vector2i(0,0)

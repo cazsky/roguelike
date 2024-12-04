@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://k6kqec51xjp5"]
 
-[ext_resource type="PackedScene" uid="uid://caole3vektvqg" path="res://Scenes/room_with_weapon.tscn" id="1_bry3i"]
-[ext_resource type="PackedScene" uid="uid://d4auq8n5q6ey2" path="res://Scenes/door.tscn" id="2_lq7te"]
+[ext_resource type="PackedScene" uid="uid://caole3vektvqg" path="res://Scenes/Rooms/room_with_weapon.tscn" id="1_bry3i"]
+[ext_resource type="PackedScene" uid="uid://d4auq8n5q6ey2" path="res://Scenes/Rooms/Furniture/door.tscn" id="2_lq7te"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqwnv"]
 size = Vector2(48, 20)
@@ -17,10 +17,10 @@ tile_map_data = PackedByteArray("AAABAAEAAAAGAAMAAGABAAMAAAAGAAMAAGAEAAUAAAAGAAM
 [node name="WallLayer" parent="MapLayer" index="2"]
 tile_map_data = PackedByteArray("AAABAP//AAABAAAAAAABAAAAAAABAAEAAAABAAEAAAAAAAEAAAABAAIAAAAAAAEAAAABAAMAAAAAAAEAAAABAAQAAAAAAAEAAAABAAUAAAAAAAEAAAABAAYAAAAAAAMAAAACAP//AAACAAYAAAACAAAAAAACAAcAAAADAP//AAACAAYAAAADAAAAAAACAAcAAAAEAP//AAACAAYAAAAEAAAAAAACAAcAAAAFAP//AAACAAYAAAAFAAAAAAACAAcAAAAIAP//AAACAAYAAAAIAAAAAAACAAcAAAAJAP//AAACAAYAAAAJAAAAAAACAAcAAAAKAP//AAACAAYAAAAKAAAAAAACAAcAAAALAP//AAACAAYAAAALAAAAAAACAAcAAAAMAP//AAADAAAAAAAMAAAAAAADAAEAAAAMAAEAAAAAAAEAAAAMAAIAAAAAAAEAAAAMAAMAAAAAAAEAAAAMAAQAAAAAAAEAAAAMAAUAAAAAAAEAAAAMAAYAAAAAAAMAAAA=")
 
-[node name="WallTextureLayer" parent="MapLayer" index="3"]
+[node name="WallTextureLayer" parent="MapLayer" index="4"]
 tile_map_data = PackedByteArray("AAAFAP//AAAQAAYAAAAFAAAAAAAQAAcAAAAGAP7/AAARAAUAAAAHAP7/AAASAAUAAAAIAP//AAATAAYAAAAIAAAAAAATAAcAAAA=")
 
-[node name="BottomWall" parent="MapLayer" index="4"]
+[node name="BottomWall" parent="MapLayer" index="5"]
 tile_map_data = PackedByteArray("AAABAAYAAAABAAQAAAABAAcAAAABAAUAAAACAAYAAAACAAYAAAACAAcAAAACAAcAAAADAAYAAAACAAYAAAADAAcAAAACAAcAAAAEAAYAAAACAAYAAAAEAAcAAAACAAcAAAAFAAYAAAACAAYAAAAFAAcAAAACAAcAAAAJAAYAAAACAAYAAAAJAAcAAAACAAcAAAAKAAYAAAACAAYAAAAKAAcAAAACAAcAAAALAAYAAAACAAYAAAALAAcAAAACAAcAAAAMAAYAAAADAAQAAAAMAAcAAAADAAUAAAA=")
 
 [node name="Marker2D2" type="Marker2D" parent="Entrance" index="0"]

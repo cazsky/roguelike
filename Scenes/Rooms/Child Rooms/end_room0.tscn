@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://bcgymwhhp8pt1"]
 
-[ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/room.tscn" id="1_my3sw"]
-[ext_resource type="PackedScene" uid="uid://ca3onlgdvvhjq" path="res://Scenes/stairs.tscn" id="4_07j33"]
+[ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/Rooms/room.tscn" id="1_my3sw"]
+[ext_resource type="PackedScene" uid="uid://ca3onlgdvvhjq" path="res://Scenes/Rooms/Furniture/stairs.tscn" id="4_07j33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynpxq"]
 size = Vector2(47.5, 16)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=4 uid="uid://da2be8hj47caf"]
 
-[ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/room.tscn" id="1_kb3ig"]
-[ext_resource type="PackedScene" uid="uid://dmvtgh5yins2b" path="res://Scenes/room_1.tscn" id="3_aivhe"]
-[ext_resource type="PackedScene" uid="uid://k6kqec51xjp5" path="res://Scenes/room_with_weapon_0.tscn" id="4_1k4fi"]
-[ext_resource type="PackedScene" uid="uid://d4auq8n5q6ey2" path="res://Scenes/door.tscn" id="4_64me5"]
+[ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/Rooms/room.tscn" id="1_kb3ig"]
+[ext_resource type="PackedScene" uid="uid://dmvtgh5yins2b" path="res://Scenes/Rooms/Child Rooms/room_1.tscn" id="3_aivhe"]
+[ext_resource type="PackedScene" uid="uid://k6kqec51xjp5" path="res://Scenes/Rooms/Child Rooms/room_with_weapon_0.tscn" id="4_1k4fi"]
+[ext_resource type="PackedScene" uid="uid://d4auq8n5q6ey2" path="res://Scenes/Rooms/Furniture/door.tscn" id="4_64me5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cq4pn"]
 size = Vector2(85.6059, 36.8125)
