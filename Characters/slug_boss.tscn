@@ -505,8 +505,10 @@ disabled = true
 debug_color = Color(0.956937, 0, 0.535266, 0.42)
 
 [node name="BlobShadow" type="Sprite2D" parent="." index="8"]
+show_behind_parent = true
 texture_filter = 2
 material = SubResource("ShaderMaterial_ynuys")
-position = Vector2(15, 11)
-scale = Vector2(0.495, 0.495)
+position = Vector2(-2.86102e-06, 12)
+scale = Vector2(0.517, 0.535)
+skew = -1.5132
 texture = ExtResource("66_u4yqy")
