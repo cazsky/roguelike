@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://c2xsmgxlig31h"]
+[gd_scene load_steps=73 format=3 uid="uid://c2xsmgxlig31h"]
 
 [ext_resource type="PackedScene" uid="uid://cbdihxuow1oun" path="res://Characters/enemy.tscn" id="1_b0wfh"]
 [ext_resource type="Shader" path="res://Characters/BossFlash.gdshader" id="2_binru"]
@@ -63,6 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://dlalwjvl85l3w" path="res://Art/Explosions/Green/exposion_green_83.png" id="56_qo4cv"]
 [ext_resource type="Texture2D" uid="uid://dtvnl5n7yynqj" path="res://Art/Explosions/Green/exposion_green_84.png" id="57_2gc82"]
 [ext_resource type="Script" path="res://hitbox.gd" id="62_07wys"]
+[ext_resource type="Texture2D" uid="uid://bnbmm2u2o1jvd" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/monsters/slug/slug_shadow.png" id="64_8xyme"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vwy1m"]
 resource_local_to_scene = true
@@ -495,3 +496,7 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_j60y4")
 disabled = true
 debug_color = Color(0.956937, 0, 0.535266, 0.42)
+
+[node name="SlugShadow" type="Sprite2D" parent="." index="8"]
+scale = Vector2(0.37, 0.37)
+texture = ExtResource("64_8xyme")
