@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://c2xsmgxlig31h"]
+[gd_scene load_steps=75 format=3 uid="uid://c2xsmgxlig31h"]
 
 [ext_resource type="PackedScene" uid="uid://cbdihxuow1oun" path="res://Characters/enemy.tscn" id="1_b0wfh"]
 [ext_resource type="Shader" path="res://Characters/BossFlash.gdshader" id="2_binru"]
@@ -63,7 +63,8 @@
 [ext_resource type="Texture2D" uid="uid://dlalwjvl85l3w" path="res://Art/Explosions/Green/exposion_green_83.png" id="56_qo4cv"]
 [ext_resource type="Texture2D" uid="uid://dtvnl5n7yynqj" path="res://Art/Explosions/Green/exposion_green_84.png" id="57_2gc82"]
 [ext_resource type="Script" path="res://hitbox.gd" id="62_07wys"]
-[ext_resource type="Texture2D" uid="uid://bnbmm2u2o1jvd" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/monsters/slug/slug_shadow.png" id="64_8xyme"]
+[ext_resource type="Shader" path="res://Characters/blur_shader.gdshader" id="64_1ygur"]
+[ext_resource type="Texture2D" uid="uid://c3cqasweypmcp" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/blob_shadow2.png" id="66_u4yqy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vwy1m"]
 resource_local_to_scene = true
@@ -467,34 +468,31 @@ _data = {
 radius = 4.0
 height = 14.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynuys"]
+shader = ExtResource("64_1ygur")
+shader_parameter/alpha = 0.58
+
 [node name="SlugBoss" instance=ExtResource("1_b0wfh")]
 
-[node name="SlugShadow" type="Sprite2D" parent="." index="0"]
-modulate = Color(1, 1, 1, 0.258824)
-position = Vector2(-9, 6)
-scale = Vector2(0.37, 0.37)
-skew = -1.07512
-texture = ExtResource("64_8xyme")
-
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_vwy1m")
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_ee8dm")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_q2qvv")
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="2"]
 libraries = {
 "": SubResource("AnimationLibrary_lrb4g")
 }
 
-[node name="JumpTimer" type="Timer" parent="." index="7"]
+[node name="JumpTimer" type="Timer" parent="." index="6"]
 wait_time = 5.0
 autostart = true
 
-[node name="Hitbox" type="Area2D" parent="." index="8"]
+[node name="Hitbox" type="Area2D" parent="." index="7"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("62_07wys")
@@ -505,3 +503,10 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_j60y4")
 disabled = true
 debug_color = Color(0.956937, 0, 0.535266, 0.42)
+
+[node name="BlobShadow" type="Sprite2D" parent="." index="8"]
+texture_filter = 2
+material = SubResource("ShaderMaterial_ynuys")
+position = Vector2(15, 11)
+scale = Vector2(0.495, 0.495)
+texture = ExtResource("66_u4yqy")
