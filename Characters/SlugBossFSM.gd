@@ -1,3 +1,5 @@
+@icon("res://Art/0x72_DungeonTilesetII_v1.7/frames/monsters/slug/slug_anim_f0.png")
+
 extends FiniteStateMachine
 
 var can_jump: bool = false
@@ -17,7 +19,7 @@ func _ready() -> void:
 
 
 func _state_logic(_detla: float) -> void:
-	if state == states.jump:
+	if state == states.jump or state == states.idle:
 		parent.chase()
 		parent.move()
 

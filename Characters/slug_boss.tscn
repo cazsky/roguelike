@@ -66,7 +66,7 @@
 [ext_resource type="Script" path="res://hitbox.gd" id="62_07wys"]
 [ext_resource type="Script" path="res://Characters/SlugBossFSM.gd" id="63_ibh8b"]
 [ext_resource type="Shader" path="res://Characters/blur_shader.gdshader" id="64_1ygur"]
-[ext_resource type="Texture2D" uid="uid://c3cqasweypmcp" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/blob_shadow2.png" id="66_u4yqy"]
+[ext_resource type="Texture2D" uid="uid://t0nwsyh6hfrb" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/black_oval.png" id="67_35jt0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vwy1m"]
 resource_local_to_scene = true
@@ -758,8 +758,8 @@ shader_parameter/alpha = 0.58
 [node name="SlugBoss" instance=ExtResource("1_b0wfh")]
 scale = Vector2(8, 8)
 script = ExtResource("2_nijb8")
-acceleration = 20
-max_speed = 155
+acceleration = 10
+max_speed = 50
 max_hp = 8
 hp = 8
 
@@ -799,9 +799,8 @@ debug_color = Color(0.956937, 0, 0.535266, 0.42)
 show_behind_parent = true
 texture_filter = 2
 material = SubResource("ShaderMaterial_ynuys")
-position = Vector2(-2.86102e-06, 12)
-scale = Vector2(0.517, 0.535)
-skew = -1.5132
-texture = ExtResource("66_u4yqy")
+position = Vector2(-0.5, 11.625)
+scale = Vector2(0.517, 0.0300195)
+texture = ExtResource("67_35jt0")
 
 [connection signal="timeout" from="JumpTimer" to="FiniteStateMachine" method="_on_jump_timer_timeout"]
