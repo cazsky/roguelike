@@ -12,8 +12,8 @@ const HIT_EFFECT_SCENE: PackedScene = preload("res://Scenes/Effects/hit_effect.t
 
 @export var acceleration:int = 40
 @export var max_speed:int = 300
-@export var hp: int = 2: set = set_hp
 @export var max_hp: int = 2
+@export var hp: int = 2: set = set_hp
 signal hp_changed(new_hp)
 
 @export var flying: bool = false
