@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://c2xsmgxlig31h"]
+[gd_scene load_steps=79 format=3 uid="uid://c2xsmgxlig31h"]
 
 [ext_resource type="PackedScene" uid="uid://cbdihxuow1oun" path="res://Characters/enemy.tscn" id="1_b0wfh"]
 [ext_resource type="Shader" path="res://Characters/BossFlash.gdshader" id="2_binru"]
@@ -63,6 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://dlalwjvl85l3w" path="res://Art/Explosions/Green/exposion_green_83.png" id="56_qo4cv"]
 [ext_resource type="Texture2D" uid="uid://dtvnl5n7yynqj" path="res://Art/Explosions/Green/exposion_green_84.png" id="57_2gc82"]
 [ext_resource type="Script" path="res://hitbox.gd" id="62_07wys"]
+[ext_resource type="Script" path="res://Characters/SlugBossFSM.gd" id="63_ibh8b"]
 [ext_resource type="Shader" path="res://Characters/blur_shader.gdshader" id="64_1ygur"]
 [ext_resource type="Texture2D" uid="uid://c3cqasweypmcp" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/blob_shadow2.png" id="66_u4yqy"]
 
@@ -709,6 +710,9 @@ libraries = {
 "": SubResource("AnimationLibrary_lrb4g")
 }
 
+[node name="FiniteStateMachine" parent="." index="3"]
+script = ExtResource("63_ibh8b")
+
 [node name="JumpTimer" type="Timer" parent="." index="6"]
 wait_time = 5.0
 autostart = true
@@ -733,3 +737,5 @@ position = Vector2(-2.86102e-06, 12)
 scale = Vector2(0.517, 0.535)
 skew = -1.5132
 texture = ExtResource("66_u4yqy")
+
+[connection signal="timeout" from="JumpTimer" to="FiniteStateMachine" method="_on_jump_timer_timeout"]
