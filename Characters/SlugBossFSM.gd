@@ -38,6 +38,8 @@ func _get_transition() -> int:
 	return -1
 	
 func _enter_state(_previous_state: int, new_state: int) -> void:
+	parent.acceleration = 10
+	parent.max_speed = 50
 	match new_state:
 		states.idle:
 			animation_player.play("move")
