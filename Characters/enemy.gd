@@ -12,6 +12,7 @@ var path: PackedVector2Array
 
 func _ready() -> void:
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
+	
 
 func chase() -> void:
 	if not navigation.is_target_reached():

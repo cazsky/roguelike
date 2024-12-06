@@ -409,8 +409,8 @@ motion_mode = 1
 script = ExtResource("2_t1paw")
 acceleration = 640
 max_speed = 1865
-hp = 729
 max_hp = 542
+hp = 729
 flying = false
 
 [node name="AnimatedSprite2D" parent="." index="0"]

@@ -5,10 +5,13 @@ const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Scenes/Effects/spawn_e
 
 const ENEMY_SCENES: Dictionary = {
 	"GOBLIN": preload("res://Characters/goblin.tscn"),
-	"SKELETON": preload("res://Characters/skeleton.tscn")
+	"SKELETON": preload("res://Characters/skeleton.tscn"),
+	"SLUG_BOSS": preload("res://Characters/slug_boss.tscn")
 }
 
 var num_enemies: int
+
+@export var boss_room: bool = false
 
 @onready var tilemap: TileMapLayer = $MapLayer/BottomWall
 @onready var entrance: Node2D = $Entrance
@@ -36,11 +39,14 @@ func _close_entrance() -> void:
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions.get_children():
 		var enemy: CharacterBody2D
-		if randi() % 2 == 0:
-			enemy = ENEMY_SCENES.GOBLIN.instantiate()
+		if boss_room:
+			enemy = ENEMY_SCENES.SLUG_BOSS.instantiate()
+			num_enemies = 15
 		else:
-			enemy = ENEMY_SCENES.SKELETON.instantiate()
-		var __ = enemy.connect("tree_exited", Callable(self, "_on_enemy_killed"))
+			if randi() % 2 == 0:
+				enemy = ENEMY_SCENES.GOBLIN.instantiate()
+			else:
+				enemy = ENEMY_SCENES.SKELETON.instantiate()
 		
 		var spawn_explosion: AnimatedSprite2D = SPAWN_EXPLOSION_SCENE.instantiate()
 		enemy.position = enemy_position.position

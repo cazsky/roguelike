@@ -8,12 +8,14 @@ preload("res://Scenes/Rooms/Child Rooms/room_1.tscn"),
 preload("res://Scenes/Rooms/Child Rooms/room_2.tscn")]
 const END_ROOMS: Array = [preload("res://Scenes/Rooms/Child Rooms/end_room0.tscn")]
 const SPECIAL_ROOMS: Array = [preload("res://Scenes/Rooms/Child Rooms/special_room_0.tscn")]
+const BOSS_ROOMS: Array = [preload("res://Scenes/Rooms/Child Rooms/slug_boss_room.tscn")]
 
 const TILE_SIZE: int = 16
 const FLOOR_TILE_INDEX: Vector2i = Vector2i(0,0)
 const RIGHT_FLOOR_TILE_INDEX: Vector2i = Vector2i(5,5)
 const LEFT_FLOOR_TILE_INDEX: Vector2i = Vector2i(4,5)
 const WALL_TILE_INDEX: Vector2i = Vector2i(0,1)
+const BOSS_LEVEL: int = 1
 
 
 @export var num_levels : int = 5
@@ -21,6 +23,9 @@ const WALL_TILE_INDEX: Vector2i = Vector2i(0,1)
 @onready var player: CharacterBody2D = get_parent().get_node("Player")
 
 func _ready() -> void:
+	SavedData.num_floor += 1
+	if SavedData.num_floor == BOSS_LEVEL:
+		num_levels = 2
 	_spawn_rooms()
 
 func _spawn_rooms() -> void:
@@ -33,17 +38,20 @@ func _spawn_rooms() -> void:
 		if i == 0:
 			room = SPAWN_ROOMS.pick_random().instantiate()
 			player.position = room.get_node("PlayerSpawnPos").position
-		else: 
-			# If its the last level pick an end room
-			if i == num_levels - 1:
-				room = END_ROOMS.pick_random().instantiate()
-			# If not first or last just choose a normal room
-			else:
-				if (randi_range(0, 3) == 0 or i == num_levels - 2) and not special_room_spawned:
-					room = SPECIAL_ROOMS.pick_random().instantiate()
-					special_room_spawned = true
+		else:
+			if SavedData.num_floor == BOSS_LEVEL:
+				room = BOSS_ROOMS.pick_random().instantiate()
+			else: 
+				# If its the last level pick an end room
+				if i == num_levels - 1:
+					room = END_ROOMS.pick_random().instantiate()
+				# If not first or last just choose a normal room
 				else:
-					room = SPECIAL_ROOMS.pick_random().instantiate()
+					if (randi_range(0, 3) == 0 or i == num_levels - 2) and not special_room_spawned:
+						room = SPECIAL_ROOMS.pick_random().instantiate()
+						special_room_spawned = true
+					else:
+						room = SPECIAL_ROOMS.pick_random().instantiate()
 				
 			var previous_room_floor_tilemap: TileMapLayer = previous_room.get_node("MapLayer/FloorTextureLayer")
 			var previous_room_wall_tilemap: TileMapLayer = previous_room.get_node("MapLayer/ObstacleLayer")
