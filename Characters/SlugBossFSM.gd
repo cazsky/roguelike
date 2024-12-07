@@ -6,6 +6,7 @@ var can_jump: bool = false
 
 @onready var path_timer: Timer = parent.get_node("PathTimer")
 @onready var jump_timer: Timer = parent.get_node("JumpTimer")
+@onready var hitbox: Area2D = parent.get_node("Hitbox")
 
 func _init() -> void:
 	_add_state("idle")
@@ -44,7 +45,6 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 		states.idle:
 			animation_player.play("move")
 		states.jump:
-			path_timer.stop()
 			animation_player.play("jump")
 		states.hurt:
 			animation_player.play("hurt")
