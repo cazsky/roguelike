@@ -4,7 +4,6 @@ extends FiniteStateMachine
 
 var can_jump: bool = false
 
-@onready var path_timer: Timer = parent.get_node("PathTimer")
 @onready var jump_timer: Timer = parent.get_node("JumpTimer")
 @onready var hitbox: Area2D = parent.get_node("Hitbox")
 
@@ -45,6 +44,8 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 		states.idle:
 			animation_player.play("move")
 		states.jump:
+			if is_instance_valid(parent.player):
+				parent.path = [parent.global_position, parent.player.position]
 			animation_player.play("jump")
 		states.hurt:
 			animation_player.play("hurt")
@@ -54,7 +55,6 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 func _exit_state(state_exited: int) -> void:
 	if state_exited == states.jump:
 		can_jump = false
-		path_timer.start()
 		jump_timer.start()
 
 

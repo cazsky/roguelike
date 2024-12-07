@@ -5,11 +5,12 @@ extends Enemy
 
 func _process(_delta: float) -> void:
 	hitbox.knockback_direction = velocity.normalized()
-	if player.global_position.y > global_position.y:
-		z_index = 0
-	else:
-		# Why does setting +1 not work????
-		z_index = player.z_index + 2
+	if is_instance_valid(player):
+		if player.global_position.y > global_position.y:
+			z_index = 0
+		else:
+			# Why does setting +1 not work????
+			z_index = player.z_index + 2
 
 
 
