@@ -31,6 +31,8 @@ func get_input() -> void:
 				animation_player.play("attack")
 			elif charge_particles.emitting:
 				animation_player.play("strong_attack")
+		elif Input.is_action_just_pressed("ui_active_ability") and animation_player.has_animation("active_ability") and not is_busy():
+			animation_player.play("active_ability")
 			
 func move(mouse_direction: Vector2) -> void:
 	if not animation_player.is_playing() or animation_player.current_animation == "charge":
