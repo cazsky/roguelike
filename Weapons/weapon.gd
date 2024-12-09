@@ -9,9 +9,10 @@ class_name Weapon
 @onready var charge_particles: GPUParticles2D = $Node2D/ChargeParticles
 @onready var hitbox: Hitbox = $Node2D/WeaponSprite/Hitbox
 @onready var player_detector: Area2D = $PlayerDetector
+@onready var cooldown_timer: Timer = $CooldownTimer
 
 var tween: Tween = null
-
+var can_active_ability: bool = true
 
 func _ready() -> void:
 	if not on_floor:
@@ -31,7 +32,8 @@ func get_input() -> void:
 				animation_player.play("attack")
 			elif charge_particles.emitting:
 				animation_player.play("strong_attack")
-		elif Input.is_action_just_pressed("ui_active_ability") and animation_player.has_animation("active_ability") and not is_busy():
+		elif Input.is_action_just_pressed("ui_active_ability") and animation_player.has_animation("active_ability") and not is_busy() and can_active_ability:
+			cooldown_timer.start()
 			animation_player.play("active_ability")
 			
 func move(mouse_direction: Vector2) -> void:
@@ -77,3 +79,7 @@ func interpolate_pos(initial_pos: Vector2, final_pos: Vector2) -> void:
 	
 func _on_Tween_tween_completed() -> void:
 	player_detector.set_collision_mask_value(2,true)	
+
+
+func _on_cooldown_timer_timeout() -> void:
+	can_active_ability = true
