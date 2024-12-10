@@ -11,6 +11,7 @@ class_name Weapon
 @onready var player_detector: Area2D = $PlayerDetector
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var ui: CanvasLayer = $UI
+@onready var ability_icon: TextureProgressBar = $UI/AbilityIcon
 
 var tween: Tween = null
 var can_active_ability: bool = true
@@ -22,6 +23,8 @@ func _ready() -> void:
 		# Hide to not see collision shape
 		player_detector.hide()
 
+		
+		
 
 func get_input() -> void:
 	# Weapon Animation
@@ -86,3 +89,9 @@ func _on_Tween_tween_completed() -> void:
 
 func _on_cooldown_timer_timeout() -> void:
 	can_active_ability = true
+
+func _show_ability_icon() -> void:
+	ability_icon.show()
+
+func _hide_ability_icon() -> void:
+	ability_icon.hide()

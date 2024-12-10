@@ -9,6 +9,7 @@ const DUST_SCENE: PackedScene = preload("res://Scenes/Effects/dust.tscn")
 @onready var parent: Node2D = get_parent()
 @onready var animation_player = $AnimationPlayer
 
+
 func _ready() -> void:
 	# Setting collision because it gets removed from inspector for wtv reason
 	set_collision_layer_value(2, true)
@@ -76,7 +77,20 @@ func _switch_weapon(direction: int) -> void:
 			
 	current_weapon.hide()
 	current_weapon = weapons.get_child(index)
-	current_weapon.show()
+	var ability_icon = current_weapon.get_node("UI/AbilityIcon")
+	var weapon_animation_player = current_weapon.get_node("AnimationPlayer")
+	ability_icon.hide()
+	print_debug(current_weapon)
+	print_debug(weapon_animation_player.has_animation("active_ability"))
+	if weapon_animation_player.has_animation("active_ability"):
+		print_debug("shown")
+		ability_icon.show()
+	else:
+		print_debug("hidden")
+		print_debug(ability_icon)
+		ability_icon.visible = false
+		print_debug(ability_icon.visible)
+	current_weapon.show()	
 	SavedData.equipped_weapon_index = index
 	
 func pick_up_weapon(weapon: Node2D) -> void:
@@ -119,8 +133,8 @@ func _restore_previous_state() -> void:
 	self.hp = SavedData.hp
 	for weapon in SavedData.weapons:
 		weapon = weapon.duplicate()
-		weapon.hide()
 		weapon.position = Vector2.ZERO
 		weapons.add_child(weapon)
+		weapon.hide()
 	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
 	current_weapon.show()
