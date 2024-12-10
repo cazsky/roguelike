@@ -10,6 +10,7 @@ class_name Weapon
 @onready var hitbox: Hitbox = $Node2D/WeaponSprite/Hitbox
 @onready var player_detector: Area2D = $PlayerDetector
 @onready var cooldown_timer: Timer = $CooldownTimer
+@onready var ui: CanvasLayer = $UI
 
 var tween: Tween = null
 var can_active_ability: bool = true
@@ -33,7 +34,9 @@ func get_input() -> void:
 			elif charge_particles.emitting:
 				animation_player.play("strong_attack")
 		elif Input.is_action_just_pressed("ui_active_ability") and animation_player.has_animation("active_ability") and not is_busy() and can_active_ability:
+			can_active_ability = false
 			cooldown_timer.start()
+			ui.recharge_ability_animation(cooldown_timer.wait_time)
 			animation_player.play("active_ability")
 			
 func move(mouse_direction: Vector2) -> void:

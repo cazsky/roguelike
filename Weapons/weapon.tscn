@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4o8f742ognpe"]
+[gd_scene load_steps=14 format=3 uid="uid://c4o8f742ognpe"]
 
 [ext_resource type="Shader" path="res://Characters/Player/HitFlash.gdshader" id="1_gwpgc"]
 [ext_resource type="Script" path="res://Weapons/weapon.gd" id="1_tphxg"]
 [ext_resource type="Script" path="res://Weapons/WeaponHitbox.gd" id="3_tukpj"]
+[ext_resource type="Script" path="res://Scripts/abilityUI.gd" id="4_3hg5b"]
+[ext_resource type="Texture2D" uid="uid://cgol7n1743w57" path="res://Art/Custom Border and Panels Menu All Part/Panels Split/tile000-white.png" id="5_t17lh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_04tqg"]
 resource_local_to_scene = true
@@ -94,12 +96,17 @@ wait_time = 4.0
 one_shot = true
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("4_3hg5b")
 
 [node name="AbilityIcon" type="TextureProgressBar" parent="UI"]
 texture_filter = 1
-offset_right = 64.0
-offset_bottom = 64.0
-texture_under = null
+offset_left = 42.0
+offset_top = 208.0
+offset_right = 106.0
+offset_bottom = 272.0
+scale = Vector2(0.75, 0.75)
+fill_mode = 7
+texture_progress = ExtResource("5_t17lh")
 
 [connection signal="area_entered" from="Node2D/WeaponSprite/Hitbox" to="Node2D/WeaponSprite/Hitbox" method="_on_area_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

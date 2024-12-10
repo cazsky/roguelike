@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cytf7y4rc5wif"]
+[gd_scene load_steps=16 format=3 uid="uid://cytf7y4rc5wif"]
 
 [ext_resource type="PackedScene" uid="uid://c4o8f742ognpe" path="res://Weapons/weapon.tscn" id="1_mwp10"]
 [ext_resource type="Shader" path="res://Characters/Player/HitFlash.gdshader" id="2_3ksr3"]
 [ext_resource type="Texture2D" uid="uid://cl0auimysdb0e" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_anime_sword.png" id="2_626tw"]
 [ext_resource type="Texture2D" uid="uid://dbb3mi0cj48cr" path="res://Art/Sword Slashes/White Slash Thin/spritesheet.png" id="3_weye6"]
+[ext_resource type="Texture2D" uid="uid://7vh670a1gdld" path="res://Art/Self-made UI/pixil-frame-0(3).png" id="5_fm6ch"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2a7f7"]
 resource_local_to_scene = true
@@ -868,3 +869,8 @@ position = Vector2(-8, -5)
 rotation = 2.21308
 shape = SubResource("CapsuleShape2D_n7jkb")
 debug_color = Color(0.978122, 0, 0.398711, 0.42)
+
+[node name="AbilityIcon" parent="UI" index="0"]
+fill_mode = 2
+texture_under = ExtResource("5_fm6ch")
+tint_progress = Color(1, 1, 1, 0.301961)
