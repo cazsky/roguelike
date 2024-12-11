@@ -41,6 +41,10 @@ func get_input() -> void:
 			cooldown_timer.start()
 			ui.recharge_ability_animation(cooldown_timer.wait_time)
 			animation_player.play("active_ability")
+	if animation_player.has_animation("active_ability"):
+		ability_icon.visible = true
+	else:
+		ability_icon.visible = false
 			
 func move(mouse_direction: Vector2) -> void:
 	if not animation_player.is_playing() or animation_player.current_animation == "charge":
