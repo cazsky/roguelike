@@ -8,8 +8,7 @@ const DUST_SCENE: PackedScene = preload("res://Scenes/Effects/dust.tscn")
 @onready var dust_position: Marker2D = $DustPosition
 @onready var parent: Node2D = get_parent()
 @onready var animation_player = $AnimationPlayer
-@onready var ability_visible: bool = false: set = show_ability
-signal ability_is_visible(value)
+
 
 func _ready() -> void:
 	# Setting collision because it gets removed from inspector for wtv reason
@@ -78,15 +77,6 @@ func _switch_weapon(direction: int) -> void:
 			
 	current_weapon.hide()
 	current_weapon = weapons.get_child(index)
-	var ability_icon = current_weapon.get_node("UI/AbilityIcon")
-	var weapon_animation_player = current_weapon.get_node("AnimationPlayer")
-	show_ability(weapon_animation_player.has_animation("active_ability"))
-	ability_icon.hide()
-	if weapon_animation_player.has_animation("active_ability"):
-		ability_icon.show()
-	else:
-
-		ability_icon.visible = false
 	current_weapon.show()	
 	SavedData.equipped_weapon_index = index
 	
@@ -135,6 +125,3 @@ func _restore_previous_state() -> void:
 		weapon.hide()
 	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
 	current_weapon.show()
-
-func show_ability(value: bool) -> void:
-	emit_signal("ability_is_visible", value)
