@@ -22,7 +22,8 @@ func _ready() -> void:
 		player_detector.set_collision_mask_value(2, false)
 		# Hide to not see collision shape
 		player_detector.hide()
-
+	connect("hidden", _on_hide)
+	connect("draw", _on_show)
 		
 		
 
@@ -94,8 +95,8 @@ func _on_Tween_tween_completed() -> void:
 func _on_cooldown_timer_timeout() -> void:
 	can_active_ability = true
 
-func _show_ability_icon() -> void:
+func _on_show() -> void:
 	ability_icon.show()
 
-func _hide_ability_icon() -> void:
+func _on_hide() -> void:
 	ability_icon.hide()
