@@ -57,7 +57,8 @@ func move(mouse_direction: Vector2) -> void:
 			scale.y = 1
 			
 func cancel_attack() -> void:
-	animation_player.play("cancel_attack")
+	#animation_player.play("cancel_attack")
+	animation_player.stop()
 	
 func is_busy() -> bool:
 	if animation_player.is_playing() or charge_particles.emitting:

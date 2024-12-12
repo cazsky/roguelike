@@ -81,14 +81,14 @@ func _switch_weapon(direction: int) -> void:
 	SavedData.equipped_weapon_index = index
 	
 func pick_up_weapon(weapon: Node2D) -> void:
-	SavedData.weapons.append(weapon.duplicate())
+	SavedData.weapons.append(weapon.duplicate()) #Two errors whenever weapon is picked up
 	SavedData.equipped_weapon_index = weapons.get_child_count()
 	weapon.get_parent().call_deferred("remove_child", weapon)
 	weapons.call_deferred("add_child", weapon)
 	weapon.set_deferred("owner", weapons)
 	weapon.on_floor = false
 	current_weapon.hide()
-	current_weapon.cancel_attack()
+	current_weapon.cancel_attack() # This might be causing issues
 	current_weapon = weapon
 	current_weapon.show()
 	
