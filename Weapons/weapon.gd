@@ -22,6 +22,7 @@ func _ready() -> void:
 		player_detector.set_collision_mask_value(2, false)
 		# Hide to not see collision shape
 		player_detector.hide()
+	# Hide the ability icon if the weapon doesnt have it
 	connect("hidden", _on_hide)
 	connect("draw", _on_show)
 		
@@ -29,6 +30,7 @@ func _ready() -> void:
 
 func get_input() -> void:
 	# Weapon Animation
+	# Check if on floor so it doesnt play charge on the floor
 	if not on_floor:
 		if Input.is_action_just_pressed("ui_attack") and not animation_player.is_playing():
 			animation_player.play("charge")
@@ -78,6 +80,7 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 		player_detector.set_collision_mask_value(2, true)
 		
 		
+# Function for throwing the weapon 
 func interpolate_pos(initial_pos: Vector2, final_pos: Vector2) -> void:
 	position = initial_pos
 	tween = create_tween()

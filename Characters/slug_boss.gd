@@ -13,7 +13,6 @@ func _process(_delta: float) -> void:
 			z_index = player.z_index + 2
 
 
-
 func duplicate_slug() -> void:
 	if scale > Vector2(1,1):
 		var impulse_direction: Vector2 = Vector2.RIGHT.rotated(randf_range(0, 2*PI))
@@ -21,13 +20,11 @@ func duplicate_slug() -> void:
 		_spawn_slug(impulse_direction * -1)
 
 
-
-
 func _spawn_slug(direction: Vector2) -> void:
-	var slime: CharacterBody2D = load("res://Characters/slug_boss.tscn").instantiate()
-	slime.position = position
-	slime.scale = scale/2
-	slime.hp = max_hp/2.0
-	slime.max_hp = max_hp/2.0
-	get_parent().add_child(slime)
-	slime.velocity += direction * 150
+	var slug: CharacterBody2D = load("res://Characters/slug_boss.tscn").instantiate()
+	slug.position = position
+	slug.scale = scale/2
+	slug.hp = max_hp/2.0
+	slug.max_hp = max_hp/2.0
+	get_parent().add_child(slug)
+	slug.velocity += direction * 150
