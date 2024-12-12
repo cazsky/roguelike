@@ -10,6 +10,7 @@ const DUST_SCENE: PackedScene = preload("res://Scenes/Effects/dust.tscn")
 @onready var animation_player = $AnimationPlayer
 
 
+
 func _ready() -> void:
 	# Setting collision because it gets removed from inspector for wtv reason
 	set_collision_layer_value(2, true)
@@ -65,7 +66,8 @@ func cancel_attack() -> void:
 	current_weapon.cancel_attack()
 	
 func _switch_weapon(direction: int) -> void:
-	var index: int = current_weapon.get_index()
+	var prev_index: int = current_weapon.get_index()
+	var index: int = prev_index
 	if direction == UP:
 		index -= 1
 		if index < 0:
@@ -82,7 +84,9 @@ func _switch_weapon(direction: int) -> void:
 	
 func pick_up_weapon(weapon: Node2D) -> void:
 	SavedData.weapons.append(weapon.duplicate()) #Two errors whenever weapon is picked up
-	SavedData.equipped_weapon_index = weapons.get_child_count()
+	var prev_index: int = SavedData.equipped_weapon_index
+	var new_index: int = weapons.get_child_count()
+	SavedData.equipped_weapon_index = new_index
 	weapon.get_parent().call_deferred("remove_child", weapon)
 	weapons.call_deferred("add_child", weapon)
 	weapon.set_deferred("owner", weapons)

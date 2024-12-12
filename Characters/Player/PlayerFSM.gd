@@ -35,7 +35,6 @@ func _enter_state(_previous_state: int, _new_state: int) -> void:
 		states.move:
 			animation_player.play("move")
 		states.hurt:
-			animation_player.stop()
 			parent.cancel_attack()
 			animation_player.play("hurt")
 		states.dead:
