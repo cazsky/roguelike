@@ -58,7 +58,7 @@ func move(mouse_direction: Vector2) -> void:
 			
 func cancel_attack() -> void:
 	#animation_player.play("cancel_attack")
-	animation_player.play("RESET")
+	animation_player.call_deferred("play", "RESET")
 	
 func is_busy() -> bool:
 	if animation_player.is_playing() or charge_particles.emitting:
