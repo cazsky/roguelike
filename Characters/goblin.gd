@@ -6,6 +6,8 @@ extends Enemy
 
 func _process(_delta: float) -> void:
 	hitbox.knockback_direction = velocity.normalized()
+
 	
 func _ready() -> void:
+	NOTIFICATION_EXIT_TREE
 	pass

@@ -19,10 +19,12 @@ var num_enemies: int
 @onready var enemy_positions: Node2D = $EnemyPositions
 @onready var player_detector: Node2D = $PlayerDetector
 
+
 func _ready() -> void:
 	num_enemies = enemy_positions.get_child_count()
 	
 func _on_enemy_killed() -> void:
+	print_tree()
 	num_enemies -= 1
 	if num_enemies == 0:
 		_open_doors()
@@ -30,6 +32,7 @@ func _on_enemy_killed() -> void:
 func _open_doors() -> void:
 	for door in doors.get_children():
 		door.open()
+	
 		
 func _close_entrance() -> void:
 	for entry_position in entrance.get_children():
