@@ -57,7 +57,6 @@ func move(mouse_direction: Vector2) -> void:
 			scale.y = 1
 			
 func cancel_attack() -> void:
-	#animation_player.play("cancel_attack")
 	animation_player.call_deferred("play", "RESET")
 	
 func is_busy() -> bool:

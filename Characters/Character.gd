@@ -14,6 +14,7 @@ const HIT_EFFECT_SCENE: PackedScene = preload("res://Scenes/Effects/hit_effect.t
 @export var max_speed:int = 300
 @export var max_hp: int = 2
 @export var hp: int = 2: set = set_hp
+@warning_ignore("unused_signal") #Its used in the Game/UI scene
 signal hp_changed(new_hp)
 
 @export var flying: bool = false
