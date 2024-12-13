@@ -15,10 +15,10 @@ const FLOOR_TILE_INDEX: Vector2i = Vector2i(0,0)
 const RIGHT_FLOOR_TILE_INDEX: Vector2i = Vector2i(5,5)
 const LEFT_FLOOR_TILE_INDEX: Vector2i = Vector2i(4,5)
 const WALL_TILE_INDEX: Vector2i = Vector2i(0,1)
-const BOSS_LEVEL: int = 1
+const BOSS_LEVEL: int = 3 # Change this to set how many levels before boss
 
 
-@export var num_levels : int = 5
+@export var num_levels : int = 2
 
 @onready var player: CharacterBody2D = get_parent().get_node("Player")
 

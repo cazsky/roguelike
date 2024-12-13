@@ -85,9 +85,10 @@ func _switch_weapon(direction: int) -> void:
 func pick_up_weapon(weapon: Node2D) -> void:
 	print_debug("Duplicating weapon: ", weapon.name)
 	print_debug("Weapon children: ", weapon.get_child_count())
-	var weapon_copy = weapon.duplicate(8)
+	print_debug("Weapon: ", weapon)
+	var weapon_copy = weapon.duplicate(DUPLICATE_SCRIPTS | DUPLICATE_GROUPS | DUPLICATE_SIGNALS)
 	SavedData.weapons.append(weapon_copy) #Two errors whenever weapon is picked up
-
+	
 	var prev_index: int = SavedData.equipped_weapon_index
 	var new_index: int = weapons.get_child_count()
 	SavedData.equipped_weapon_index = new_index
@@ -133,3 +134,4 @@ func _restore_previous_state() -> void:
 		weapon.hide()
 	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
 	current_weapon.show()
+	
