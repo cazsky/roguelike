@@ -43,6 +43,10 @@ func _get_path_to_move_away_from_player() -> void:
 func _throw_knife() -> void:
 	var projectile: Area2D = THROWING_KNIFE.instantiate()
 	projectile.launch(global_position, (player.position - global_position).normalized(), projectile_speed)
+	
+	# Connect the signal explicitly if needed
+	if not projectile.is_connected("body_exited", Callable(projectile, "_on_body_exited")):
+		projectile.connect("body_exited", Callable(projectile, "_on_body_exited"))
 	get_tree().current_scene.add_child(projectile)
 	
 	

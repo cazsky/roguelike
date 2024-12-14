@@ -36,4 +36,5 @@ func _collide(body: Node2D) -> void:
 		if body != null and body.has_method("take_damage") :
 			body.take_damage(damage,knockback_direction,knockback_force)
 		queue_free()
+	
 		
