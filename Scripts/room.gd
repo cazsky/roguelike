@@ -24,7 +24,6 @@ func _ready() -> void:
 	num_enemies = enemy_positions.get_child_count()
 	
 func _on_enemy_killed() -> void:
-	print_tree()
 	num_enemies -= 1
 	if num_enemies == 0:
 		_open_doors()

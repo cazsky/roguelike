@@ -12,7 +12,6 @@ var path: PackedVector2Array
 
 func _ready() -> void:
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
-	print_debug("Parent: ", get_parent())
 
 	
 
