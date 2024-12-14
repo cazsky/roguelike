@@ -3,7 +3,6 @@ extends Area2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 func _on_body_entered(player: CharacterBody2D) -> void:
-	print_debug(player.hp," ", player.max_hp)
 	if player.hp < player.max_hp:
 		collision_shape.set_deferred("disabled", true)
 		player.hp += 1
