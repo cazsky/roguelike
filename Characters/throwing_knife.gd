@@ -4,6 +4,13 @@ var direction: Vector2 = Vector2.ZERO
 var knife_speed: int = 0
 var enemy_exited: bool = false
 
+
+# Ensure connections are set up when the knife is instantiated
+func _ready() -> void:
+	if not is_connected("body_exited", Callable(self, "_on_body_exited")):
+		connect("body_exited", Callable(self, "_on_body_exited"))
+	
+		
 func launch(initial_position: Vector2, dir: Vector2, speed: int) -> void:
 	position = initial_position
 	direction = dir

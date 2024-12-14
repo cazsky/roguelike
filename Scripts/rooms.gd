@@ -59,6 +59,7 @@ func _spawn_rooms() -> void:
 			var exit_tile_pos: Vector2i = previous_room_floor_tilemap.local_to_map(previous_room_door.position) + Vector2i.UP * 2
 			
 			# Generate Corridor
+			previous_room_floor_tilemap.navigation_enabled = false
 			var corridor_height: int = randi_range(3,10)
 			for y in range(-1, corridor_height + 1):
 				# void set_cell(coords: Vector2i, source_id: int = -1, atlas_coords: Vector2i = Vector2i(-1, -1), alternative_tile: int = 0)
