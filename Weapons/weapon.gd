@@ -57,7 +57,7 @@ func move(mouse_direction: Vector2) -> void:
 			scale.y = 1
 			
 func cancel_attack() -> void:
-	animation_player.call_deferred("play", "RESET")
+	animation_player.play("RESET")
 	
 func is_busy() -> bool:
 	if animation_player.is_playing() or charge_particles.emitting:
@@ -72,6 +72,8 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 		player_detector.set_collision_mask_value(2, false)
 		# Hide to not see collision shape
 		player_detector.hide()
+		if animation_player.is_playing():
+			animation_player.stop()
 		body.pick_up_weapon(self)
 		position = Vector2.ZERO
 	else:

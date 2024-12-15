@@ -55,7 +55,7 @@ func get_input() -> void:
 			_drop_weapon()
 	
 	current_weapon.get_input()
-		
+
 	
 func switch_camera() -> void:
 	var main_scene_camera: Camera2D = $"../Camera2D"
@@ -79,7 +79,7 @@ func _switch_weapon(direction: int) -> void:
 			
 	current_weapon.hide()
 	current_weapon = weapons.get_child(index)
-	current_weapon.show()	
+	current_weapon.show()
 	SavedData.equipped_weapon_index = index
 	
 func pick_up_weapon(weapon: Node2D) -> void:
