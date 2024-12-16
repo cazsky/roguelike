@@ -9,7 +9,6 @@ const DUST_SCENE: PackedScene = preload("res://Scenes/Effects/dust.tscn")
 @onready var parent: Node2D = get_parent()
 @onready var animation_player = $AnimationPlayer
 
-signal weapon_picked_up
 
 func _ready() -> void:
 	# Setting collision because it gets removed from inspector for wtv reason
@@ -18,6 +17,7 @@ func _ready() -> void:
 	# Game crashes sometimes setting on_floor to false before instance spawns
 	call_thread_safe("set_spawn_weapon_not_on_floor")
 	_restore_previous_state()
+	print_debug("Weapons child count: ", weapons.get_child_count())
 
 
 func _process(_delta: float) -> void:
@@ -46,13 +46,7 @@ func get_input() -> void:
 	if Input.is_action_pressed("ui_right"):
 		move_direction += Vector2.RIGHT
 	
-	if not current_weapon.is_busy():
-		if Input.is_action_just_released("ui_previous_weapon"):
-			_switch_weapon(UP)
-		elif Input.is_action_just_released("ui_next_weapon"):
-			_switch_weapon(DOWN)
-		elif Input.is_action_just_pressed("ui_throw") and weapons.get_child_count() > 1:
-			_drop_weapon()
+	switch_weapon_input()
 	
 	current_weapon.get_input()
 
@@ -67,8 +61,6 @@ func cancel_attack() -> void:
 	
 func _switch_weapon(direction: int) -> void:
 	# Current_weapon.get_parent() returns spawn_room, prolly cause of call_deferred
-	var confirmed = await weapon_picked_up
-	print_debug("CONFIRMED: ", confirmed)
 	var prev_index: int = current_weapon.get_index()
 	print_debug("wtf", current_weapon.get_parent())
 	var index: int = prev_index
@@ -110,7 +102,6 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	current_weapon = weapon
 	current_weapon.show()
 	
-	emit_signal("weapon_picked_up")
 	
 	
 func _drop_weapon() -> void:
@@ -147,3 +138,11 @@ func _restore_previous_state() -> void:
 	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
 	current_weapon.show()
 	
+func switch_weapon_input() -> void:
+	if not current_weapon.is_busy():
+		if Input.is_action_just_released("ui_previous_weapon"):
+			_switch_weapon(UP)
+		elif Input.is_action_just_released("ui_next_weapon"):
+			_switch_weapon(DOWN)
+		elif Input.is_action_just_pressed("ui_throw") and weapons.get_child_count() > 1:
+			_drop_weapon()
