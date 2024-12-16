@@ -9,7 +9,7 @@ const DUST_SCENE: PackedScene = preload("res://Scenes/Effects/dust.tscn")
 @onready var parent: Node2D = get_parent()
 @onready var animation_player = $AnimationPlayer
 
-
+signal weapon_picked_up
 
 func _ready() -> void:
 	# Setting collision because it gets removed from inspector for wtv reason
@@ -66,7 +66,11 @@ func cancel_attack() -> void:
 	current_weapon.cancel_attack()
 	
 func _switch_weapon(direction: int) -> void:
+	# Current_weapon.get_parent() returns spawn_room, prolly cause of call_deferred
+	var confirmed = await weapon_picked_up
+	print_debug("CONFIRMED: ", confirmed)
 	var prev_index: int = current_weapon.get_index()
+	print_debug("wtf", current_weapon.get_parent())
 	var index: int = prev_index
 	if direction == UP:
 		index -= 1
@@ -76,20 +80,27 @@ func _switch_weapon(direction: int) -> void:
 		index += 1
 		if index > weapons.get_child_count() - 1:
 			index = 0
-			
+	print_debug("First Weapon Index: ", index)
+	index = clamp(index, 0, weapons.get_child_count())
 	current_weapon.hide()
 	current_weapon = weapons.get_child(index)
+	print_debug("Weapon Child Count: ", weapons.get_child_count())
+	print_debug("Second Weapon Index: ", index)
+	print_debug(current_weapon)
+	# Null value when switching weapons fast
+	# Index goes to either 5 or 7 when theres only 2 weapons
 	current_weapon.show()
-	SavedData.equipped_weapon_index = index
+	#SavedData.equipped_weapon_index = index
 	
+		
 func pick_up_weapon(weapon: Node2D) -> void:
 	# Cant use DUPLICATE_USE_INSTANTIATION because it wont duplicate the child nodes added during runtime, so use everything but that #yep
 	var weapon_copy = weapon.duplicate(DUPLICATE_SCRIPTS | DUPLICATE_GROUPS | DUPLICATE_SIGNALS)
-	SavedData.weapons.append(weapon_copy) 
+	#SavedData.weapons.append(weapon_copy) 
 	
 	var prev_index: int = SavedData.equipped_weapon_index
 	var new_index: int = weapons.get_child_count()
-	SavedData.equipped_weapon_index = new_index
+	#SavedData.equipped_weapon_index = new_index
 	weapon.get_parent().call_deferred("remove_child", weapon)
 	weapons.call_deferred("add_child", weapon)
 	weapon.set_deferred("owner", weapons)
@@ -98,6 +109,9 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	current_weapon.cancel_attack() # This might be causing issues
 	current_weapon = weapon
 	current_weapon.show()
+	
+	emit_signal("weapon_picked_up")
+	
 	
 func _drop_weapon() -> void:
 	SavedData.weapons.remove_at(current_weapon.get_index() - 1)
