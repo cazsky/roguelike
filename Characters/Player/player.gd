@@ -9,6 +9,7 @@ const DUST_SCENE: PackedScene = preload("res://Scenes/Effects/dust.tscn")
 @onready var parent: Node2D = get_parent()
 @onready var animation_player = $AnimationPlayer
 
+signal weapon_picked_up(bool)
 
 func _ready() -> void:
 	# Setting collision because it gets removed from inspector for wtv reason
@@ -83,7 +84,7 @@ func _switch_weapon(direction: int) -> void:
 	# Index goes to either 5 or 7 when theres only 2 weapons
 	current_weapon.show()
 	#SavedData.equipped_weapon_index = index
-	
+	emit_signal("weapon_picked_up", true)
 		
 func pick_up_weapon(weapon: Node2D) -> void:
 	# Cant use DUPLICATE_USE_INSTANTIATION because it wont duplicate the child nodes added during runtime, so use everything but that #yep
@@ -96,6 +97,7 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	weapon.get_parent().call_deferred("remove_child", weapon)
 	weapons.call_deferred("add_child", weapon)
 	weapon.set_deferred("owner", weapons)
+	await get_tree().process_frame
 	weapon.on_floor = false
 	current_weapon.hide()
 	current_weapon.cancel_attack() # This might be causing issues
