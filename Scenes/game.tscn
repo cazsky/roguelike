@@ -9,7 +9,6 @@
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
-position = Vector2(-8, -8)
 script = ExtResource("1_gyku8")
 
 [node name="Rooms" type="Node2D" parent="."]
@@ -30,6 +29,24 @@ texture_over = ExtResource("8_cdee1")
 texture_progress = ExtResource("9_u11hn")
 tint_progress = Color(0.909263, 0.175352, 0.344033, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -424.0
+offset_right = -260.0
+offset_bottom = -384.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Inventory" type="HBoxContainer" parent="UI/PanelContainer"]
+layout_mode = 2
 
 [node name="Player" parent="." instance=ExtResource("2_0tcf0")]
 z_index = 1
