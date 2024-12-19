@@ -9,9 +9,12 @@ const DUST_SCENE: PackedScene = preload("res://Scenes/Effects/dust.tscn")
 @onready var parent: Node2D = get_parent()
 @onready var animation_player = $AnimationPlayer
 
-signal weapon_picked_up(bool)
+signal weapon_switched(prev_index, new_index)
+signal weapon_picked_up(weapon_texture)
+signal weapon_dropped(index)
 
 func _ready() -> void:
+	emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
 	# Setting collision because it gets removed from inspector for wtv reason
 	set_collision_layer_value(2, true)
 	set_collision_mask_value(2, true)
