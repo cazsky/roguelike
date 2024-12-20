@@ -36,10 +36,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -424.0
-offset_right = -260.0
-offset_bottom = -384.0
+offset_left = -310.05
+offset_top = -505.714
+offset_right = -270.05
+offset_bottom = -465.714
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 2
@@ -60,3 +60,6 @@ hp = 994
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_player_hp_changed"]
+[connection signal="weapon_dropped" from="Player" to="UI" method="_on_player_weapon_dropped"]
+[connection signal="weapon_picked_up" from="Player" to="UI" method="_on_player_weapon_picked_up"]
+[connection signal="weapon_switched" from="Player" to="UI" method="_on_player_weapon_switched"]

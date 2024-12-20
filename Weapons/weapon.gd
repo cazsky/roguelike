@@ -104,4 +104,4 @@ func _on_hide() -> void:
 	ability_icon.hide()
 
 func get_texture() -> Texture:
-	return get_node("Node2D/Sprite").texture
+	return get_node("Node2D/WeaponSprite").texture

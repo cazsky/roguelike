@@ -14,6 +14,7 @@ signal weapon_picked_up(weapon_texture)
 signal weapon_dropped(index)
 
 func _ready() -> void:
+	print_debug("weapons.getchild", weapons.get_child(0))
 	emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
 	# Setting collision because it gets removed from inspector for wtv reason
 	set_collision_layer_value(2, true)
