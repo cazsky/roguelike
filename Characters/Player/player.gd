@@ -87,16 +87,17 @@ func _switch_weapon(direction: int) -> void:
 	# Index goes to either 5 or 7 when theres only 2 weapons
 	current_weapon.show()
 	#SavedData.equipped_weapon_index = index
-	emit_signal("weapon_picked_up", true)
-		
+	emit_signal("weapon_switched", prev_index, index)
+	
+	
 func pick_up_weapon(weapon: Node2D) -> void:
 	# Cant use DUPLICATE_USE_INSTANTIATION because it wont duplicate the child nodes added during runtime, so use everything but that #yep
 	var weapon_copy = weapon.duplicate(DUPLICATE_SCRIPTS | DUPLICATE_GROUPS | DUPLICATE_SIGNALS)
-	#SavedData.weapons.append(weapon_copy) 
+	SavedData.weapons.append(weapon_copy) 
 	
 	var prev_index: int = SavedData.equipped_weapon_index
 	var new_index: int = weapons.get_child_count()
-	#SavedData.equipped_weapon_index = new_index
+	SavedData.equipped_weapon_index = new_index
 	weapon.get_parent().call_deferred("remove_child", weapon)
 	weapons.call_deferred("add_child", weapon)
 	weapon.set_deferred("owner", weapons)
@@ -107,12 +108,16 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	current_weapon = weapon
 	current_weapon.show()
 	
-	
+	emit_signal("weapon_picked_up", weapon.get_texture())
+	emit_signal("weapon_switched", prev_index, new_index)
 	
 func _drop_weapon() -> void:
 	SavedData.weapons.remove_at(current_weapon.get_index() - 1)
 	var weapon_to_drop: Node2D = current_weapon
 	_switch_weapon(UP)
+	
+	emit_signal("weapon_dropped", weapon_to_drop.get_index())
+	
 	weapons.call_deferred("remove_child", weapon_to_drop)
 	get_parent().call_deferred("add_child", weapon_to_drop)
 	weapon_to_drop.set_owner(get_parent())
@@ -140,8 +145,14 @@ func _restore_previous_state() -> void:
 		weapon.position = Vector2.ZERO
 		weapons.add_child(weapon)
 		weapon.hide()
+		
+		emit_signal("weapon_picked_up", weapon.get_texture())
+		emit_signal("weapon_switched", weapons.get_child_count() - 2, weapons.get_child_count() - 1)
+	
 	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
 	current_weapon.show()
+	
+	emit_signal("weapon_switched", weapons.get_child_count() - 1, SavedData.equipped_weapon_index)
 	
 func switch_weapon_input() -> void:
 	if not current_weapon.is_busy():
