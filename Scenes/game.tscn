@@ -11,10 +11,6 @@
 texture_filter = 1
 script = ExtResource("1_gyku8")
 
-[node name="Rooms" type="Node2D" parent="."]
-z_index = -1
-script = ExtResource("2_qy0ft")
-
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("7_rohuu")
 
@@ -36,17 +32,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -310.05
-offset_top = -505.714
-offset_right = -270.05
-offset_bottom = -465.714
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 2
+size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="Inventory" type="HBoxContainer" parent="UI/PanelContainer"]
 layout_mode = 2
+
+[node name="Rooms" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("2_qy0ft")
 
 [node name="Player" parent="." instance=ExtResource("2_0tcf0")]
 z_index = 1
