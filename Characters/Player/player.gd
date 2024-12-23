@@ -14,7 +14,6 @@ signal weapon_picked_up(weapon_texture)
 signal weapon_dropped(index)
 
 func _ready() -> void:
-	print_debug("weapons.getchild", weapons.get_child(0))
 	emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
 	# Setting collision because it gets removed from inspector for wtv reason
 	set_collision_layer_value(2, true)
@@ -22,7 +21,6 @@ func _ready() -> void:
 	# Game crashes sometimes setting on_floor to false before instance spawns
 	call_thread_safe("set_spawn_weapon_not_on_floor")
 	_restore_previous_state()
-	print_debug("Weapons child count: ", weapons.get_child_count())
 
 
 func _process(_delta: float) -> void:
@@ -67,7 +65,6 @@ func cancel_attack() -> void:
 func _switch_weapon(direction: int) -> void:
 	# Current_weapon.get_parent() returns spawn_room, prolly cause of call_deferred
 	var prev_index: int = current_weapon.get_index()
-	print_debug("wtf", current_weapon.get_parent())
 	var index: int = prev_index
 	if direction == UP:
 		index -= 1
@@ -77,13 +74,9 @@ func _switch_weapon(direction: int) -> void:
 		index += 1
 		if index > weapons.get_child_count() - 1:
 			index = 0
-	print_debug("First Weapon Index: ", index)
 	index = clamp(index, 0, weapons.get_child_count())
 	current_weapon.hide()
 	current_weapon = weapons.get_child(index)
-	print_debug("Weapon Child Count: ", weapons.get_child_count())
-	print_debug("Second Weapon Index: ", index)
-	print_debug(current_weapon)
 	# Null value when switching weapons fast
 	# Index goes to either 5 or 7 when theres only 2 weapons
 	current_weapon.show()
@@ -155,6 +148,8 @@ func _restore_previous_state() -> void:
 	
 	emit_signal("weapon_switched", weapons.get_child_count() - 1, SavedData.equipped_weapon_index)
 	
+
+	
 func switch_weapon_input() -> void:
 	if not current_weapon.is_busy():
 		if Input.is_action_just_released("ui_previous_weapon"):
@@ -163,3 +158,7 @@ func switch_weapon_input() -> void:
 			_switch_weapon(DOWN)
 		elif Input.is_action_just_pressed("ui_throw") and weapons.get_child_count() > 1:
 			_drop_weapon()
+			
+			
+func _emit_weapon_picked_up():
+	emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
