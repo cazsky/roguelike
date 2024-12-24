@@ -65,7 +65,7 @@ func is_busy() -> bool:
 	return false
 
 
-func _on_player_detector_body_entered(body: Node2D) -> void:
+func _on_player_detector_body_entered(body: CharacterBody2D) -> void:
 	# CharacterBody2D to make sure its Player body
 	if body != null and body is CharacterBody2D:
 		player_detector.set_collision_mask_value(1, false)

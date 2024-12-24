@@ -86,6 +86,7 @@ func _switch_weapon(direction: int) -> void:
 	
 func pick_up_weapon(weapon: Node2D) -> void:
 	# Cant use DUPLICATE_USE_INSTANTIATION because it wont duplicate the child nodes added during runtime, so use everything but that #yep
+	print_debug(get_stack())
 	var weapon_copy = weapon.duplicate(DUPLICATE_SCRIPTS | DUPLICATE_GROUPS | DUPLICATE_SIGNALS)
 	SavedData.weapons.append(weapon_copy) 
 	
