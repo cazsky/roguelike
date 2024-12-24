@@ -5,7 +5,7 @@ extends Enemy
 const MAX_DISTANCE_TO_PLAYER:int = 80
 const MIN_DISTANCE_TO_PLAYER:int = 40
 
-const THROWING_KNIFE: PackedScene = preload("res://Characters/projectile.tscn")
+const THROWING_KNIFE: PackedScene = preload("res://Characters/throwing_knife.tscn")
 
 @export var projectile_speed: int = 150
 var can_attack: bool = true
