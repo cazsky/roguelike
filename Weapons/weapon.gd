@@ -4,6 +4,9 @@ extends Node2D
 class_name Weapon
 
 @export var on_floor: bool = true
+@export var ranged_weapon: bool = false
+@export var rotation_offset: int = 0
+
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var charge_particles: GPUParticles2D = $Node2D/ChargeParticles
@@ -47,14 +50,17 @@ func get_input() -> void:
 
 			
 func move(mouse_direction: Vector2) -> void:
-	if not animation_player.is_playing() or animation_player.current_animation == "charge":
-		# Weapon Rotation
-		rotation = mouse_direction.angle()
-		hitbox.knockback_direction = mouse_direction
-		if scale.y == 1 and mouse_direction.x < 0:
-			scale.y = -1
-		elif scale.y == -1 and mouse_direction.x > 0:
-			scale.y = 1
+	if ranged_weapon:
+		rotation_degrees = rad_to_deg(mouse_direction.angle()) + rotation_offset
+	else:
+		if not animation_player.is_playing() or animation_player.current_animation == "charge":
+			# Weapon Rotation
+			rotation = mouse_direction.angle()
+			hitbox.knockback_direction = mouse_direction
+			if scale.y == 1 and mouse_direction.x < 0:
+				scale.y = -1
+			elif scale.y == -1 and mouse_direction.x > 0:
+				scale.y = 1
 			
 func cancel_attack() -> void:
 	animation_player.play("RESET")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://eqfepykifx7w"]
+
+[ext_resource type="PackedScene" uid="uid://c4o8f742ognpe" path="res://Weapons/weapon.tscn" id="1_kvq4v"]
+[ext_resource type="Shader" path="res://Characters/Player/HitFlash.gdshader" id="2_bhk8e"]
+[ext_resource type="Script" path="res://Scripts/crossbow.gd" id="2_ik4t0"]
+[ext_resource type="Texture2D" uid="uid://bcovm0r5wukn8" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_bow.png" id="3_aabua"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21f68"]
+resource_local_to_scene = true
+shader = ExtResource("2_bhk8e")
+shader_parameter/active = false
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csfio"]
+resource_local_to_scene = true
+radius = 4.5
+height = 33.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0dlf"]
+radius = 2.0
+height = 18.0
+
+[node name="Crossbow" instance=ExtResource("1_kvq4v")]
+script = ExtResource("2_ik4t0")
+
+[node name="WeaponSprite" parent="Node2D" index="0"]
+material = SubResource("ShaderMaterial_21f68")
+texture = ExtResource("3_aabua")
+
+[node name="CollisionShape2D" parent="Node2D/WeaponSprite/Hitbox" index="0"]
+position = Vector2(2.09404, -10.7778)
+shape = SubResource("CapsuleShape2D_csfio")
+
+[node name="CollisionShape2D" parent="PlayerDetector" index="0"]
+position = Vector2(-7, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_x0dlf")
