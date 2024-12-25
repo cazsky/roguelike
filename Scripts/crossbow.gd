@@ -1,3 +1,4 @@
+@icon("res://Art/0x72_DungeonTilesetII_v1.7/frames/weapons/weapon_bow.png")
 extends Weapon
 
 
@@ -8,4 +9,7 @@ func shoot(offset: int) -> void:
 	get_tree().current_scene.add_child(arrow)
 	arrow.launch(global_position, Vector2.LEFT.rotated(deg_to_rad(rotation_degrees + offset)), 400)
 	
-	
+func triple_shoot() -> void:
+	shoot(0)
+	shoot(12)
+	shoot(-12)
