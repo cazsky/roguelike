@@ -147,6 +147,9 @@ func _restore_previous_state() -> void:
 	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
 	current_weapon.show()
 	
+	
+	print_debug("weapons.get_child_count() - 1: ", weapons.get_child_count() - 1)
+	print_debug("SavedData.equipped_weapon_index: ", SavedData.equipped_weapon_index)
 	emit_signal("weapon_switched", weapons.get_child_count() - 1, SavedData.equipped_weapon_index)
 	
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cu6itddoa4dy7"]
+[gd_scene load_steps=25 format=3 uid="uid://cu6itddoa4dy7"]
 
 [ext_resource type="PackedScene" uid="uid://bosqwcnikfucm" path="res://Characters/Character.tscn" id="1_6ncj0"]
 [ext_resource type="Texture2D" uid="uid://bhbheghybbr8k" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/characters/knight/knight_f_idle_anim_f0.png" id="2_pohg5"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://bw8tci321hl52" path="res://Art/0x72_DungeonTilesetII_v1.7/frames/characters/knight/knight_f_run_anim_f3.png" id="9_0st32"]
 [ext_resource type="Script" path="res://Characters/Player/PlayerFSM.gd" id="11_bidhq"]
 [ext_resource type="PackedScene" uid="uid://cytf7y4rc5wif" path="res://Weapons/sword.tscn" id="16_bs54o"]
-[ext_resource type="PackedScene" uid="uid://eqfepykifx7w" path="res://Weapons/crossbow.tscn" id="17_s3khq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3m5l"]
 animations = [{
@@ -436,8 +435,6 @@ script = ExtResource("11_bidhq")
 
 [node name="Sword" parent="Weapons" index="0" instance=ExtResource("16_bs54o")]
 visible = false
-
-[node name="Crossbow" parent="Weapons" index="1" instance=ExtResource("17_s3khq")]
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 position_smoothing_enabled = true
