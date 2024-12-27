@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://eqfepykifx7w"]
+[gd_scene load_steps=16 format=3 uid="uid://eqfepykifx7w"]
 
 [ext_resource type="PackedScene" uid="uid://c4o8f742ognpe" path="res://Weapons/weapon.tscn" id="1_kvq4v"]
 [ext_resource type="Shader" path="res://Characters/Player/HitFlash.gdshader" id="2_bhk8e"]
@@ -163,9 +163,37 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_3h2wt"]
+resource_name = "active_ability"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/WeaponSprite:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/ChargeParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i35sf"]
 _data = {
 "RESET": SubResource("Animation_3a7mr"),
+"active_ability": SubResource("Animation_3h2wt"),
 "attack": SubResource("Animation_x1s45"),
 "cancel_attack": SubResource("Animation_xw7t0"),
 "charge": SubResource("Animation_d3ey5"),
@@ -183,13 +211,18 @@ rotation_offset = 90
 
 [node name="WeaponSprite" parent="Node2D" index="0"]
 material = SubResource("ShaderMaterial_21f68")
+position = Vector2(23, 0)
 texture = ExtResource("3_aabua")
 
+[node name="Hitbox" parent="Node2D/WeaponSprite" index="0"]
+position = Vector2(-16.4999, -28.5)
+
 [node name="CollisionShape2D" parent="Node2D/WeaponSprite/Hitbox" index="0"]
-position = Vector2(2.09404, -10.7778)
+position = Vector2(-15.9059, -31.7778)
 shape = SubResource("CapsuleShape2D_csfio")
 
 [node name="ChargeParticles" parent="Node2D" index="1"]
+position = Vector2(-27, 2)
 emitting = false
 
 [node name="AnimationPlayer" parent="." index="1"]
@@ -197,8 +230,11 @@ libraries = {
 "": SubResource("AnimationLibrary_i35sf")
 }
 
+[node name="PlayerDetector" parent="." index="2"]
+position = Vector2(-8, 15)
+
 [node name="CollisionShape2D" parent="PlayerDetector" index="0"]
-position = Vector2(-7, -1)
+position = Vector2(-8, 12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_x0dlf")
 
