@@ -211,19 +211,19 @@ rotation_offset = 90
 
 [node name="WeaponSprite" parent="Node2D" index="0"]
 material = SubResource("ShaderMaterial_21f68")
-position = Vector2(21, -9.54969e-12)
-scale = Vector2(0.666667, 0.666667)
+position = Vector2(5, -8)
 texture = ExtResource("3_aabua")
+offset = Vector2(0, 0)
 
 [node name="Hitbox" parent="Node2D/WeaponSprite" index="0"]
-position = Vector2(-16.4999, -28.5)
+position = Vector2(3, 1.14441e-05)
 
 [node name="CollisionShape2D" parent="Node2D/WeaponSprite/Hitbox" index="0"]
-position = Vector2(-15.9059, -31.7778)
+position = Vector2(9.53674e-07, 1.90735e-06)
 shape = SubResource("CapsuleShape2D_csfio")
 
 [node name="ChargeParticles" parent="Node2D" index="1"]
-position = Vector2(-27, 2)
+position = Vector2(5, -10)
 emitting = false
 
 [node name="AnimationPlayer" parent="." index="1"]
@@ -232,10 +232,9 @@ libraries = {
 }
 
 [node name="PlayerDetector" parent="." index="2"]
-position = Vector2(-8, 15)
+position = Vector2(5, -10)
 
 [node name="CollisionShape2D" parent="PlayerDetector" index="0"]
-position = Vector2(-8, 12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_x0dlf")
 
