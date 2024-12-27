@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://cnui468lxbfn3"]
+[gd_scene load_steps=6 format=4 uid="uid://cnui468lxbfn3"]
 
 [ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/Rooms/room.tscn" id="1_5pgwq"]
 [ext_resource type="PackedScene" uid="uid://d4auq8n5q6ey2" path="res://Scenes/Rooms/Furniture/door.tscn" id="2_ypsgu"]
 [ext_resource type="PackedScene" uid="uid://p33aw0lqk6vg" path="res://Weapons/axe.tscn" id="3_oivkl"]
+[ext_resource type="PackedScene" uid="uid://eqfepykifx7w" path="res://Weapons/crossbow.tscn" id="4_eq2s5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12gk5"]
 size = Vector2(66, 20)
@@ -36,3 +37,6 @@ position = Vector2(74, 92)
 
 [node name="Axe" parent="." index="6" instance=ExtResource("3_oivkl")]
 position = Vector2(131, 50)
+
+[node name="Crossbow" parent="." index="7" instance=ExtResource("4_eq2s5")]
+position = Vector2(59.838, 49.9104)
