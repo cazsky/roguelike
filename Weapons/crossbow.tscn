@@ -211,7 +211,8 @@ rotation_offset = 90
 
 [node name="WeaponSprite" parent="Node2D" index="0"]
 material = SubResource("ShaderMaterial_21f68")
-position = Vector2(23, 0)
+position = Vector2(21, -9.54969e-12)
+scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("3_aabua")
 
 [node name="Hitbox" parent="Node2D/WeaponSprite" index="0"]
