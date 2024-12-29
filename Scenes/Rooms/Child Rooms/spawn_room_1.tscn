@@ -39,4 +39,4 @@ position = Vector2(74, 92)
 position = Vector2(131, 50)
 
 [node name="Crossbow" parent="." index="7" instance=ExtResource("4_eq2s5")]
-position = Vector2(59.838, 49.9104)
+position = Vector2(145, 76)

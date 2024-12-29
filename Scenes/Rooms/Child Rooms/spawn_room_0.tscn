@@ -381,4 +381,4 @@ position = Vector2(198, 72)
 position = Vector2(151.537, 62.678)
 
 [node name="Crossbow" parent="Axe" index="5" instance=ExtResource("6_qu86w")]
-position = Vector2(-81.4311, 9.4527)
+position = Vector2(-107.537, -14.678)
