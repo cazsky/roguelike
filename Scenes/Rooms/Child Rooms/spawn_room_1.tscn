@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://cnui468lxbfn3"]
+[gd_scene load_steps=6 format=4 uid="uid://cnui468lxbfn3"]
 
 [ext_resource type="PackedScene" uid="uid://bia86wv1f67fs" path="res://Scenes/Rooms/room.tscn" id="1_5pgwq"]
-[ext_resource type="Script" path="res://Scripts/tilemap_wall_layer.gd" id="2_8u7u6"]
 [ext_resource type="PackedScene" uid="uid://d4auq8n5q6ey2" path="res://Scenes/Rooms/Furniture/door.tscn" id="2_ypsgu"]
 [ext_resource type="PackedScene" uid="uid://p33aw0lqk6vg" path="res://Weapons/axe.tscn" id="3_oivkl"]
 [ext_resource type="PackedScene" uid="uid://eqfepykifx7w" path="res://Weapons/crossbow.tscn" id="4_eq2s5"]
@@ -19,7 +18,6 @@ tile_map_data = PackedByteArray("AAABAAcAAQANAAIAAAABAAYAAQANAAIAAAABAAUAAQANAAI
 
 [node name="WallLayer" parent="MapLayer" index="2"]
 tile_map_data = PackedByteArray("AAABAAEAAAAAAAEAAAABAAIAAAAAAAMAAAABAAMAAAAAAAMAAAABAAQAAAAAAAEAAAABAAUAAAAAAAMAAAABAAYAAAAAAAMAAAABAAcAAAAAAAEAAAABAAgAAAAAAAUAAAAKAAEAAAAAAAEAAAAKAAIAAAAAAAMAAAAKAAMAAAAAAAMAAAAKAAQAAAADAAQAAAAGAAUAAAAAAAEAAAAGAAYAAAAAAAMAAAAGAAcAAAAAAAEAAAAGAAgAAAAAAAUAAAAGAAQAAAABAAAAAAAHAAQAAAACAAYAAAAIAAQAAAACAAYAAAAJAAQAAAACAAYAAAADAAAAAAACAAcAAAAEAAAAAAACAAcAAAAHAAAAAAACAAcAAAAIAAAAAAACAAcAAAAJAAAAAAACAAcAAAABAAAAAAABAAEAAAACAAAAAAACAAcAAAAKAAAAAAADAAEAAAABAP//AAABAAYAAAACAP//AAACAAYAAAADAP//AAACAAYAAAAEAP//AAACAAYAAAAHAP//AAACAAYAAAAIAP//AAACAAYAAAAJAP//AAACAAYAAAAKAP//AAADAAYAAAA=")
-script = ExtResource("2_8u7u6")
 
 [node name="WallTextureLayer" parent="MapLayer" index="4"]
 tile_map_data = PackedByteArray("AAAKAAQAAAAAAAEAAAAFAP7/AAARAAUAAAAGAP7/AAASAAUAAAAHAP//AAATAAYAAAAEAP//AAAQAAYAAAAEAAAAAAAQAAcAAAAHAAAAAAATAAcAAAA=")

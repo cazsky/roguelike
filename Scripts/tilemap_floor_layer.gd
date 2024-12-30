@@ -1,5 +1,6 @@
 extends TileMapLayer
 
+# ??? Tf is this file for
 
 func _use_tile_data_runtime_update(coords: Vector2i) -> bool:
 	if coords in get_used_cells_by_id(1):

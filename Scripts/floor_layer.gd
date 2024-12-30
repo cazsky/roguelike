@@ -1,7 +1,9 @@
 extends TileMapLayer
 
 @onready var walls: TileMapLayer = $"../ObstacleLayer"
-@onready var collision_layers: Array = []
+
+
+var collision_layers: Array = []
 
 
 func _ready() -> void:
