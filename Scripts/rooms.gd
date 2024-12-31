@@ -18,7 +18,7 @@ const WALL_TILE_INDEX: Vector2i = Vector2i(0,1)
 const BOSS_LEVEL: int = 3 # Change this to set how many levels before boss
 
 # Number of levels in a stage, cant set to 1 since the spawn room counts as 1
-@export var num_levels : int = 5
+@export var num_levels : int = 2
 
 @onready var player: CharacterBody2D = get_parent().get_node("Player")
 

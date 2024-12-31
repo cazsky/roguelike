@@ -377,8 +377,8 @@ position = Vector2(119, 88)
 [node name="HealthPotion" parent="." index="7" instance=ExtResource("6_blbdj")]
 position = Vector2(198, 72)
 
-[node name="Axe" parent="." index="8" instance=ExtResource("5_fbpq8")]
-position = Vector2(151.537, 62.678)
+[node name="Crossbow" parent="." index="8" instance=ExtResource("6_qu86w")]
+position = Vector2(44, 48)
 
-[node name="Crossbow" parent="Axe" index="5" instance=ExtResource("6_qu86w")]
-position = Vector2(-107.537, -14.678)
+[node name="Axe" parent="." index="9" instance=ExtResource("5_fbpq8")]
+position = Vector2(151.537, 62.678)
