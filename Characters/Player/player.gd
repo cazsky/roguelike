@@ -134,10 +134,12 @@ func set_spawn_weapon_not_on_floor():
 	current_weapon.on_floor = false
 	
 func _restore_previous_state() -> void:
+	
 	self.hp = SavedData.hp
 	for weapon in SavedData.weapons:
 		weapon = weapon.duplicate()
 		weapon.position = Vector2.ZERO
+		# This is duping weapons on new stage
 		weapons.add_child(weapon)
 		weapon.hide()
 		
