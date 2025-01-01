@@ -14,13 +14,21 @@ signal weapon_picked_up(weapon_texture)
 signal weapon_dropped(index)
 
 func _ready() -> void:
+	print_debug("Weapons before restoration: ", weapons.get_child_count())
+	for child in weapons.get_children():
+		print_debug("Existing weapon ID: ", child.weapon_id)
+
+	_restore_previous_state()
+
+	print_debug("Weapons after restoration: ", weapons.get_child_count())
+	for child in weapons.get_children():
+		print_debug("Existing weapon ID: ", child.weapon_id)
 	emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
 	# Setting collision because it gets removed from inspector for wtv reason
 	set_collision_layer_value(2, true)
 	set_collision_mask_value(2, true)
 	# Game crashes sometimes setting on_floor to false before instance spawns
 	call_thread_safe("set_spawn_weapon_not_on_floor")
-	_restore_previous_state()
 
 
 func _process(_delta: float) -> void:
@@ -86,7 +94,6 @@ func _switch_weapon(direction: int) -> void:
 	
 func pick_up_weapon(weapon: Node2D) -> void:
 	# Cant use DUPLICATE_USE_INSTANTIATION because it wont duplicate the child nodes added during runtime, so use everything but that #yep
-	print_debug(get_stack())
 	var weapon_copy = weapon.duplicate(DUPLICATE_SCRIPTS | DUPLICATE_GROUPS | DUPLICATE_SIGNALS)
 	SavedData.weapons.append(weapon_copy) 
 	
@@ -134,30 +141,39 @@ func set_spawn_weapon_not_on_floor():
 	current_weapon.on_floor = false
 	
 func _restore_previous_state() -> void:
-	
+	# Track existing weapon IDs
+	var existing_weapon_ids = []
+	for child in weapons.get_children():
+		if child.has_method("weapon_id"):  # Ensure the property exists
+			existing_weapon_ids.append(child.weapon_id)
+
 	self.hp = SavedData.hp
-	for weapon in SavedData.weapons:
-		weapon = weapon.duplicate()
-		weapon.position = Vector2.ZERO
-		# This is duping weapons on new stage
-		# But without it all new weapons get removed??
-		weapons.add_child(weapon)
-		weapon.hide()
-		for child in weapons.get_children():
-			print_debug("CHILD ID: ", child.get_instance_id())
-		
-		
-		emit_signal("weapon_picked_up", weapon.get_texture())
-		emit_signal("weapon_switched", weapons.get_child_count() - 2, weapons.get_child_count() - 1)
-	
-	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
-	current_weapon.show()
-	
-	
-	print_debug("weapons.get_child_count() - 1: ", weapons.get_child_count() - 1)
-	print_debug("SavedData.equipped_weapon_index: ", SavedData.equipped_weapon_index)
-	emit_signal("weapon_switched", weapons.get_child_count() - 1, SavedData.equipped_weapon_index)
-	
+
+	for saved_weapon in SavedData.weapons:
+		# Check if a weapon with the same ID already exists
+		if saved_weapon.weapon_id in existing_weapon_ids:
+			print_debug("Weapon already exists with ID: ", saved_weapon.weapon_id)
+			continue  # Skip adding it again
+
+		# Duplicate and add the new weapon
+		var new_weapon = saved_weapon.duplicate()
+		new_weapon.position = Vector2.ZERO
+		weapons.add_child(new_weapon)
+		new_weapon.hide()
+
+		emit_signal("weapon_picked_up", new_weapon.get_texture())
+		existing_weapon_ids.append(new_weapon.weapon_id)  # Track the new weapon ID
+
+	# Equip the previously selected weapon
+	var equipped_index = SavedData.equipped_weapon_index
+	if equipped_index >= 0 and equipped_index < weapons.get_child_count():
+		var current_weapon = weapons.get_child(equipped_index)
+		current_weapon.show()
+
+	emit_signal("weapon_switched", -1, SavedData.equipped_weapon_index)
+
+
+
 
 	
 func switch_weapon_input() -> void:

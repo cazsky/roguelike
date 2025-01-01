@@ -34,5 +34,13 @@ func _on_player_weapon_picked_up(weapon_texture: Texture) -> void:
 	new_inventory_item.initialise(weapon_texture)
 
 func _on_player_weapon_switched(prev_index: int, new_index: int) -> void:
-	inventory.get_child(prev_index).deselect()
-	inventory.get_child(new_index).select()
+	# Validate indices to avoid null instance errors
+	if inventory and prev_index >= 0 and prev_index < inventory.get_child_count():
+		inventory.get_child(prev_index).deselect()
+	else:
+		print_debug("Invalid prev_index: ", prev_index)
+
+	if inventory and new_index >= 0 and new_index < inventory.get_child_count():
+		inventory.get_child(new_index).select()
+	else:
+		print_debug("Invalid new_index: ", new_index)

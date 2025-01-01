@@ -18,8 +18,11 @@ class_name Weapon
 
 var tween: Tween = null
 var can_active_ability: bool = true
+var weapon_id: String = ""
 
 func _ready() -> void:
+	if weapon_id == "":
+		weapon_id = str(get_instance_id())  # Default to a unique ID if not set
 	if not on_floor:
 		player_detector.set_collision_mask_value(1, false)
 		player_detector.set_collision_mask_value(2, false)
