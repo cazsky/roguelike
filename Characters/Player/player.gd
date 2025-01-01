@@ -140,8 +140,12 @@ func _restore_previous_state() -> void:
 		weapon = weapon.duplicate()
 		weapon.position = Vector2.ZERO
 		# This is duping weapons on new stage
+		# But without it all new weapons get removed??
 		weapons.add_child(weapon)
 		weapon.hide()
+		for child in weapons.get_children():
+			print_debug("CHILD ID: ", child.get_instance_id())
+		
 		
 		emit_signal("weapon_picked_up", weapon.get_texture())
 		emit_signal("weapon_switched", weapons.get_child_count() - 2, weapons.get_child_count() - 1)
